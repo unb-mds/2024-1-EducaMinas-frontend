@@ -1,3 +1,13 @@
-site_name: My Docs
+site_name: Docs-Educa Minas
+
+repo_url: https://github.com/unb-mds/EducaMinas-2024.1
+
+nav:
+  - Home: index.md
+  - Sprints: 
+    - sprint 0: sprints/sprint-0.md 
+    - sprint 1: sprints/sprint-1.md 
+
+
 
 theme: material
