@@ -10,4 +10,17 @@ nav:
 
 
 
-theme: material
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - content.code.copy
+
+  palette:
+    scheme: "slate"
+    primary: "purple"
+    accent: "deep purple"
+
+  icon:
+    repo: fontawesome/brands/github
