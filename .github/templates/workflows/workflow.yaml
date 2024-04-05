@@ -1,4 +1,4 @@
-name: Deploy Docs
+name: CI Deploy Docs
 
 on:
   pull_request:
@@ -25,13 +25,5 @@ jobs:
         pip install mkdocs
         pip install mkdocs-material
     - name: Build Mkdocs
-      run: |
-        mkdocs build
-    - name: Setup Pages
-      uses: actions/configure-pages@v4
-    - name : Deploy Pages
-      uses: actions/deploy-pages@v4
-      with:
-        branch: gh-pages
-        folder: site
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - run: mkdocs build
+      - run: mkdocs gh-deploy --force
