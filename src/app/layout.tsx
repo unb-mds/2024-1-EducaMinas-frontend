@@ -1,12 +1,17 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import { Open_Sans } from 'next/font/google';
+import '../styles/globals.css';
+import Header from '../components/Header';
 
-const inter = Inter({ subsets: ['latin'] });
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '500', '800'],
+});
 
 export const metadata: Metadata = {
-  title: 'Squad 05',
-  description: 'Trabalho de MDS',
+  title: 'Educa Minas',
+  description: 'Dados Educação de Minas Gerais',
 };
 
 export default function RootLayout({
@@ -16,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`flex flex-col h-min-screen w-full ${openSans.className}`}>
+        <Header />
+        <div className="w-full h-[calc(100vh-100px)]">{children}</div>
+      </body>
     </html>
   );
 }
