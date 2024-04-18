@@ -9,6 +9,8 @@ nav:
     - sprint 1: sprints/sprint-1.md 
     - sprint 2: sprints/sprint-2.md
     - sprint 3: sprints/sprint-3.md
+  - Templates:
+    - Issue template: templates/issuetemplate.md   
   - Sobre: about.md
 
 
