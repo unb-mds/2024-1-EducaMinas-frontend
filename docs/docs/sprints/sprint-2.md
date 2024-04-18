@@ -38,8 +38,10 @@ Data: 10/04/2024
 Local: Presencial (FGA)
 
 **Ata:**
+Nessa reunião a equipe se reuniu presencialmente para desenvolver o story map, também se conversou sobre a necessidade de utiizar o notion para a melhor organização do projeto.
 
 
 
 ## Finalização
 
+A equipe consaguiu realizar parte dos objetivos: iniciar o desenvolvimento do frontend e continuar o estudo das tecnologias. Entretanto, averiguou-se a necessidade de priorizar a decisão de escopo e requisitos do projeto, logo o backend não começou o desenvolvimento de código nessa sprint.
