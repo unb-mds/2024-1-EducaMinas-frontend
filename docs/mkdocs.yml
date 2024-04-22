@@ -9,8 +9,13 @@ nav:
     - sprint 1: sprints/sprint-1.md 
     - sprint 2: sprints/sprint-2.md
     - sprint 3: sprints/sprint-3.md
+
+  - Projeto:
+    - Personas: project/personas.md
+
   - Templates:
-    - Issue template: templates/issuetemplate.md   
+    - Issue template: templates/issuetemplate.md 
+
   - Sobre: about.md
 
 
@@ -26,7 +31,8 @@ theme:
   palette:
     scheme: "slate"
     primary: "red"
-    accent: "deep purple"
 
   icon:
     repo: fontawesome/brands/github
+
+    
