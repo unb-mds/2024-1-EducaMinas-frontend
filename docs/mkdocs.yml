@@ -14,6 +14,8 @@ nav:
     - Personas:
       - Lucas Silva: project/personaLucas.md
       - Fernanda Almeida: project/personaFernanda.md
+    - Story Map: project/storymap.md
+  
 
   - Templates:
     - Issue template: templates/issuetemplate.md 
