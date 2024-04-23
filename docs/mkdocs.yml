@@ -18,7 +18,8 @@ nav:
   
 
   - Templates:
-    - Issue template: templates/issuetemplate.md 
+    - Issue template: templates/issue_template.md 
+    - Pull Request template: templates/pr_template.md 
 
   - Sobre: about.md
 
