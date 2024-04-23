@@ -1,4 +1,4 @@
-site_name: Docs-Educa Minas
+site_name: Educa Minas
 
 repo_url: https://github.com/unb-mds/EducaMinas-2024.1
 
@@ -8,10 +8,28 @@ nav:
     - sprint 0: sprints/sprint-0.md 
     - sprint 1: sprints/sprint-1.md 
     - sprint 2: sprints/sprint-2.md
+    - sprint 3: sprints/sprint-3.md
+
+  - Projeto:
+    - Personas:
+      - Lucas Silva: project/personaLucas.md
+      - Fernanda Almeida: project/personaFernanda.md
+    - Story Map: project/storymap.md
+    - Requisitos: project/requirements.md
+
+  - Templates:
+    - Issue template: templates/issue_template.md 
+    - Pull Request template: templates/pr_template.md
+
+  - Como contribuir?: contributing.md
+
+
   - Sobre: about.md
 
 
 theme:
+  favicon: assets/logo.png
+  logo: assets/logo.png
   name: material
   features:
     - navigation.tabs
@@ -20,8 +38,9 @@ theme:
 
   palette:
     scheme: "slate"
-    primary: "purple"
-    accent: "deep purple"
+    primary: "red"
 
   icon:
     repo: fontawesome/brands/github
+
+    
