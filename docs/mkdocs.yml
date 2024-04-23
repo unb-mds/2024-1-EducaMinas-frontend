@@ -1,4 +1,4 @@
-site_name: Docs-Educa Minas
+site_name: Educa Minas
 
 repo_url: https://github.com/unb-mds/EducaMinas-2024.1
 
@@ -11,7 +11,9 @@ nav:
     - sprint 3: sprints/sprint-3.md
 
   - Projeto:
-    - Personas: project/personas.md
+    - Personas:
+      - Lucas Silva: project/personaLucas.md
+      - Fernanda Almeida: project/personaFernanda.md
 
   - Templates:
     - Issue template: templates/issuetemplate.md 
