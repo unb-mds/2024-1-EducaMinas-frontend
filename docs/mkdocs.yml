@@ -16,11 +16,13 @@ nav:
       - Fernanda Almeida: project/personaFernanda.md
     - Story Map: project/storymap.md
     - Requisitos: project/requirements.md
-  
 
   - Templates:
     - Issue template: templates/issue_template.md 
-    - Pull Request template: templates/pr_template.md 
+    - Pull Request template: templates/pr_template.md
+
+  - Como contribuir?: contributing.md
+
 
   - Sobre: about.md
 
