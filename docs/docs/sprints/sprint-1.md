@@ -6,6 +6,7 @@ Período: 01/04/2024 a 08/04/2024
 
 Nesta Sprint, o grupo modificou o horário das reuniões semanais, para as 20 horas, ainda nas segundas feiras de forma online. Os objetivos da sprint foram definidos:
 
+---
 
 ## Objetivos
 
@@ -14,6 +15,8 @@ Nesta Sprint, o grupo modificou o horário das reuniões semanais, para as 20 ho
 - Iniciar aplicação e primeiros commits
 - Iniciar documentação com Mkdocs
 - Fazer deploy da documentação com pipelines
+
+---
 
 ## Reuniões
 
@@ -38,7 +41,10 @@ Local: Presencial (FGA)
 
 Na segunda reunião, foi feito um nivelamento acerca da documentação com Mkdocs, e, em conjunto, subimos uma parte dos documentos.
 
+---
 
 ## Finalização
 
 O time conseguiu realizar todos os objetivos propostos para a Sprint, a documentação está online, todos os integrantes nivelaram-se e fizeram commits no repositório.
+
+---
