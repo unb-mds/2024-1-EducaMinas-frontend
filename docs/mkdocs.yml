@@ -3,44 +3,55 @@ site_name: Educa Minas
 repo_url: https://github.com/unb-mds/EducaMinas-2024.1
 
 nav:
-  - Home: index.md
+  - Início: index.md
   - Sprints: 
-    - sprint 0: sprints/sprint-0.md 
-    - sprint 1: sprints/sprint-1.md 
-    - sprint 2: sprints/sprint-2.md
-    - sprint 3: sprints/sprint-3.md
+    - Sprint 0: sprints/sprint-0.md 
+    - Sprint 1: sprints/sprint-1.md 
+    - Sprint 2: sprints/sprint-2.md
+    - Sprint 3: sprints/sprint-3.md
+    - Sprint 4: sprints/sprint-4.md
 
   - Projeto:
-    - Personas:
-      - Lucas Silva: project/personaLucas.md
-      - Fernanda Almeida: project/personaFernanda.md
+    - Personas: project/personas.md
     - Story Map: project/storymap.md
     - Requisitos: project/requirements.md
-
-  - Templates:
-    - Issue template: templates/issue_template.md 
-    - Pull Request template: templates/pr_template.md
-
-  - Como contribuir?: contributing.md
+    - EAP: project/eap.md
+    - Arquitetura: project/arquitetura.md
 
 
+  - Como contribuir: 
+    - Primeiros passos: contributing.md
+    - Templates:
+      - Issues template: template/issuetemplate.md
+      - Pull Requests template: template/prTemplate.md
+ 
   - Sobre: about.md
 
 
 theme:
+  font:
+    text: Open Sans
+  language: pt-BR
   favicon: assets/logo.png
   logo: assets/logo.png
   name: material
   features:
     - navigation.tabs
-    - navigation.tabs.sticky
     - content.code.copy
+    - navigation.instant
+    - navigation.instant.progress
+    - toc.integrate 
+    - navigation.top
+    - content.tabs.link
+
 
   palette:
-    scheme: "slate"
-    primary: "red"
+    scheme: default
+    accent: deep orange
+    primary: pink
 
   icon:
     repo: fontawesome/brands/github
 
-    
+extra:
+  generator: false
