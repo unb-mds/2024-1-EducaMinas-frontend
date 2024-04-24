@@ -6,6 +6,7 @@ Período: 25/03/2024 a 01/04/2024
 
 Nesta Sprint, o grupo determinou que as reuniões semanais acontecerão às segundas-feiras, às 10:00, na universidade. Adicionalmente, foi designado o "Coelho da Semana", encarregado de estudar o git, que ainda nessa sprint, fez uma reunião de nivelamento sobre o tema. Por fim, foram estabelecidos o tema da aplicação, os requisitos iniciais e os objetivos a serem alcançados, além de uma breve descrição das tecnologias a serem utilizadas. 
 
+---
 
 ## Objetivos
 
@@ -15,6 +16,8 @@ Nesta Sprint, o grupo determinou que as reuniões semanais acontecerão às segu
 - Definir tema da aplicação
 - Definir requisitos iniciais
 - Definir tecnologias utilizadas
+
+---
 
 ## Reuniões
 
@@ -46,6 +49,7 @@ Local: Discord
 
 Na segunda reunião, o time definiu que as reuniões semanais serão realizadas às segundas-feiras de forma presencial às 10 horas. Ademais, foi feito um nivelamento sobre github e git pelo coelho.
 
+---
 
 ## Finalização
 
