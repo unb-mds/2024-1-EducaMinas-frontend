@@ -1,19 +1,16 @@
 'use client';
-import React, { Component } from 'react';
+import { Component } from 'react';
 import BarChart from 'react-apexcharts';
 
 class App extends Component {
-  constructor(props: {
-    categories: any;
-    series: [{ name: string; data: number[] }];
-  }) {
+  constructor(props: { categories: string[]; series: [{ name: string; data: number[] }] }) {
     super(props);
 
     this.state = {
       options: {
         chart: { type: 'bar', height: 100, stacked: true, stackType: '100%' },
         xaxis: {
-          categories: this.props.categories || [1, 2, 3],
+          categories: props.categories || [1, 2, 3],
           labels: {
             rotate: -45,
           },
@@ -51,7 +48,7 @@ class App extends Component {
           },
         },
       },
-      series: this.props.series,
+      series: props.series,
     };
   }
 
@@ -60,13 +57,7 @@ class App extends Component {
       <div className="app">
         <div className="row">
           <div className="mixed-chart">
-            <BarChart
-              options={this.state.options}
-              series={this.state.series}
-              type="bar"
-              width="1100"
-              height="500"
-            />
+            <BarChart options={this.state.options} series={this.state.series} type="bar" width="1100" height="500" />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
+import App from '@/components/ChartBar';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
-import App from '@/components/ChartBar';
 
 export default function Search() {
   const barChartSeries = [
