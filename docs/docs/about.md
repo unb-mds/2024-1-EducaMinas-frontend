@@ -1,4 +1,29 @@
-#Equipe
+# Sobre
+
+## Motivação
+
+O estado de Minas Gerais é o maior em quantidade de municípios no Brasil, e um dos principais centros econômicos nacionais. **Entretanto, verificou-se a dificuldade em encontrar e visualizar dados importantes, como os índices educacionais, que revelam diversos fatores sobre a população mineira.**
+
+Desse modo, este projeto idealiza reunir em um só lugar, índices educacionais de Minas Gerais e seus municípios, fornecendo comparações, rankings e tendências, com transparência, credibilidade e acessibilidade.
+
+O projeto nasceu em 2024, objetivando desenvolver novas percepções sobre a educação mineira, ressignificando os dados coletados do censo escolar.
+
+## Sobre os integrantes
+
+**Johan:** estudante e entusiasta de DevOps e Computação em Nuvem.
+
+**Daniel:** estudante e entusiasta de tecnologias voltados para o lado do servidor.
+
+**Carlos:** estudante de Engenharia de Software e apaixonado por programação.
+
+**João Pedro:** estudante e entusiasta de Engenharia de Software.
+
+**João Lucas:** estudante e entusiasta de Engenharia de Software.
+
+**Rafael:** estudante e entusiasta do universo JavaScript e Programação Competitiva.
+
+
+---
 
 <div style="display: flex; flex-direction: column; align-items: center; gap: 25px;">
     <div style="display: flex; align-items: end; justify-content: center; gap: 50px;">
