@@ -1,5 +1,6 @@
-# 2024-1-Squad05
-## EducaMinas 
+# 2024-1-EducaMinas
+
+## Sobre
 Este é um projeto desenvolvido na disciplina Métodos de Desenvolvimento de Software (MDS) ofertada no curso de Engenharia de Software na Universidade de Brasília (UnB), que visa reunir em um só local dados sobre a Educação do estado de Minas Gerais, utilizando dados extraídos da pesquisa educacional realizada pelo INEP.
 
 ## Objetivos
@@ -10,20 +11,36 @@ Este projeto tem por objetivos:
 
 ## Documentação
 
+Para visualizar a documentação completa do projeto: [Documentação](https://unb-mds.github.io/2024-1-EducaMinas-frontend/)
+
+Em nossa documentação, estão disponíveis:
+
+- [Como contribuir]()
+- [StoryMap]()
+- [Requisitos]()
+- [Personas]()
+- [Estrutura Analítica de Projeto(EAP)]()
+- [Arquitetura e Tecnologias]()
+
+
 ## Protótipo 
-Este é o protótipo das telas de navegação do site
-* Página Home:
-![pagina_home](https://raw.githubusercontent.com/unb-mds/2024-1-EducaMinas-frontend/develop/docs/docs/assets/home.png)
-* Página Sobre:
-![pagina_sobre](https://raw.githubusercontent.com/unb-mds/2024-1-EducaMinas-frontend/develop/docs/docs/assets/sobre.png)
-* Pagina de Pesquisa:
-![pagina_pesquisa](https://raw.githubusercontent.com/unb-mds/2024-1-EducaMinas-frontend/develop/docs/docs/assets/pesquisa.png)
 
-Para vizualizar a apresentação acesse o link abaixo:
-* https://www.figma.com/proto/S3GrGX5HUojoKvHAnFNiXy/EducaMinas?type=design&node-id=1-3&t=k2ag94RTusBc8DM6-0&scaling=scale-down&page-id=0%3A1
+- Para o protótipo completo: [Protótipo]()
+- Para a apresentação do protótipo no FIGMA: [Apresentação](https://www.figma.com/proto/S3GrGX5HUojoKvHAnFNiXy/EducaMinas?type=design&node-id=1-3&t=5Cn41AoersmZdQp3-0&scaling=scale-down&page-id=0%3A1)
+
+### Página Inicial
+
+![Home](./docs/docs/assets/home.png)
+
+### Página de Pesquisa
+
+![Pesq1](./docs/docs/assets/search1.png)
+![Pesq2](./docs/docs/assets/search2.png)
 
 
+### Página Sobre
 
+![About](./docs/docs/assets/about.png)
 
 ## Equipe
 
@@ -67,6 +84,5 @@ Para vizualizar a apresentação acesse o link abaixo:
                 <h5 class="text-center">Daniel Ferreira</h5>
             </a>
         </td>
-         
 </table>
 </center>

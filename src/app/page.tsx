@@ -14,8 +14,8 @@ export default function Home() {
               Investigue os dados sobre a Educação do Estado de Minas Gerais
             </h1>
             <p className="text-primary-white text-[1.2rem] mt-[60px]">
-              Visualize de forma intuitiva, em gráficos, informações extraídas
-              diretamente dos diários oficiais dos múnicipios mineiros.
+              Visualize de forma intuitiva, em gráficos, informações
+              extraídas diretamente dos diários oficiais dos múnicipios mineiros.
             </p>
           </div>
           <div className="w-[60%] mt-[60px]">
