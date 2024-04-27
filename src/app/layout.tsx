@@ -1,6 +1,6 @@
 // eslint-disable-next-line camelcase
-import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
+import type { Metadata } from 'next';
 import Header from '../components/Header';
 import '../styles/globals.css';
 
