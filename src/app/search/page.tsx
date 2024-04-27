@@ -1,4 +1,5 @@
 import App from '@/components/ChartBar';
+import Filter from '@/components/Filter';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
 
@@ -24,6 +25,8 @@ export default function Search() {
     '2023 Pública',
     '2023 Privada',
   ];
+  const optionsMunicipios = ['Paracatu', 'Pirapora', 'Patos de Minas'];
+  const optionsEtapas = ['Ensino Fundamental', 'Ensino Médio'];
 
   return (
     <main className="flex flex-col items-center mx-[125px]">
@@ -36,7 +39,10 @@ export default function Search() {
         title="Matrículas por rede de ensino"
         text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
       />
-
+      <div className="flex">
+        <Filter label="Municipios" options={optionsMunicipios} />
+        <Filter label="Etapa de ensino" options={optionsEtapas} />
+      </div>
       <App series={barChartSeries} categories={chartCategories} />
     </main>
   );
