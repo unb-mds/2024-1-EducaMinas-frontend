@@ -62,7 +62,7 @@ export default function Search() {
 
       <div className="flex flex-col mt-3">
         <div className="flex space-x-8 ml-8">
-          <Filter label="Municipios" options={municipios} />
+          <Filter label="Município" options={municipios} />
           <Filter label="Etapa de ensino" options={optionsEtapas} />
         </div>
         <App series={barChartSeries} categories={chartCategories} />
