@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export default function Filter(props: { options: string[]; label: string }) {
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(props.options[0]);
   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const option = event.target.value;
     setSelectedOption(option);
