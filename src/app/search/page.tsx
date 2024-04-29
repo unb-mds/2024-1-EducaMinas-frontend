@@ -1,9 +1,14 @@
+'use client';
 import App from '@/components/ChartBar';
 import Filter from '@/components/Filter';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function Search() {
+  const [municipios, setMunicipios] = useState<string[]>([]);
+
   const barChartSeries = [
     {
       name: 'Pretos/Pardos',
@@ -25,8 +30,23 @@ export default function Search() {
     '2023 Pública',
     '2023 Privada',
   ];
-  const optionsMunicipios = ['Selecionar', 'Paracatu', 'Pirapora', 'Patos de Minas'];
-  const optionsEtapas = ['Selecionar', 'Ensino Fundamental', 'Ensino Médio'];
+
+  useEffect(() => {
+    axios
+      .get<any[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/31/municipios?orderBy=name`)
+      .then((res) => {
+        console.log('Dados recebidos:', res.data);
+        const municipiosName: string[] = ['Todos'];
+        res.data.map((mun: any) => {
+          municipiosName.push(mun.nome);
+          return null;
+        });
+        setMunicipios(municipiosName);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const optionsEtapas = ['Todas', 'Educação Infantil', 'Ensino Fundamental', 'Ensino Médio'];
 
   return (
     <main className="flex flex-col items-center mx-[125px]">
@@ -42,7 +62,7 @@ export default function Search() {
 
       <div className="flex flex-col mt-3">
         <div className="flex space-x-8 ml-8">
-          <Filter label="Municipios" options={optionsMunicipios} />
+          <Filter label="Municipios" options={municipios} />
           <Filter label="Etapa de ensino" options={optionsEtapas} />
         </div>
         <App series={barChartSeries} categories={chartCategories} />
