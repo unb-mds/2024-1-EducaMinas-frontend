@@ -39,11 +39,14 @@ export default function Search() {
         title="Matrículas por rede de ensino"
         text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
       />
-      <div className="flex mr-auto space-x-8">
-        <Filter label="Municipios" options={optionsMunicipios}/>
-        <Filter label="Etapa de ensino" options={optionsEtapas} />
+
+      <div className="flex flex-col mt-3">
+        <div className="flex space-x-8 ml-8">
+          <Filter label="Municipios" options={optionsMunicipios} />
+          <Filter label="Etapa de ensino" options={optionsEtapas} />
+        </div>
+        <App series={barChartSeries} categories={chartCategories} />
       </div>
-      <App series={barChartSeries} categories={chartCategories} />
     </main>
   );
 }
