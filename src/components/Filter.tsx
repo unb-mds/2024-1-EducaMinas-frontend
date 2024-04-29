@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Filter(props: { options: string[]; label: string }) {
   const [selectedOption, setSelectedOption] = useState(props.options[0]);
@@ -6,9 +6,6 @@ export default function Filter(props: { options: string[]; label: string }) {
     const option = event.target.value;
     setSelectedOption(option);
   };
-  useEffect(() => {
-    console.log(selectedOption);
-  }, [selectedOption]);
   return (
     <div className="flex flex-col">
       <label className="font-bold mb-1">{props.label}</label>
