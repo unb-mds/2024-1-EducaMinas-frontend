@@ -1,12 +1,18 @@
+'use client';
 import App from '@/components/ChartBar';
+import Filter from '@/components/Filter';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function Search() {
+  const [municipios, setMunicipios] = useState<string[]>([]);
+
   const barChartSeries = [
     {
       name: 'Pretos/Pardos',
-      data: [18, 19, 33, 50, 23, 44, 14, 90],
+      data: [10, 19, 33, 50, 23, 44, 14, 90],
     },
     {
       name: 'Brancos',
@@ -25,6 +31,28 @@ export default function Search() {
     '2023 Privada',
   ];
 
+  useEffect(() => {
+    axios
+      .get<any[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/31/municipios?orderBy=name`)
+      .then((res) => {
+        console.log('Dados recebidos:', res.data);
+        const municipiosName: string[] = ['Todos'];
+        res.data.map((mun: any) => {
+          municipiosName.push(mun.nome);
+          return null;
+        });
+        setMunicipios(municipiosName);
+        setSelectedOptionFromFilter(municipiosName[0]);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const optionsEtapas = ['Todas', 'Educação Infantil', 'Ensino Fundamental', 'Ensino Médio'];
+  const [selectedOptionFromFilter, setSelectedOptionFromFilter] = useState('');
+  const handleSelectOptionFromFilter = (selectedOption: string) => {
+    setSelectedOptionFromFilter(selectedOption);
+  };
+
   return (
     <main className="flex flex-col items-center mx-[125px]">
       <Topics
@@ -37,7 +65,13 @@ export default function Search() {
         text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
       />
 
-      <App series={barChartSeries} categories={chartCategories} />
+      <div className="flex flex-col mt-3">
+        <div className="flex space-x-8 ml-8">
+          <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
+          <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
+        </div>
+        <App series={barChartSeries} categories={chartCategories} />
+      </div>
     </main>
   );
 }
