@@ -1,8 +1,8 @@
 'use client';
-import App from '@/components/ChartBar';
 import Filter from '@/components/Filter';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
+import { StackedChart } from '@/components/chart/StackedColumn';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -70,7 +70,7 @@ export default function Search() {
           <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
           <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
         </div>
-        <App series={barChartSeries} categories={chartCategories} />
+        <StackedChart series={barChartSeries} categories={chartCategories} />
       </div>
     </main>
   );
