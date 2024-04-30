@@ -42,11 +42,16 @@ export default function Search() {
           return null;
         });
         setMunicipios(municipiosName);
+        setSelectedOptionFromFilter(municipiosName[0]);
       })
       .catch((err) => console.log(err));
   }, []);
 
   const optionsEtapas = ['Todas', 'Educação Infantil', 'Ensino Fundamental', 'Ensino Médio'];
+  const [selectedOptionFromFilter, setSelectedOptionFromFilter] = useState('');
+  const handleSelectOptionFromFilter = (selectedOption: string) => {
+    setSelectedOptionFromFilter(selectedOption);
+  };
 
   return (
     <main className="flex flex-col items-center mx-[125px]">
@@ -62,8 +67,8 @@ export default function Search() {
 
       <div className="flex flex-col mt-3">
         <div className="flex space-x-8 ml-8">
-          <Filter label="Município" options={municipios} />
-          <Filter label="Etapa de ensino" options={optionsEtapas} />
+          <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
+          <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
         </div>
         <App series={barChartSeries} categories={chartCategories} />
       </div>
