@@ -13,8 +13,10 @@ const config: Config = {
     extend: {
       colors: {
         'primary-red': '#C10A0A',
+        'secondary-red': '#FF204E',
         'primary-white': '#FFFFFF',
         'primary-gray': '#E1E1E1',
+        'primary-blue': '#40679E',
       },
     },
   },

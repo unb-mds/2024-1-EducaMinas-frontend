@@ -1,5 +1,6 @@
 'use client';
 import Filter from '@/components/Filter';
+import Ranking from '@/components/Ranking';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
 import { StackedChart } from '@/components/chart/StackedColumn';
@@ -29,6 +30,16 @@ export default function Search() {
     '2022 Privada',
     '2023 Pública',
     '2023 Privada',
+  ];
+
+  const rankingdata = [
+    { name: 'Patos de Minas', value: 10 },
+    { name: 'Curvelo', value: 12 },
+    { name: 'Buritizeiro', value: 5 },
+    { name: 'Belo horizonte', value: 8 },
+    { name: 'Alagoas', value: 8 },
+    { name: 'Juiz de Fora', value: 3 },
+    { name: 'João Pinheiro', value: 1 },
   ];
 
   useEffect(() => {
@@ -71,6 +82,9 @@ export default function Search() {
           <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
         </div>
         <StackedChart series={barChartSeries} categories={chartCategories} />
+      </div>
+      <div className="w-[50%]">
+        <Ranking order="menor" data={rankingdata} />
       </div>
     </main>
   );
