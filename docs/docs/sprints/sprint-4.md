@@ -43,6 +43,6 @@ Foi definida a biblioteca gráfica que será utilizada, e o frontend encaminhou 
 
 ## Finalização
 
-Sprint em andamento...
+A equipe conseguiu realizar todos os objetivos propostos para a sprint. As tarefas da sprint anterior foram terminadas, o protótipo no Figma sobre a página de pesquisa foi concluído, sofrerá alterações conforme necessidade do grupo, assim como o código para esse componente do projeto, que já está em desenvolvimento. O planejamento para a entrega da Release 1 está concluído, as releases notes es o grupo só espera a data para poder apresentar o projeto, visto que na data inicial não foi possível apresentar.
 
 ---
