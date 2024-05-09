@@ -13,7 +13,7 @@ export default function Filter({ options, label, onSelectOption }: FilterProps) 
     <div className="flex flex-col">
       <label className="font-bold mb-1">{label}</label>
       <select
-        className="appearance-none focus:outline-none focus:ring-0 border rounded-lg p-2 bg-primary-red text-primary-white"
+        className="appearance-none focus:outline-none focus:ring-0 border rounded-lg p-2 bg-primary-red text-primary-white min-w-40"
         onChange={handleSelect}
       >
         {options.map((option, index) => (

@@ -41,7 +41,8 @@ export default function Search() {
     { name: 'Juiz de Fora', value: 3 },
     { name: 'João Pinheiro', value: 1 },
   ];
-
+  const anos = ['2020', '2021', '2022'];
+  const rank = ['menor', 'maior'];
   useEffect(() => {
     axios
       .get<any[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/31/municipios?orderBy=name`)
@@ -76,15 +77,34 @@ export default function Search() {
         text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
       />
 
-      <div className="flex flex-col mt-3">
-        <div className="flex space-x-8 ml-8">
+      <div className="flex flex-col mt-3 border-b-2 primary-gray mb-3">
+        <div className="flex space-x-8 ml-8 mb-">
           <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
           <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
         </div>
         <StackedChart series={barChartSeries} categories={chartCategories} />
       </div>
-      <div className="w-[50%]">
-        <Ranking order="menor" data={rankingdata} />
+      <Subtopics
+        title="Percentual de Reprovações"
+        text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
+      />
+      <div className="w-[100%] flex pt-10">
+        <div className="w-[100%]"></div>
+        <div className="w-[100%]">
+          <div className="flex ">
+            <div className="w-[80%] mb-3">
+              <Subtopics
+                title="Ranking de municípios"
+                text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
+              />
+            </div>
+            <div className="flex w-[40%] items-center flex space-x-8">
+              <Filter label="Ano" options={anos} onSelectOption={handleSelectOptionFromFilter} />
+              <Filter label="Critério" options={rank} onSelectOption={handleSelectOptionFromFilter} />
+            </div>
+          </div>
+          <Ranking order="menor" data={rankingdata} />
+        </div>
       </div>
     </main>
   );
