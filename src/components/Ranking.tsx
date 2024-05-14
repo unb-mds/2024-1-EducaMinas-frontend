@@ -18,9 +18,9 @@ export default function Ranking({ data, order }: Props) {
             <div className=" flex rounded-full bg-primary-blue w-[40px] h-[40px] justify-center items-center text-primary-white text-[20px] font-extrabold ">
               {index + 1}
             </div>
-            <div className="font-semibold text-[24px] italic">{item.name}</div>
+            <div className="font-semibold text-[1.6em] pt-[5px] italic">{item.name}</div>
           </div>
-          <div className="mr-[15px] text-secondary-red font-extrabold text-[24px] italic">{item.value}%</div>
+          <div className="mr-[15px] text-secondary-red font-extrabold text-[27px] italic">{item.value}%</div>
         </div>
       ))}
     </div>
