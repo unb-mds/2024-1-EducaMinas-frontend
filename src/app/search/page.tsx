@@ -3,6 +3,7 @@ import Filter from '@/components/Filter';
 import Ranking from '@/components/Ranking';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
+import { GroupedBarChart } from '@/components/chart/GroupedBar';
 import { StackedChart } from '@/components/chart/StackedColumn';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -30,6 +31,18 @@ export default function Search() {
     '2022 Privada',
     '2023 Pública',
     '2023 Privada',
+  ];
+
+  const groupedBarChartCategories = ['2017', '2018', '2019', '2020', '2021', '2022'];
+  const groupedBarChartSeries = [
+    {
+      name: 'Pretos/Pardos',
+      data: [10, 19, 33, 50, 23, 44],
+    },
+    {
+      name: 'Brancos',
+      data: [32, 41, 12, 85, 98, 30],
+    },
   ];
 
   const rankingdata = [
@@ -66,7 +79,7 @@ export default function Search() {
   };
 
   return (
-    <main className="flex flex-col items-center mx-[125px]">
+    <main className="flex flex-col items-center mx-[100px]">
       <Topics
         title="Desigualdade Racial"
         text="Investigue a relação entre pretos/pardos e brancos em diferentes aspectos relacionados à educação no estado de Minas Gerais"
@@ -77,8 +90,8 @@ export default function Search() {
         text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
       />
 
-      <div className="flex flex-col mt-3 border-b-2 primary-gray mb-3">
-        <div className="flex space-x-8 ml-8 mb-">
+      <div className="flex flex-col mt-3 primary-gray mb-3">
+        <div className="flex space-x-8 ml-8 my-5">
           <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
           <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
         </div>
@@ -88,23 +101,23 @@ export default function Search() {
         title="Percentual de Reprovações"
         text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
       />
-      <div className="w-[100%] flex pt-10">
-        <div className="w-[100%]"></div>
-        <div className="w-[100%]">
-          <div className="flex ">
-            <div className="w-[80%] mb-3">
-              <Subtopics
-                title="Ranking de municípios"
-                text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
-              />
-            </div>
-            <div className="flex w-[40%] items-center flex space-x-8">
-              <Filter label="Ano" options={anos} onSelectOption={handleSelectOptionFromFilter} />
-              <Filter label="Critério" options={rank} onSelectOption={handleSelectOptionFromFilter} />
-            </div>
-          </div>
-          <Ranking order="menor" data={rankingdata} />
+      <div className="flex flex-col mt-3 primary-gray mb-3">
+        <div className="flex space-x-8 ml-8 my-5">
+          <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
+          <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
         </div>
+        <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />
+      </div>
+      <Subtopics
+        title="Ranking de municípios"
+        text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
+      />
+      <div className="flex flex-col mt-3 primary-gray mb-3 w-[70%]">
+        <div className="flex space-x-8  my-5">
+          <Filter label="Ano" options={anos} onSelectOption={handleSelectOptionFromFilter} />
+          <Filter label="Critério" options={rank} onSelectOption={handleSelectOptionFromFilter} />
+        </div>
+        <Ranking order="menor" data={rankingdata} />
       </div>
     </main>
   );
