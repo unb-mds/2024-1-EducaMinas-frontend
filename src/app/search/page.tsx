@@ -77,6 +77,10 @@ export default function Search() {
   const handleSelectOptionFromFilter = (selectedOption: string) => {
     setSelectedOptionFromFilter(selectedOption);
   };
+  const [orderFilter, setOrderFilter] = useState('menor');
+  const handleOrderFilter = (selectedOption: string) => {
+    setOrderFilter(selectedOption);
+  };
 
   return (
     <main className="flex flex-col items-center mx-[100px]">
@@ -115,9 +119,9 @@ export default function Search() {
       <div className="flex flex-col mt-3 primary-gray mb-3 w-[70%]">
         <div className="flex space-x-8  my-5">
           <Filter label="Ano" options={anos} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Critério" options={rank} onSelectOption={handleSelectOptionFromFilter} />
+          <Filter label="Critério" options={rank} onSelectOption={handleOrderFilter} />
         </div>
-        <Ranking order="menor" data={rankingdata} />
+        <Ranking order={orderFilter} data={rankingdata} />
       </div>
     </main>
   );
