@@ -60,7 +60,7 @@ Em nossa documentação, estão disponíveis:
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/JoaoPedrosilvaSousa">
+            <a href="https://github.com/JoaoPedrooSS">
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/130873951?v=4" width="150px;"/>
                 <h5 class="text-center">João Pedro</h5>
             </a>
