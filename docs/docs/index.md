@@ -33,4 +33,4 @@ Para saber mais sobre as aplicações práticas do projeto, verifique as [Person
 
 Este projeto possui dois repositórios, definindo e separando explicitamente o [frontend](https://github.com/unb-mds/2024-1-EducaMinas-frontend) e o [backend](https://github.com/unb-mds/2024-1-EducaMinas-backend).
 
-Para visualizar a escolha das tecnologias: [Arquitetura](../docs/project/arquitetura.md)
+Para visualizar a escolha das tecnologias: [Arquitetura](project/arquitetura.md)

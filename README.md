@@ -15,17 +15,17 @@ Para visualizar a documentação completa do projeto: [Documentação](https://u
 
 Em nossa documentação, estão disponíveis:
 
-- [Como contribuir]()
-- [StoryMap]()
-- [Requisitos]()
-- [Personas]()
-- [Estrutura Analítica de Projeto(EAP)]()
-- [Arquitetura e Tecnologias]()
+- [Como contribuir](https://unb-mds.github.io/2024-1-EducaMinas-frontend/contributing/)
+- [StoryMap](https://unb-mds.github.io/2024-1-EducaMinas-frontend/project/storymap/)
+- [Requisitos](https://unb-mds.github.io/2024-1-EducaMinas-frontend/project/requirements/)
+- [Personas](https://unb-mds.github.io/2024-1-EducaMinas-frontend/project/personas/)
+- [Estrutura Analítica de Projeto(EAP)](https://unb-mds.github.io/2024-1-EducaMinas-frontend/project/eap/)
+- [Arquitetura e Tecnologias](https://unb-mds.github.io/2024-1-EducaMinas-frontend/project/arquitetura/)
 
 
 ## Protótipo 
 
-- Para o protótipo completo: [Protótipo]()
+- Para o protótipo completo: [Protótipo](https://unb-mds.github.io/2024-1-EducaMinas-frontend/project/prototipo/)
 - Para a apresentação do protótipo no FIGMA: [Apresentação](https://www.figma.com/proto/S3GrGX5HUojoKvHAnFNiXy/EducaMinas?type=design&node-id=1-3&t=5Cn41AoersmZdQp3-0&scaling=scale-down&page-id=0%3A1)
 
 ### Página Inicial
@@ -60,7 +60,7 @@ Em nossa documentação, estão disponíveis:
             </a>
         </td>
         <td align="center">
-            <a href="https://github.com/JoaoPedrosilvaSousa">
+            <a href="https://github.com/JoaoPedrooSS">
                 <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/130873951?v=4" width="150px;"/>
                 <h5 class="text-center">João Pedro</h5>
             </a>

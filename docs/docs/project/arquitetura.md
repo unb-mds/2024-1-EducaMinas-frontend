@@ -8,19 +8,18 @@
 
 ## Coleta de Dados e Atualização de Conteúdos
 
-1. **Beautiful Soup**: Uma biblioteca Python popular para analisar documentos HTML e XML. Ela permite extrair dados de páginas web de forma eficaz.
-2. **Scrapy**: Um framework Python usado para extrair dados de websites de forma rápida e eficiente. Ele é altamente configurável e pode ser usado para scrapers mais complexos.
-3. **Selenium**: Uma ferramenta que permite controlar um navegador web automaticamente. É útil quando o conteúdo de uma página web é carregado dinamicamente por meio de JavaScript.
-4. **Requests**: Uma biblioteca Python simples e elegante para fazer requisições HTTP. Embora não seja específica para scraping, é frequentemente utilizada para baixar o conteúdo HTML das páginas a serem analisadas.
-5. **Puppeteer**: Uma API Node.js que fornece controle sobre o Chrome ou Chromium. É muito útil para scraping de páginas que dependem de JavaScript.
-6. **XPath**: Uma linguagem de consulta usada para extrair dados de documentos XML ou HTML. Pode ser usada em conjunto com outras ferramentas de scraping para selecionar elementos específicos em uma página web.
-7. **Regex (Expressões Regulares)**: Embora seja mais uma técnica do que uma tecnologia específica, as expressões regulares são amplamente usadas para encontrar padrões específicos nos dados extraídos.
-8. **Proxy Services**: Em alguns casos, o uso de proxies é necessário para evitar bloqueios e limitações impostas por sites durante o scraping em grande escala.
+1. **Selenium**: Uma ferramenta que permite controlar um navegador web automaticamente. É útil quando o conteúdo de uma página web é carregado dinamicamente por meio de JavaScript.
+2. **Requests**: Uma biblioteca Python simples e elegante para fazer requisições HTTP. Embora não seja específica para scraping, é frequentemente utilizada para baixar o conteúdo HTML das páginas a serem analisadas.
+3. **XPath**: Uma linguagem de consulta usada para extrair dados de documentos XML ou HTML. Pode ser usada em conjunto com outras ferramentas de scraping para selecionar elementos específicos em uma página web.
+4. **Regex (Expressões Regulares)**: Embora seja mais uma técnica do que uma tecnologia específica, as expressões regulares são amplamente usadas para encontrar padrões específicos nos dados extraídos.
+5. **Proxy Services**: Em alguns casos, o uso de proxies é necessário para evitar bloqueios e limitações impostas por sites durante o scraping em grande escala.
 
-## Processamento de dados
 
-1. **Pandas**: realizar várias análises descritivas automáticas nos seus dados, como calcular estatísticas básicas, identificar valores únicos, etc
-2. Numpy
+## Processamento e Análise de Dados
+
+- **Python**: Linguagem de programação popular para análise de dados.
+    - **Pandas**: Biblioteca Python para manipulação e análise de dados estruturados, oferecendo poderosas ferramentas de processamento de dados.
+    - **NumPy**: Biblioteca essencial para computação numérica em Python, útil para operações matemáticas eficientes em grandes conjuntos de dados.
 
 ## Segurança
 
@@ -28,11 +27,6 @@
 - **Tratamento de Erros**: Implementar mecanismos para lidar com erros durante o web scraping, como timeout de conexão ou respostas inesperadas dos servidores, de forma a evitar interrupções não planejadas ou vulnerabilidades.
 - **Logs e Monitoramento**: Registrar e monitorar atividades de web scraping e acesso aos dados para identificar potenciais problemas de segurança ou anomalias.
 
-## Escalabilidade
-
-- **Arquitetura Orientada a Microsserviços**: Será adotada uma arquitetura de microsserviços para modularizar sua aplicação e permitir escalabilidade independente de cada componente.
-- **Banco de Dados Relacional:** Otimizar consultas para lidar com grandes volumes de dados. Isso pode incluir bancos de dados relacionais como PostgreSQL.
-- **Cache de Dados**: Estratégias de cache para armazenar dados temporários e reduzir a carga nos servidores durante picos de acesso.
 
 ## Backend:
 
@@ -46,24 +40,19 @@
 - **PostgreSQL**: Banco de dados relacional robusto e altamente escalável, adequado para armazenamento e consulta eficiente de dados estruturados, como informações educacionais.
     - **Prisma**: ORM moderno e poderoso para Node.js, que simplifica o acesso ao banco de dados, oferece uma interface de tipo seguro e facilita a escrita de consultas SQL de forma declarativa.
         - **Prisma Client**: Biblioteca gerada automaticamente pelo Prisma com métodos para interagir com o banco de dados PostgreSQL de forma segura e eficiente.
+- **Cache de Dados**: Estratégias de cache para armazenar dados temporários e reduzir a carga nos servidores durante picos de acesso.
 
-### 3. Processamento e Análise de Dados
-
-- **Python**: Linguagem de programação popular para análise de dados.
-    - **Pandas**: Biblioteca Python para manipulação e análise de dados estruturados, oferecendo poderosas ferramentas de processamento de dados.
-    - **NumPy**: Biblioteca essencial para computação numérica em Python, útil para operações matemáticas eficientes em grandes conjuntos de dados.
-
-### 4. API e Integrações
+### 3. API e Integrações
 
 - **API RESTful**: Arquitetura para comunicação entre sistemas utilizando HTTP e princípios REST (Representational State Transfer).
     - **Express.js (Node.js)**: Utilizado para criar endpoints de API RESTful e gerenciar requisições HTTP.
     - **Axios (Node.js)**: Biblioteca para fazer requisições HTTP de forma fácil e eficiente a partir do Node.js.
 
-### 6. Escalabilidade e Gerenciamento de Servidores
+### 4. Gerenciamento de Servidores
 
 - **Docker**: Plataforma de contêineres que facilita a criação, implantação e execução de aplicativos em ambientes isolados.
 
-### 7. Logging e Monitoramento
+### 5. Logging e Monitoramento
 
 - **Winston (Node.js)**: Biblioteca para logging em aplicações Node.js, permitindo o registro de mensagens em diferentes níveis de severidade.
     - **Prometheus e Grafana**: Ferramentas populares para monitoramento de métricas e visualização de dados operacionais.
@@ -73,10 +62,7 @@
 1. **Next.js (v14)**:
     - Framework React baseado em JavaScript/TypeScript que facilita a criação de aplicativos web, oferecendo renderização do lado do servidor (SSR) e geração de páginas estáticas (SSG).
     - Suporte a roteamento fácil, pré-renderização, otimização de desempenho e API integrada para construção de aplicativos web modernos.
-2. **React**:
-    - Biblioteca JavaScript/TypeScript para construção de interfaces de usuário reativas e componentizadas.
-    - Utilizado para criar componentes reutilizáveis, gerenciar o estado da aplicação e interagir dinamicamente com os dados.
-3. **TypeScript**:
+2. **TypeScript**:
     - Superset tipado do JavaScript que fornece tipos estáticos opcionais para aumentar a robustez e a segurança do código.
     - Ajuda a identificar erros de programação mais cedo no desenvolvimento e oferece maior legibilidade e manutenibilidade.
 

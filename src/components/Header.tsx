@@ -1,8 +1,7 @@
 'use client';
-import Link from 'next/link';
+import { BookBookmark, House, MagnifyingGlass } from '@phosphor-icons/react';
 import Image from 'next/image';
-import Logo from '../../public/logo.png';
-import { House, MagnifyingGlass, BookBookmark } from '@phosphor-icons/react';
+import Link from 'next/link';
 export default function Header() {
   return (
     <header className="w-full h-[100px] bg-primary-red">
@@ -10,7 +9,7 @@ export default function Header() {
         <div className="flex w-[30%]">
           <div className="mx-2">
             <Link href="/">
-              <Image src={Logo} alt="logo" width={50} height={50} />
+              <Image src={'/logo.png'} alt="logo" width={50} height={50} />
             </Link>
           </div>
           <div className="text-primary-white font-extrabold">
