@@ -72,7 +72,8 @@ export default function Search() {
       .catch((err) => console.log(err));
   }, []);
 
-  const optionsEtapas = ['Todas', 'Educação Infantil', 'Ensino Fundamental', 'Ensino Médio'];
+  const optionsEtapas = ['Todas', 'Educação Infantil', 'Ensino Fundamental 1', 'Ensino Fundamental 2', 'Ensino Médio'];
+  const optionsEtapasGraf2 = ['Educação Infantil', 'Ensino Fundamental 1', 'Ensino Fundamental 2', 'Ensino Médio'];
   const [selectedOptionFromFilter, setSelectedOptionFromFilter] = useState('');
   const handleSelectOptionFromFilter = (selectedOption: string) => {
     setSelectedOptionFromFilter(selectedOption);
@@ -108,7 +109,7 @@ export default function Search() {
       <div className="flex flex-col mt-3 primary-gray mb-3">
         <div className="flex space-x-8 ml-8 my-5">
           <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
+          <Filter label="Etapa de ensino" options={optionsEtapasGraf2} onSelectOption={handleSelectOptionFromFilter} />
         </div>
         <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />
       </div>
@@ -119,6 +120,7 @@ export default function Search() {
       <div className="flex flex-col mt-3 primary-gray mb-3 w-[70%]">
         <div className="flex space-x-8  my-5">
           <Filter label="Ano" options={anos} onSelectOption={handleSelectOptionFromFilter} />
+          <Filter label="Etapa de Ensino" options={optionsEtapasGraf2} onSelectOption={handleOrderFilter} />
           <Filter label="Critério" options={rank} onSelectOption={handleOrderFilter} />
         </div>
         <Ranking order={orderFilter} data={rankingdata} />
