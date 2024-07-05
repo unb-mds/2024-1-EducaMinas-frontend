@@ -71,7 +71,7 @@ export default function Search() {
       })
       .catch((err) => console.log(err));
   }, []);
-
+  const Indicadores = ['Reprovação', 'Evasão', 'Atraso Escolar'];
   const optionsEtapas = ['Todas', 'Educação Infantil', 'Ensino Fundamental 1', 'Ensino Fundamental 2', 'Ensino Médio'];
   const optionsEtapasGraf2 = ['Educação Infantil', 'Ensino Fundamental 1', 'Ensino Fundamental 2', 'Ensino Médio'];
   const [selectedOptionFromFilter, setSelectedOptionFromFilter] = useState('');
@@ -110,6 +110,7 @@ export default function Search() {
         <div className="flex space-x-8 ml-8 my-5">
           <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
           <Filter label="Etapa de ensino" options={optionsEtapasGraf2} onSelectOption={handleSelectOptionFromFilter} />
+          <Filter label="Indicadores" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
         </div>
         <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />
       </div>
