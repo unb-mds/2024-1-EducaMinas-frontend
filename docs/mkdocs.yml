@@ -11,6 +11,9 @@ nav:
     - Sprint 3: sprints/sprint-3.md
     - Sprint 4: sprints/sprint-4.md
     - Sprint 5: sprints/sprint-5.md
+    - Sprint 6: sprints/sprint-6.md
+    - Sprint 7: sprints/sprint-7.md
+    - Sprint 8: sprints/sprint-8.md
 
   - Projeto:
     - Personas: project/personas.md
@@ -23,6 +26,7 @@ nav:
 
   - Como contribuir: 
     - Primeiros passos: contributing.md
+    - Ambiente de desenvolvimento: environment.md
     - Templates:
       - Issues template: template/issuetemplate.md
       - Pull Requests template: template/prTemplate.md
