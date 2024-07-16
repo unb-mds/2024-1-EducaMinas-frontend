@@ -56,8 +56,6 @@ export default function Search() {
             options={optionsEtapas}
             onSelect={(option: string) => setLevelG1(option)}
           />
-          {cityG1}
-          {levelG1}
         </div>
         <StackedChart series={barChartSeries} categories={chartCategories} />
       </div>
@@ -85,9 +83,6 @@ export default function Search() {
             options={indicadoresGraf2}
             onSelect={(option: string) => setIndicators(option)}
           />
-          {cityG2}
-          {levelG2}
-          {indicators}
         </div>
         <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />
       </div>
@@ -110,9 +105,6 @@ export default function Search() {
             search={false}
             onSelect={(option: string) => setRankOrder(option)}
           />
-          {rankYear}
-          {levelRank}
-          {rankOrder}
         </div>
         <Ranking order={rankOrder} data={rankingdata} />
       </div>
