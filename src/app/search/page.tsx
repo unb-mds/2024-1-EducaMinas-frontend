@@ -20,7 +20,7 @@ import {
 } from '@/data/filtersData';
 import { indicatorsService } from '@/services/IndicatorsService';
 import { rankingService } from '@/services/RankingService';
-import { enrollmentService } from '@/services/enrollmentService';
+import { enrollmentService } from '@/services/EnrollmentService';
 import { useEffect, useState } from 'react';
 
 export default function Search() {
