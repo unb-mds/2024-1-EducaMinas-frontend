@@ -1,4 +1,4 @@
-import { CaretDown, CaretUp } from '@phosphor-icons/react';
+import { CaretDown, CaretUp, Check } from '@phosphor-icons/react';
 import { useState } from 'react';
 
 interface FilterProps {
@@ -46,10 +46,11 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
             {filteredOptions.map((option, index) => (
               <li
                 key={index}
-                className="p-2 hover:bg-gray-100 cursor-pointer"
+                className="p-2 hover:bg-primary-blue hover:text-white flex justify-between cursor-pointer"
                 onClick={() => handleOptionClick(option)}
               >
                 {option}
+                <Check color="#ffffff" weight="bold" className="mt-[2px]" size={15} />
               </li>
             ))}
           </ul>
@@ -61,10 +62,11 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
             {options.map((option, index) => (
               <li
                 key={index}
-                className="p-2 hover:bg-gray-100 cursor-pointer"
+                className="p-2 hover:bg-primary-blue hover:text-white cursor-pointer flex justify-between"
                 onClick={() => handleOptionClick(option)}
               >
                 {option}
+                <Check color="#ffffff" weight="bold" className="mt-[2px]" size={15} />
               </li>
             ))}
           </ul>
