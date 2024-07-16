@@ -1,87 +1,34 @@
 'use client';
-import Filter from '@/components/Filter';
+import FilterSearch from '@/components/FilterSearch';
 import Ranking from '@/components/Ranking';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
 import { GroupedBarChart } from '@/components/chart/GroupedBar';
 import { StackedChart } from '@/components/chart/StackedColumn';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import {
+  anos,
+  barChartSeries,
+  chartCategories,
+  groupedBarChartCategories,
+  groupedBarChartSeries,
+  indicadoresGraf2,
+  listaMunicipios,
+  optionsEtapas,
+  optionsEtapasGraf2,
+  rank,
+  rankingdata,
+} from '@/data/filtersData';
+import { useState } from 'react';
 
 export default function Search() {
-  const [municipios, setMunicipios] = useState<string[]>([]);
-
-  const barChartSeries = [
-    {
-      name: 'Pretos/Pardos',
-      data: [10, 19, 33, 50, 23, 44, 14, 90],
-    },
-    {
-      name: 'Brancos',
-      data: [32, 41, 12, 85, 98, 30, 54, 75],
-    },
-  ];
-
-  const chartCategories = [
-    '2020 Pública',
-    '2020 Privada',
-    '2021 Pública',
-    '2021 Privada',
-    '2022 Pública',
-    '2022 Privada',
-    '2023 Pública',
-    '2023 Privada',
-  ];
-
-  const groupedBarChartCategories = ['2017', '2018', '2019', '2020', '2021', '2022'];
-  const groupedBarChartSeries = [
-    {
-      name: 'Pretos/Pardos',
-      data: [10, 19, 33, 50, 23, 44],
-    },
-    {
-      name: 'Brancos',
-      data: [32, 41, 12, 85, 98, 30],
-    },
-  ];
-
-  const rankingdata = [
-    { name: 'Patos de Minas', value: 10 },
-    { name: 'Curvelo', value: 12 },
-    { name: 'Buritizeiro', value: 5 },
-    { name: 'Belo horizonte', value: 8 },
-    { name: 'Alagoas', value: 8 },
-    { name: 'Juiz de Fora', value: 3 },
-    { name: 'João Pinheiro', value: 1 },
-  ];
-  const anos = ['2020', '2021', '2022'];
-  const rank = ['menor', 'maior'];
-  useEffect(() => {
-    axios
-      .get<any[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/31/municipios?orderBy=name`)
-      .then((res) => {
-        console.log('Dados recebidos:', res.data);
-        const municipiosName: string[] = ['Todos'];
-        res.data.map((mun: any) => {
-          municipiosName.push(mun.nome);
-          return null;
-        });
-        setMunicipios(municipiosName);
-        setSelectedOptionFromFilter(municipiosName[0]);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  const Indicadores = ['Reprovação', 'Evasão', 'Atraso Escolar'];
-  const optionsEtapas = ['Todas', 'Educação Infantil', 'Ensino Fundamental 1', 'Ensino Fundamental 2', 'Ensino Médio'];
-  const optionsEtapasGraf2 = ['Educação Infantil', 'Ensino Fundamental 1', 'Ensino Fundamental 2', 'Ensino Médio'];
-  const [selectedOptionFromFilter, setSelectedOptionFromFilter] = useState('');
-  const handleSelectOptionFromFilter = (selectedOption: string) => {
-    setSelectedOptionFromFilter(selectedOption);
-  };
-  const [orderFilter, setOrderFilter] = useState('menor');
-  const handleOrderFilter = (selectedOption: string) => {
-    setOrderFilter(selectedOption);
-  };
+  const [cityG1, setCityG1] = useState<string>(listaMunicipios[0]);
+  const [levelG1, setLevelG1] = useState<string>(optionsEtapas[0]);
+  const [cityG2, setCityG2] = useState<string>(listaMunicipios[0]);
+  const [levelG2, setLevelG2] = useState<string>(optionsEtapasGraf2[0]);
+  const [indicators, setIndicators] = useState<string>(indicadoresGraf2[0]);
+  const [rankYear, setRankYear] = useState<string>(anos[0]);
+  const [levelRank, setLevelRank] = useState<string>(optionsEtapas[0]);
+  const [rankOrder, setRankOrder] = useState(rank[0]);
 
   return (
     <main className="flex flex-col items-center mx-[100px]">
@@ -97,8 +44,18 @@ export default function Search() {
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
         <div className="flex space-x-8 ml-8 my-5">
-          <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
+          <FilterSearch
+            label="Município"
+            options={listaMunicipios}
+            search={true}
+            onSelect={(option: string) => setCityG1(option)}
+          />
+          <FilterSearch
+            search={false}
+            label="Etapa de ensino"
+            options={optionsEtapas}
+            onSelect={(option: string) => setLevelG1(option)}
+          />
         </div>
         <StackedChart series={barChartSeries} categories={chartCategories} />
       </div>
@@ -108,9 +65,24 @@ export default function Search() {
       />
       <div className="flex flex-col mt-3 primary-gray mb-3">
         <div className="flex space-x-8 ml-8 my-5">
-          <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Etapa de ensino" options={optionsEtapasGraf2} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Indicadores" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
+          <FilterSearch
+            label="Município"
+            options={listaMunicipios}
+            search={true}
+            onSelect={(option: string) => setCityG2(option)}
+          />
+          <FilterSearch
+            search={false}
+            label="Etapa de ensino"
+            options={optionsEtapasGraf2}
+            onSelect={(option: string) => setLevelG2(option)}
+          />
+          <FilterSearch
+            search={false}
+            label="Indicadores"
+            options={indicadoresGraf2}
+            onSelect={(option: string) => setIndicators(option)}
+          />
         </div>
         <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />
       </div>
@@ -120,11 +92,21 @@ export default function Search() {
       />
       <div className="flex flex-col mt-3 primary-gray mb-3 w-[70%]">
         <div className="flex space-x-8  my-5">
-          <Filter label="Ano" options={anos} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Etapa de Ensino" options={optionsEtapasGraf2} onSelectOption={handleOrderFilter} />
-          <Filter label="Critério" options={rank} onSelectOption={handleOrderFilter} />
+          <FilterSearch label="Ano" options={anos} search={false} onSelect={(option: string) => setRankYear(option)} />
+          <FilterSearch
+            search={false}
+            label="Etapa de Ensino"
+            options={optionsEtapasGraf2}
+            onSelect={(option: string) => setLevelRank(option)}
+          />
+          <FilterSearch
+            label="Critério"
+            options={rank}
+            search={false}
+            onSelect={(option: string) => setRankOrder(option)}
+          />
         </div>
-        <Ranking order={orderFilter} data={rankingdata} />
+        <Ranking order={rankOrder} data={rankingdata} />
       </div>
     </main>
   );
