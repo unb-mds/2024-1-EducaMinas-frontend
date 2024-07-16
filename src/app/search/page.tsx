@@ -18,7 +18,10 @@ import {
   rank,
   rankingdata,
 } from '@/data/filtersData';
-import { useState } from 'react';
+import { indicatorsService } from '@/services/IndicatorsService';
+import { rankingService } from '@/services/RankingService';
+import { enrollmentService } from '@/services/enrollmentService';
+import { useEffect, useState } from 'react';
 
 export default function Search() {
   const [cityG1, setCityG1] = useState<string>(listaMunicipios[0]);
@@ -29,6 +32,18 @@ export default function Search() {
   const [rankYear, setRankYear] = useState<string>(anos[0]);
   const [levelRank, setLevelRank] = useState<string>(optionsEtapas[0]);
   const [rankOrder, setRankOrder] = useState(rank[0]);
+
+  useEffect(() => {
+    enrollmentService.get({ city: cityG1, level: levelG1 });
+  }, [cityG1, levelG1]);
+
+  useEffect(() => {
+    indicatorsService.get({ city: cityG2, level: levelG2, indicator: indicators });
+  }, [cityG2, levelG2, indicators]);
+
+  useEffect(() => {
+    rankingService.get({ year: rankYear, level: levelRank, order: rankOrder });
+  }, [rankYear, levelRank, rankOrder]);
 
   return (
     <main className="flex flex-col items-center mx-[100px]">
