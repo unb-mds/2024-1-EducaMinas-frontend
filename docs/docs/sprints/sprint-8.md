@@ -27,8 +27,15 @@ Local: Discord
 **Ata:**
 Reunião de incialização da sprint, onde foi abordado o possível escopo da sprint para cada um dos subgrupos e foram definidos os objetivos a serem explorados em ambos durante a semana.
 
----
+### Reunião 2
+
+Data: 17/07/2024
+
+Local: UNB Gama
+
+**Ata:**
+Reunião de fechamento da sprint, onde foi decidido os próximos passos para a sprint 9 e recapitulação do que cada membro fez durante a sprint 08.
+
 
 ## Finalização
-
----
+O grupo conseguiu realizar parcialmente seus objetivos, faltando apenas completar o armazenamento dos dados em um banco de dados.

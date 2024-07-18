@@ -4,9 +4,9 @@ repo_url: https://github.com/unb-mds/EducaMinas-2024.1
 
 nav:
   - Início: index.md
-  - Sprints: 
-    - Sprint 0: sprints/sprint-0.md 
-    - Sprint 1: sprints/sprint-1.md 
+  - Sprints:
+    - Sprint 0: sprints/sprint-0.md
+    - Sprint 1: sprints/sprint-1.md
     - Sprint 2: sprints/sprint-2.md
     - Sprint 3: sprints/sprint-3.md
     - Sprint 4: sprints/sprint-4.md
@@ -20,17 +20,18 @@ nav:
     - Story Map: project/storymap.md
     - Requisitos: project/requirements.md
     - EAP: project/eap.md
+    - Serviços: project/servicos.md
     - Arquitetura: project/arquitetura.md
     - Protótipo: project/prototipo.md
 
 
-  - Como contribuir: 
+  - Como contribuir:
     - Primeiros passos: contributing.md
     - Ambiente de desenvolvimento: environment.md
     - Templates:
       - Issues template: template/issuetemplate.md
       - Pull Requests template: template/prTemplate.md
- 
+
   - Sobre: about.md
 
 
@@ -46,7 +47,7 @@ theme:
     - content.code.copy
     - navigation.instant
     - navigation.instant.progress
-    - toc.integrate 
+    - toc.integrate
     - navigation.top
     - content.tabs.link
 
