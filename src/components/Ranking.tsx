@@ -11,9 +11,9 @@ export default function Ranking({ data, order }: Props) {
     data.sort((a, b) => b.value - a.value);
   }
   return (
-    <div>
+    <div className="items-center justify-center lg:w-[700px] lg:h-[600px] md:w-[600px] md:h-[450px] sm:w-[550px] sm:h-[400px] min-w-[320px] h-[350px]">
       {data.map((item, index) => (
-        <div className="flex flex-row border-t-2 w-full h-[70px] items-center justify-between" key={index}>
+        <div className="flex flex-row border-t-2 w-full h-[70px] items-center justify-between " key={index}>
           <div className="flex flex-row w-[80%] gap-5">
             <div className=" flex rounded-full bg-primary-blue w-[40px] h-[40px] justify-center items-center text-primary-white text-[20px] font-extrabold ">
               {index + 1}
