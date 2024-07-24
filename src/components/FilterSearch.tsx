@@ -21,7 +21,9 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
   };
 
   return (
-    <div className="relative w-64">
+    <div className="relative w-full max-w-xs">
+      {' '}
+      {/* Removido mx-auto */}
       <label className="block mb-2 text-sm font-medium text-gray-700">{label}</label>
       <div
         className="w-full p-2 border border-primary-blue rounded-md cursor-pointer"
@@ -29,40 +31,29 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
       >
         <div className="flex justify-between items-center">
           <span>{selectedOption || 'Selecione'}</span>
-          {isOpen && <CaretUp className="w-4 h-4 ml-2 text-gray-500" />}
-          {!isOpen && <CaretDown className="w-4 h-4 ml-2 text-gray-500" />}
+          {isOpen ? (
+            <CaretUp className="w-4 h-4 ml-2 text-gray-500" />
+          ) : (
+            <CaretDown className="w-4 h-4 ml-2 text-gray-500" />
+          )}
         </div>
       </div>
-      {isOpen && search && (
+      {isOpen && (
         <div className="absolute w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10">
-          <input
-            type="text"
-            className="w-full p-2 border-b border-gray-300 focus:outline-none"
-            placeholder="Buscar..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          {search && (
+            <input
+              type="text"
+              className="w-full p-2 border-b border-gray-300 focus:outline-none"
+              placeholder="Buscar..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          )}
           <ul className="max-h-48 overflow-auto">
-            {filteredOptions.map((option, index) => (
+            {(search ? filteredOptions : options).map((option, index) => (
               <li
                 key={index}
                 className="p-2 hover:bg-primary-blue hover:text-white flex justify-between cursor-pointer"
-                onClick={() => handleOptionClick(option)}
-              >
-                {option}
-                <Check color="#ffffff" weight="bold" className="mt-[2px]" size={15} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {isOpen && !search && (
-        <div className="absolute w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10">
-          <ul className="max-h-48 overflow-auto">
-            {options.map((option, index) => (
-              <li
-                key={index}
-                className="p-2 hover:bg-primary-blue hover:text-white cursor-pointer flex justify-between"
                 onClick={() => handleOptionClick(option)}
               >
                 {option}

@@ -105,7 +105,10 @@ export default function Search() {
         title="Ranking de municípios"
         text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
       />
-      <div className="flex flex-col mt-3 primary-gray mb-3 w-[70%]">
+      <div
+        className="flex flex-col mt-3 primary-gray mb-3 w-[70%] items-center
+      "
+      >
         <div className="flex space-x-8  my-5">
           <FilterSearch label="Ano" options={anos} search={false} onSelect={(option: string) => setRankYear(option)} />
           <FilterSearch
@@ -121,7 +124,9 @@ export default function Search() {
             onSelect={(option: string) => setRankOrder(option)}
           />
         </div>
-        <Ranking order={rankOrder} data={rankingdata} />
+        <div className=" flex items-center justify-center">
+          <Ranking order={rankOrder} data={rankingdata} />
+        </div>
       </div>
     </main>
   );
