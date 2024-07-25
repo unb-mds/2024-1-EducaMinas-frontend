@@ -13,7 +13,7 @@ export function GroupedBarChart({ series, categories }: Props) {
   const colors = ['#FF204E', '#40679E'];
 
   return (
-    <div className="lg:w-[1150px] lg:h-[600px] md:w-[745px] md:h-[500px] sm:w-[635px] sm:h-[450px] min-w-[350px] h-[350px]">
+    <div className="w-[89.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[400px]">
       <Chart
         type="bar"
         width="100%"
