@@ -53,6 +53,8 @@ export const optionsEtapas = [
 ];
 export const optionsEtapasGraf2 = ['Educação Infantil', 'Ensino Fundamental 1', 'Ensino Fundamental 2', 'Ensino Médio'];
 
+export const redeGraf2 = ['Todos', 'Pública', 'Privada'];
+
 export const listaMunicipios: string[] = [
   'Todos',
   'Abadia dos Dourados',
