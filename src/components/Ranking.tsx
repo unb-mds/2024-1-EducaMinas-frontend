@@ -22,7 +22,7 @@ export default function Ranking({ data, order }: Props) {
             </div>
             <div className="flex-1 font-semibold md:text-[1.6em] text-[1.1em] mt-[5px] mb-[5px]">{item.name}</div>
           </div>
-          <div className="mr-[15px] text-secondary-red font-extrabold text-[20px] md:text-[27px] italic ml-5">
+          <div className="mr-[15px] text-secondary-red font-extrabold text-[18px] md:text-[27px] italic ml-5">
             {item.value}%
           </div>
         </div>
