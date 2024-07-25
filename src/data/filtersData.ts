@@ -35,7 +35,7 @@ export const groupedBarChartSeries = [
 export const rankingdata = [
   { name: 'Patos de Minas', value: 10 },
   { name: 'Curvelo', value: 12 },
-  { name: 'Buritizeiro', value: 5 },
+  { name: 'Conceição da Barra de Minas', value: 5 },
   { name: 'Belo horizonte', value: 8 },
   { name: 'Alagoas', value: 8 },
   { name: 'Juiz de Fora', value: 3 },
