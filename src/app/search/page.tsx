@@ -123,7 +123,7 @@ export default function Search() {
         className="flex flex-col mt-3 primary-gray mb-3
       "
       >
-        <div className="flex space-x-8 ml-8 my-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 my-5">
           <FilterSearch label="Ano" options={anos} search={false} onSelect={(option: string) => setRankYear(option)} />
           <FilterSearch
             search={false}
