@@ -46,8 +46,8 @@ export default function Search() {
   }, [cityG1, levelG1]);
 
   useEffect(() => {
-    indicatorsService.get({ city: cityG2, level: levelG2, indicator: indicators });
-  }, [cityG2, levelG2, indicators]);
+    indicatorsService.get({ city: cityG2, level: levelG2, indicator: indicators, sector: rede });
+  }, [cityG2, levelG2, indicators, rede]);
 
   useEffect(() => {
     rankingService.get({ year: rankYear, level: levelRank, order: rankOrder });
