@@ -3,8 +3,6 @@ import FilterSearch from '@/components/FilterSearch';
 import Ranking from '@/components/Ranking';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
-import { GroupedBarChart } from '@/components/chart/GroupedBar';
-import { StackedChart } from '@/components/chart/StackedColumn';
 import {
   anos,
   barChartSeries,
@@ -18,10 +16,18 @@ import {
   rank,
   rankingdata,
 } from '@/data/filtersData';
+import { enrollmentService } from '@/services/EnrollmentService';
 import { indicatorsService } from '@/services/IndicatorsService';
 import { rankingService } from '@/services/RankingService';
-import { enrollmentService } from '@/services/EnrollmentService';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+
+const GroupedBarChart = dynamic(() => import('@/components/chart/GroupedBar').then((mod) => mod.GroupedBarChart), {
+  ssr: false,
+});
+const StackedChart = dynamic(() => import('@/components/chart/StackedColumn').then((mod) => mod.StackedChart), {
+  ssr: false,
+});
 
 export default function Search() {
   const [cityG1, setCityG1] = useState<string>(listaMunicipios[0]);

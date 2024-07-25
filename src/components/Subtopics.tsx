@@ -1,3 +1,4 @@
+'use client';
 export default function Subtopics(props: { title: string; text: string }) {
   return (
     <div className=" w-full text-center items-center flex flex-col gap-2 my-3 primary-gray border-t-2">
