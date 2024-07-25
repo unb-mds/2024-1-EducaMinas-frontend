@@ -15,6 +15,7 @@ import {
   optionsEtapasGraf2,
   rank,
   rankingdata,
+  redeGraf2,
 } from '@/data/filtersData';
 import { enrollmentService } from '@/services/EnrollmentService';
 import { indicatorsService } from '@/services/IndicatorsService';
@@ -35,6 +36,7 @@ export default function Search() {
   const [cityG2, setCityG2] = useState<string>(listaMunicipios[0]);
   const [levelG2, setLevelG2] = useState<string>(optionsEtapasGraf2[0]);
   const [indicators, setIndicators] = useState<string>(indicadoresGraf2[0]);
+  const [rede, setRede] = useState<string>(redeGraf2[0]);
   const [rankYear, setRankYear] = useState<string>(anos[0]);
   const [levelRank, setLevelRank] = useState<string>(optionsEtapas[0]);
   const [rankOrder, setRankOrder] = useState(rank[0]);
@@ -85,7 +87,7 @@ export default function Search() {
         text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
       />
       <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div className="flex space-x-8 ml-8 my-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 ml-8 my-5">
           <FilterSearch
             label="Município"
             options={listaMunicipios}
@@ -97,6 +99,12 @@ export default function Search() {
             label="Etapa de ensino"
             options={optionsEtapasGraf2}
             onSelect={(option: string) => setLevelG2(option)}
+          />
+          <FilterSearch
+            search={false}
+            label="Rede de ensino"
+            options={redeGraf2}
+            onSelect={(option: string) => setRede(option)}
           />
           <FilterSearch
             search={false}
@@ -112,10 +120,10 @@ export default function Search() {
         text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
       />
       <div
-        className="flex flex-col mt-3 primary-gray mb-3 w-[70%] items-center
+        className="flex flex-col mt-3 primary-gray mb-3
       "
       >
-        <div className="flex space-x-8  my-5">
+        <div className="flex space-x-8 ml-8 my-5">
           <FilterSearch label="Ano" options={anos} search={false} onSelect={(option: string) => setRankYear(option)} />
           <FilterSearch
             search={false}
