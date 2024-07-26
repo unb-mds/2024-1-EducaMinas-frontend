@@ -35,7 +35,7 @@ export const groupedBarChartSeries = [
 export const rankingdata = [
   { name: 'Patos de Minas', value: 10 },
   { name: 'Curvelo', value: 12 },
-  { name: 'Buritizeiro', value: 5 },
+  { name: 'Conceição da Barra de Minas', value: 5 },
   { name: 'Belo horizonte', value: 8 },
   { name: 'Alagoas', value: 8 },
   { name: 'Juiz de Fora', value: 3 },
@@ -52,6 +52,8 @@ export const optionsEtapas = [
   'Ensino Médio',
 ];
 export const optionsEtapasGraf2 = ['Educação Infantil', 'Ensino Fundamental 1', 'Ensino Fundamental 2', 'Ensino Médio'];
+
+export const redeGraf2 = ['Todos', 'Pública', 'Privada'];
 
 export const listaMunicipios: string[] = [
   'Todos',

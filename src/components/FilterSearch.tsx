@@ -23,15 +23,13 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
 
   return (
     <div className="relative w-full max-w-xs">
-      {' '}
-      {/* Removido mx-auto */}
-      <label className="block mb-2 text-sm font-medium text-gray-700">{label}</label>
+      <label className="block mb-2 text-sm font-medium text-gray-700 whitespace-nowrap">{label}</label>
       <div
         className="w-full p-2 border border-primary-blue rounded-md cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center">
-          <span>{selectedOption || 'Selecione'}</span>
+          <span className="whitespace-nowrap overflow-hidden text-ellipsis">{selectedOption || 'Selecione'}</span>
           {isOpen ? (
             <CaretUp className="w-4 h-4 ml-2 text-gray-500" />
           ) : (
@@ -57,7 +55,7 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
                 className="p-2 hover:bg-primary-blue hover:text-white flex justify-between cursor-pointer"
                 onClick={() => handleOptionClick(option)}
               >
-                {option}
+                <span className="whitespace-nowrap overflow-hidden text-ellipsis">{option}</span>
                 <Check color="#ffffff" weight="bold" className="mt-[2px]" size={15} />
               </li>
             ))}
