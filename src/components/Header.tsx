@@ -34,11 +34,11 @@ export default function Header() {
           className={`fixed top-0 right-0 h-full w-1/3 bg-primary-red transition-transform transform duration-300
             ${navBar ? 'translate-x-0' : 'translate-x-full'} md:static md:translate-x-0 md:w-[50%] md:flex md:justify-between md:items-center z-50`}
         >
-          <div className="flex flex-col w-full h-full md:h-auto mt-20 ml-10">
+          <div className={`flex flex-col w-full h-full md:h-auto ${navBar && 'mt-10'}`}>
             <ul className="w-full flex flex-col md:flex-row justify-center md:justify-between text-primary-white font-extrabold mt-16 md:mt-0">
               <li className="w-full md:w-[30%] flex justify-left ml-2 text-lg ">
                 <Link href="/" onClick={handleNavLinkClick}>
-                  <button className="flex justify-center border-b-2 border-transparent transition duration-500 hover:border-primary-white py-2 md:py-0">
+                  <button className="flex justify-center border-b-2 border-transparent transition duration-500 hover:border-b-primary-white py-2 md:py-0">
                     <House size={20} className="mr-1" />
                     Início
                   </button>
