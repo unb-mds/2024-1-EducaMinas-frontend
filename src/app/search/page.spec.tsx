@@ -14,7 +14,6 @@ vi.mock('@/components/chart/GroupedBar', () => ({
 describe('Search Page', () => {
   test('should render text components', () => {
     render(<Search />);
-    // Check if main components are rendered
     expect(screen.getByText('Desigualdade Racial')).toBeInTheDocument();
     expect(screen.getByText('Matrículas por rede de ensino')).toBeInTheDocument();
     expect(screen.getByText('Percentual de Reprovações')).toBeInTheDocument();
@@ -24,13 +23,13 @@ describe('Search Page', () => {
   test('should render "Município" filter', () => {
     render(<Search />);
     const filterMun = screen.getAllByTestId('filter-Município');
-    expect(filterMun.length).toBeGreaterThanOrEqual(2);
+    expect(filterMun.length).toEqual(2);
   });
 
   test('should render "Etapa de ensino" filter', () => {
     render(<Search />);
     const filterMun = screen.getAllByTestId('filter-Etapa-de-ensino');
-    expect(filterMun.length).toBeGreaterThanOrEqual(3);
+    expect(filterMun.length).toEqual(3);
   });
 
   test('should render "Ano" filter', () => {
