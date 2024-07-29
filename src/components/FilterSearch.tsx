@@ -22,7 +22,10 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
   };
 
   return (
-    <div className="relative w-full max-w-xs">
+    <div
+      data-testid={`filter-${label.replace(/\s+/g, '-')}`} // Use data-testid for testing
+      className="relative w-full max-w-xs"
+    >
       <label className="block mb-2 text-sm font-medium text-gray-700 whitespace-nowrap">{label}</label>
       <div
         className="w-full p-2 border border-primary-blue rounded-md cursor-pointer"
