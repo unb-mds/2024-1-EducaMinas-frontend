@@ -29,7 +29,6 @@ describe('Filter Component', () => {
   });
 
   test('should call onSelect when an option is clicked', () => {
-    // Abre o menu suspenso
     fireEvent.click(screen.getByText('option 1'));
     fireEvent.click(screen.getByText('option 2'));
     expect(onSelect).toHaveBeenCalledWith('option 2');
