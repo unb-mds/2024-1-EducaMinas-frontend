@@ -13,7 +13,10 @@ export default function Ranking({ data, order }: Props) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px]">
+    <div
+      data-testid="ranking"
+      className="flex flex-col items-center justify-center w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px]"
+    >
       {data.map((item, index) => (
         <div className="flex flex-row border-t-2 w-full md:h-[70px] h-[50px] items-center justify-between" key={index}>
           <div className="flex flex-row w-[80%] gap-5 items-center">

@@ -54,7 +54,7 @@ export default function Search() {
   }, [rankYear, levelRank, rankOrder]);
 
   return (
-    <main className="flex flex-col items-center mx-[100px]">
+    <main id="main" className="flex flex-col items-center mx-[100px]">
       <Topics
         title="Desigualdade Racial"
         text="Investigue a relação entre pretos/pardos e brancos em diferentes aspectos relacionados à educação no estado de Minas Gerais"
@@ -87,7 +87,7 @@ export default function Search() {
         text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
       />
       <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 ml-8 my-5">
+        <div id="second-filters" className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 ml-8 my-5">
           <FilterSearch
             label="Município"
             options={listaMunicipios}
@@ -127,7 +127,7 @@ export default function Search() {
           <FilterSearch label="Ano" options={anos} search={false} onSelect={(option: string) => setRankYear(option)} />
           <FilterSearch
             search={false}
-            label="Etapa de Ensino"
+            label="Etapa de ensino"
             options={optionsEtapasGraf2}
             onSelect={(option: string) => setLevelRank(option)}
           />
