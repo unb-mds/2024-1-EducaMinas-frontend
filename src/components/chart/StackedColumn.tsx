@@ -10,7 +10,7 @@ export function StackedChart({ series, categories }: Props) {
   const colors = ['#FF204E', '#40679E'];
 
   return (
-    <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px]">
+    <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px]" data-testid="stacked-chart">
       <Chart
         type="bar"
         width="100%"
