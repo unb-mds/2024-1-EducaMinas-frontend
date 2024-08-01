@@ -33,10 +33,10 @@ Data: 31/07/2024
 Local: UNB Gama
 
 **Ata:**
-Reunião de fechamento da sprint, onde foram apresentadas as evoluções, dificuldades e conquistas da semana.
+Reunião de fechamento da sprint, onde foram apresentadas as evoluções, dificuldades e conquistas da semana. Ambas as equipes apresentaram um avanço considerável, sendo essa uma das sprints mais produtivas.
 
 ---
 
 ## Finalização
-
+No frontend, todos os objetivos foram alcançados, os testes de todos os componentes foram concluídos com cobertura de código satisfatória. As pipelines de qualidade em ambos os repositórios foram implementadas com sucesso, e agora, a cada Pull Request são verificados: linter, testes e build. No backend, os services não foram totalmente concluídos, apenas o de matrícula e ranking, estando pendente para a próxima sprint o de indicadores.
 ---
