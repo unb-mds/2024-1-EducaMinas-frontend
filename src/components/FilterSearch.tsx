@@ -2,21 +2,26 @@
 import { CaretDown, CaretUp, Check } from '@phosphor-icons/react';
 import { useState } from 'react';
 
+interface options {
+  value: string;
+  nome: string;
+}
+
 interface FilterProps {
-  options: string[];
+  options: options[];
   label: string;
   search: boolean;
-  onSelect: (option: string) => void;
+  onSelect: (option: options) => void;
 }
 
 export default function FilterSearch({ options, label, search, onSelect }: FilterProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(options[0]);
+  const [selectedOption, setSelectedOption] = useState(options[0].nome);
   const [searchTerm, setSearchTerm] = useState('');
-  const filteredOptions = options.filter((option) => option.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredOptions = options.filter((option) => option.nome.toLowerCase().includes(searchTerm.toLowerCase()));
 
-  const handleOptionClick = (option: string) => {
-    setSelectedOption(option);
+  const handleOptionClick = (option: options) => {
+    setSelectedOption(option.nome);
     setIsOpen(false);
     onSelect(option);
   };
@@ -55,7 +60,7 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
                 className="p-2 hover:bg-primary-blue hover:text-white flex justify-between cursor-pointer"
                 onClick={() => handleOptionClick(option)}
               >
-                <span className="whitespace-nowrap overflow-hidden text-ellipsis">{option}</span>
+                <span className="whitespace-nowrap overflow-hidden text-ellipsis">{option.nome}</span>
                 <Check color="#ffffff" weight="bold" className="mt-[2px]" size={15} />
               </li>
             ))}

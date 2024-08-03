@@ -31,15 +31,15 @@ const StackedChart = dynamic(() => import('@/components/chart/StackedColumn').th
 });
 
 export default function Search() {
-  const [cityG1, setCityG1] = useState<string>(listaMunicipios[0]);
-  const [levelG1, setLevelG1] = useState<string>(optionsEtapas[0]);
-  const [cityG2, setCityG2] = useState<string>(listaMunicipios[0]);
-  const [levelG2, setLevelG2] = useState<string>(optionsEtapasGraf2[0]);
-  const [indicators, setIndicators] = useState<string>(indicadoresGraf2[0]);
-  const [rede, setRede] = useState<string>(redeGraf2[0]);
-  const [rankYear, setRankYear] = useState<string>(anos[0]);
-  const [levelRank, setLevelRank] = useState<string>(optionsEtapas[0]);
-  const [rankOrder, setRankOrder] = useState(rank[0]);
+  const [cityG1, setCityG1] = useState<string>(listaMunicipios[0].value);
+  const [levelG1, setLevelG1] = useState<string>(optionsEtapas[0].value);
+  const [cityG2, setCityG2] = useState<string>(listaMunicipios[0].value);
+  const [levelG2, setLevelG2] = useState<string>(optionsEtapasGraf2[0].value);
+  const [indicators, setIndicators] = useState<string>(indicadoresGraf2[0].value);
+  const [rede, setRede] = useState<string>(redeGraf2[0].value);
+  const [rankYear, setRankYear] = useState<string>(anos[0].value);
+  const [levelRank, setLevelRank] = useState<string>(optionsEtapas[0].value);
+  const [rankOrder, setRankOrder] = useState(rank[0].value);
 
   useEffect(() => {
     enrollmentService.get({ city: cityG1, level: levelG1 });
@@ -71,13 +71,13 @@ export default function Search() {
             label="Município"
             options={listaMunicipios}
             search={true}
-            onSelect={(option: string) => setCityG1(option)}
+            onSelect={(option) => setCityG1(option.value)}
           />
           <FilterSearch
             search={false}
             label="Etapa de ensino"
             options={optionsEtapas}
-            onSelect={(option: string) => setLevelG1(option)}
+            onSelect={(option) => setLevelG1(option.value)}
           />
         </div>
         <StackedChart series={barChartSeries} categories={chartCategories} />
@@ -92,25 +92,25 @@ export default function Search() {
             label="Município"
             options={listaMunicipios}
             search={true}
-            onSelect={(option: string) => setCityG2(option)}
+            onSelect={(option) => setCityG2(option.value)}
           />
           <FilterSearch
             search={false}
             label="Etapa de ensino"
             options={optionsEtapasGraf2}
-            onSelect={(option: string) => setLevelG2(option)}
+            onSelect={(option) => setLevelG2(option.value)}
           />
           <FilterSearch
             search={false}
             label="Rede de ensino"
             options={redeGraf2}
-            onSelect={(option: string) => setRede(option)}
+            onSelect={(option) => setRede(option.value)}
           />
           <FilterSearch
             search={false}
             label="Indicadores"
             options={indicadoresGraf2}
-            onSelect={(option: string) => setIndicators(option)}
+            onSelect={(option) => setIndicators(option.value)}
           />
         </div>
         <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />
@@ -124,18 +124,18 @@ export default function Search() {
       "
       >
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 my-5">
-          <FilterSearch label="Ano" options={anos} search={false} onSelect={(option: string) => setRankYear(option)} />
+          <FilterSearch label="Ano" options={anos} search={false} onSelect={(option) => setRankYear(option.value)} />
           <FilterSearch
             search={false}
             label="Etapa de ensino"
             options={optionsEtapasGraf2}
-            onSelect={(option: string) => setLevelRank(option)}
+            onSelect={(option) => setLevelRank(option.value)}
           />
           <FilterSearch
             label="Critério"
             options={rank}
             search={false}
-            onSelect={(option: string) => setRankOrder(option)}
+            onSelect={(option) => setRankOrder(option.value)}
           />
         </div>
         <div className=" flex items-center justify-center">
