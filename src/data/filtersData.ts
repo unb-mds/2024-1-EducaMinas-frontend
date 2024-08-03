@@ -80,7 +80,7 @@ export const redeGraf2 = [
 ];
 
 export const listaMunicipios = [
-  { value: '0', nome: 'Todos' },
+  { value: '1', nome: 'Todos' },
   { value: '3100104', nome: 'Abadia dos Dourados' },
   { value: '3100203', nome: 'Abaeté' },
   { value: '3100302', nome: 'Abre Campo' },
