@@ -3,7 +3,6 @@ name: CI Deploy Docs
 on:
   pull_request:
     branches:
-      - develop
       - main
 
 permissions:
