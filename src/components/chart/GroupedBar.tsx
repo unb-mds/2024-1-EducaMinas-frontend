@@ -13,11 +13,11 @@ export function GroupedBarChart({ series, categories }: Props) {
   const colors = ['#FF204E', '#40679E'];
 
   return (
-    <div>
+    <div className="w-[89.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[400px]" data-testid="grouped-bar-chart">
       <Chart
         type="bar"
-        width={1150}
-        height={600}
+        width="100%"
+        height="100%"
         options={{
           chart: {
             type: 'bar',
@@ -58,6 +58,27 @@ export function GroupedBarChart({ series, categories }: Props) {
             width: 2,
             colors: ['#fff'],
           },
+          responsive: [
+            {
+              breakpoint: 1000,
+              options: {
+                plotOptions: {
+                  bar: {
+                    horizontal: false,
+                  },
+                },
+                dataLabels: {
+                  enabled: false,
+                },
+                legend: {
+                  position: 'bottom',
+                  fontSize: '12px',
+                  offsetX: -10,
+                  offsetY: 0,
+                },
+              },
+            },
+          ],
           xaxis: { categories },
           colors,
           fill: { opacity: 1 },

@@ -1,89 +1,99 @@
 'use client';
-import Filter from '@/components/Filter';
+import FilterSearch from '@/components/FilterSearch';
 import Ranking from '@/components/Ranking';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
-import { GroupedBarChart } from '@/components/chart/GroupedBar';
-import { StackedChart } from '@/components/chart/StackedColumn';
-import axios from 'axios';
+import {
+  anos,
+  barChartSeries,
+  chartCategories,
+  groupedBarChartCategories,
+  groupedBarChartSeries,
+  indicadoresGraf2,
+  listaMunicipios,
+  optionsEtapas,
+  optionsEtapasGraf2,
+  rank,
+  rankingdata,
+  redeGraf2,
+} from '@/data/filtersData';
+import { enrollmentService } from '@/services/EnrollmentService';
+import { indicatorsService } from '@/services/IndicatorsService';
+import { rankingService } from '@/services/RankingService';
+import { Enrollment } from '@/types/Enrollment';
+import { Indicator } from '@/types/Indicator';
+import { RankingItem } from '@/types/Ranking';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
+const GroupedBarChart = dynamic(() => import('@/components/chart/GroupedBar').then((mod) => mod.GroupedBarChart), {
+  ssr: false,
+});
+const StackedChart = dynamic(() => import('@/components/chart/StackedColumn').then((mod) => mod.StackedChart), {
+  ssr: false,
+});
+
 export default function Search() {
-  const [municipios, setMunicipios] = useState<string[]>([]);
+  const [cityG1, setCityG1] = useState<string>(listaMunicipios[0].value);
+  const [levelG1, setLevelG1] = useState<string>(optionsEtapas[0].value);
+  const [cityG2, setCityG2] = useState<string>(listaMunicipios[0].value);
+  const [levelG2, setLevelG2] = useState<string>(optionsEtapasGraf2[0].value);
+  const [indicators, setIndicators] = useState<string>(indicadoresGraf2[0].value);
+  const [rede, setRede] = useState<string>(redeGraf2[0].value);
+  const [rankYear, setRankYear] = useState<string>(anos[0].value);
+  const [levelRank, setLevelRank] = useState<string>(optionsEtapas[0].value);
+  const [rankOrder, setRankOrder] = useState(rank[0].value);
 
-  const barChartSeries = [
-    {
-      name: 'Pretos/Pardos',
-      data: [10, 19, 33, 50, 23, 44, 14, 90],
-    },
-    {
-      name: 'Brancos',
-      data: [32, 41, 12, 85, 98, 30, 54, 75],
-    },
-  ];
+  const [enrollmentData, setEnrollmentData] = useState<Enrollment | null>(null);
+  const [indicatorsData, setIndicatorsData] = useState<Indicator | null>(null);
+  const [rankingData, setRankingData] = useState<RankingItem[] | null>(null);
 
-  const chartCategories = [
-    '2020 Pública',
-    '2020 Privada',
-    '2021 Pública',
-    '2021 Privada',
-    '2022 Pública',
-    '2022 Privada',
-    '2023 Pública',
-    '2023 Privada',
-  ];
-
-  const groupedBarChartCategories = ['2017', '2018', '2019', '2020', '2021', '2022'];
-  const groupedBarChartSeries = [
-    {
-      name: 'Pretos/Pardos',
-      data: [10, 19, 33, 50, 23, 44],
-    },
-    {
-      name: 'Brancos',
-      data: [32, 41, 12, 85, 98, 30],
-    },
-  ];
-
-  const rankingdata = [
-    { name: 'Patos de Minas', value: 10 },
-    { name: 'Curvelo', value: 12 },
-    { name: 'Buritizeiro', value: 5 },
-    { name: 'Belo horizonte', value: 8 },
-    { name: 'Alagoas', value: 8 },
-    { name: 'Juiz de Fora', value: 3 },
-    { name: 'João Pinheiro', value: 1 },
-  ];
-  const anos = ['2020', '2021', '2022'];
-  const rank = ['menor', 'maior'];
   useEffect(() => {
-    axios
-      .get<any[]>(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/31/municipios?orderBy=name`)
-      .then((res) => {
-        console.log('Dados recebidos:', res.data);
-        const municipiosName: string[] = ['Todos'];
-        res.data.map((mun: any) => {
-          municipiosName.push(mun.nome);
-          return null;
-        });
-        setMunicipios(municipiosName);
-        setSelectedOptionFromFilter(municipiosName[0]);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    async function fetchEnrollmentData() {
+      try {
+        const response = await enrollmentService.get({ city: cityG1, level: levelG1 });
+        setEnrollmentData(response);
+      } catch (error) {
+        console.error('Erro ao buscar dados de matrícula:', error);
+      }
+    }
 
-  const optionsEtapas = ['Todas', 'Educação Infantil', 'Ensino Fundamental', 'Ensino Médio'];
-  const [selectedOptionFromFilter, setSelectedOptionFromFilter] = useState('');
-  const handleSelectOptionFromFilter = (selectedOption: string) => {
-    setSelectedOptionFromFilter(selectedOption);
-  };
-  const [orderFilter, setOrderFilter] = useState('menor');
-  const handleOrderFilter = (selectedOption: string) => {
-    setOrderFilter(selectedOption);
-  };
+    fetchEnrollmentData();
+  }, [cityG1, levelG1]);
+
+  useEffect(() => {
+    async function fetchIndicatorsData() {
+      try {
+        const response = await indicatorsService.get({
+          city: cityG2,
+          level: levelG2,
+          indicator: indicators,
+          sector: rede,
+        });
+        setIndicatorsData(response);
+      } catch (error) {
+        console.error('Erro ao buscar indicador: ', error);
+      }
+    }
+
+    fetchIndicatorsData();
+  }, [cityG2, levelG2, indicators, rede]);
+
+  useEffect(() => {
+    async function fetchRankingData() {
+      try {
+        const response = await rankingService.get({ year: rankYear, level: levelRank, order: rankOrder });
+        setRankingData(response);
+      } catch (error) {
+        console.error('Erro ao buscar ranking: ', error);
+      }
+    }
+
+    fetchRankingData();
+  }, [rankYear, levelRank, rankOrder]);
 
   return (
-    <main className="flex flex-col items-center mx-[100px]">
+    <main id="main" className="flex flex-col items-center mx-[100px]">
       <Topics
         title="Desigualdade Racial"
         text="Investigue a relação entre pretos/pardos e brancos em diferentes aspectos relacionados à educação no estado de Minas Gerais"
@@ -96,32 +106,86 @@ export default function Search() {
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
         <div className="flex space-x-8 ml-8 my-5">
-          <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
+          <FilterSearch
+            label="Município"
+            options={listaMunicipios}
+            search={true}
+            onSelect={(option) => setCityG1(option.value)}
+          />
+          <FilterSearch
+            search={false}
+            label="Etapa de ensino"
+            options={optionsEtapas}
+            onSelect={(option) => setLevelG1(option.value)}
+          />
         </div>
-        <StackedChart series={barChartSeries} categories={chartCategories} />
+        <StackedChart
+          series={enrollmentData?.series || barChartSeries}
+          categories={enrollmentData?.categories || chartCategories}
+        />
       </div>
       <Subtopics
         title="Percentual de Reprovações"
         text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
       />
       <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div className="flex space-x-8 ml-8 my-5">
-          <Filter label="Município" options={municipios} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Etapa de ensino" options={optionsEtapas} onSelectOption={handleSelectOptionFromFilter} />
+        <div id="second-filters" className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 ml-8 my-5">
+          <FilterSearch
+            label="Município"
+            options={listaMunicipios}
+            search={true}
+            onSelect={(option) => setCityG2(option.value)}
+          />
+          <FilterSearch
+            search={false}
+            label="Etapa de ensino"
+            options={optionsEtapasGraf2}
+            onSelect={(option) => setLevelG2(option.value)}
+          />
+          <FilterSearch
+            search={false}
+            label="Rede de ensino"
+            options={redeGraf2}
+            onSelect={(option) => setRede(option.value)}
+          />
+          <FilterSearch
+            search={false}
+            label="Indicadores"
+            options={indicadoresGraf2}
+            onSelect={(option) => setIndicators(option.value)}
+          />
         </div>
-        <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />
+        <GroupedBarChart
+          series={indicatorsData?.series || groupedBarChartSeries}
+          categories={indicatorsData?.categories.map((item) => item.toString()) || groupedBarChartCategories}
+        />
       </div>
       <Subtopics
         title="Ranking de municípios"
         text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
       />
-      <div className="flex flex-col mt-3 primary-gray mb-3 w-[70%]">
-        <div className="flex space-x-8  my-5">
-          <Filter label="Ano" options={anos} onSelectOption={handleSelectOptionFromFilter} />
-          <Filter label="Critério" options={rank} onSelectOption={handleOrderFilter} />
+      <div
+        className="flex flex-col mt-3 primary-gray mb-3
+      "
+      >
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 my-5">
+          <FilterSearch label="Ano" options={anos} search={false} onSelect={(option) => setRankYear(option.value)} />
+          <FilterSearch
+            search={false}
+            label="Etapa de ensino"
+            options={optionsEtapasGraf2}
+            onSelect={(option) => setLevelRank(option.value)}
+          />
+          <FilterSearch
+            label="Critério"
+            options={rank}
+            search={false}
+            onSelect={(option) => setRankOrder(option.value)}
+          />
         </div>
-        <Ranking order={orderFilter} data={rankingdata} />
+        <div className=" flex items-center justify-center">
+          <Ranking order={rankOrder} data={rankingData || rankingdata} />
+        </div>
       </div>
     </main>
   );

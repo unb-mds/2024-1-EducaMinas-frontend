@@ -10,11 +10,11 @@ export function StackedChart({ series, categories }: Props) {
   const colors = ['#FF204E', '#40679E'];
 
   return (
-    <div>
+    <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px]" data-testid="stacked-chart">
       <Chart
         type="bar"
-        width={1150}
-        height={600}
+        width="100%"
+        height="100%"
         options={{
           chart: {
             type: 'bar',
@@ -36,6 +36,24 @@ export function StackedChart({ series, categories }: Props) {
               },
             },
           },
+          responsive: [
+            {
+              breakpoint: 1030,
+              options: {
+                legend: {
+                  position: 'bottom',
+                  fontSize: '12px',
+                  offsetX: -10,
+                  offsetY: 0,
+                },
+                dataLabels: {
+                  style: {
+                    fontSize: '10px',
+                  },
+                },
+              },
+            },
+          ],
           xaxis: { categories },
           legend: {
             position: 'right',

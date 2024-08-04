@@ -6,10 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest --coverage"
   },
   "dependencies": {
-    "@phosphor-icons/react": "^2.1.4",
+    "@phosphor-icons/react": "^2.1.7",
     "apexcharts": "^3.49.0",
     "axios": "^1.6.8",
     "next": "14.1.4",
@@ -21,14 +22,21 @@
   },
   "devDependencies": {
     "@lucasbruno/eslint-config": "^1.0.7",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
+    "@types/next": "^9.0.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-v8": "^2.0.4",
     "autoprefixer": "^10.0.1",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.1.4",
+    "jsdom": "^24.1.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2.0.4"
   }
 }
