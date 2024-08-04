@@ -1,3 +1,6 @@
+import { axios } from '@/lib/axios';
+import { RankingItem } from '@/types/Ranking';
+
 type getDataProps = {
   year: string;
   level: string;
@@ -5,9 +8,21 @@ type getDataProps = {
 };
 
 class RankingService {
-  async get(params: getDataProps) {
-    // logica de requisição
-    console.log(`Ano: ${params.year} | Etapa: ${params.level} | Ordem: ${params.order}`);
+  private path = '/api/ranking';
+
+  async get(filters: getDataProps): Promise<RankingItem[] | null> {
+    const { year, level, order } = filters;
+
+    try {
+      const response = await axios.get<RankingItem[]>(this.path, {
+        params: { ano: year, etapa: level, ordem: order },
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Erro ao buscar dados de ranking:', error);
+      return null;
+    }
   }
 }
+
 export const rankingService = new RankingService();

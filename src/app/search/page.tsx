@@ -20,6 +20,9 @@ import {
 import { enrollmentService } from '@/services/EnrollmentService';
 import { indicatorsService } from '@/services/IndicatorsService';
 import { rankingService } from '@/services/RankingService';
+import { Enrollment } from '@/types/Enrollment';
+import { Indicator } from '@/types/Indicator';
+import { RankingItem } from '@/types/Ranking';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
@@ -41,16 +44,52 @@ export default function Search() {
   const [levelRank, setLevelRank] = useState<string>(optionsEtapas[0].value);
   const [rankOrder, setRankOrder] = useState(rank[0].value);
 
+  const [enrollmentData, setEnrollmentData] = useState<Enrollment | null>(null);
+  const [indicatorsData, setIndicatorsData] = useState<Indicator | null>(null);
+  const [rankingData, setRankingData] = useState<RankingItem[] | null>(null);
+
   useEffect(() => {
-    enrollmentService.get({ city: cityG1, level: levelG1 });
+    async function fetchEnrollmentData() {
+      try {
+        const response = await enrollmentService.get({ city: cityG1, level: levelG1 });
+        setEnrollmentData(response);
+      } catch (error) {
+        console.error('Erro ao buscar dados de matrícula:', error);
+      }
+    }
+
+    fetchEnrollmentData();
   }, [cityG1, levelG1]);
 
   useEffect(() => {
-    indicatorsService.get({ city: cityG2, level: levelG2, indicator: indicators, sector: rede });
+    async function fetchIndicatorsData() {
+      try {
+        const response = await indicatorsService.get({
+          city: cityG2,
+          level: levelG2,
+          indicator: indicators,
+          sector: rede,
+        });
+        setIndicatorsData(response);
+      } catch (error) {
+        console.error('Erro ao buscar indicador: ', error);
+      }
+    }
+
+    fetchIndicatorsData();
   }, [cityG2, levelG2, indicators, rede]);
 
   useEffect(() => {
-    rankingService.get({ year: rankYear, level: levelRank, order: rankOrder });
+    async function fetchRankingData() {
+      try {
+        const response = await rankingService.get({ year: rankYear, level: levelRank, order: rankOrder });
+        setRankingData(response);
+      } catch (error) {
+        console.error('Erro ao buscar ranking: ', error);
+      }
+    }
+
+    fetchRankingData();
   }, [rankYear, levelRank, rankOrder]);
 
   return (
@@ -80,7 +119,10 @@ export default function Search() {
             onSelect={(option) => setLevelG1(option.value)}
           />
         </div>
-        <StackedChart series={barChartSeries} categories={chartCategories} />
+        <StackedChart
+          series={enrollmentData?.series || barChartSeries}
+          categories={enrollmentData?.categories || chartCategories}
+        />
       </div>
       <Subtopics
         title="Percentual de Reprovações"
@@ -113,7 +155,10 @@ export default function Search() {
             onSelect={(option) => setIndicators(option.value)}
           />
         </div>
-        <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />
+        <GroupedBarChart
+          series={indicatorsData?.series || groupedBarChartSeries}
+          categories={indicatorsData?.categories.map((item) => item.toString()) || groupedBarChartCategories}
+        />
       </div>
       <Subtopics
         title="Ranking de municípios"
@@ -139,7 +184,7 @@ export default function Search() {
           />
         </div>
         <div className=" flex items-center justify-center">
-          <Ranking order={rankOrder} data={rankingdata} />
+          <Ranking order={rankOrder} data={rankingData || rankingdata} />
         </div>
       </div>
     </main>
