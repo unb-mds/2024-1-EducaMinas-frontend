@@ -1,7 +1,7 @@
-name: CI Deploy Docs
+name: GH Pages Docs Deploy
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy-docs:
+  Deploy-Docs:
     runs-on: ubuntu-latest
 
     steps:
