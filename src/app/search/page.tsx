@@ -24,7 +24,6 @@ import { rankingService } from '@/services/RankingService';
 import { Enrollment } from '@/types/Enrollment';
 import { Indicator } from '@/types/Indicator';
 import { RankingItem } from '@/types/Ranking';
-import { Info } from '@phosphor-icons/react';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
@@ -102,10 +101,14 @@ export default function Search() {
         text="Investigue a relação entre pretos/pardos e brancos em diferentes aspectos relacionados à educação no estado de Minas Gerais"
       />
 
-      <Subtopics
-        title="Matrículas por rede de ensino"
-        text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
-      />
+      <div className="flex flex-col items-start md:flex-row md:items-center md:space-x-4 mt-8">
+        <Subtopics
+          title="Matrículas por rede de ensino"
+          text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
+        />
+
+        <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+      </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
         <div className="flex space-x-8 ml-8 my-5 items-center">
@@ -127,17 +130,17 @@ export default function Search() {
             series={enrollmentData?.series || barChartSeries}
             categories={enrollmentData?.categories || chartCategories}
           />
-          <button onClick={() => setIsPopupOpen(true)} className="ml-2 p-2 text-black-500">
-            <Info size={24} />
-          </button>
-          <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
-        </div>{' '}
+        </div>
       </div>
 
-      <Subtopics
-        title="Percentual de Reprovações"
-        text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
-      />
+      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 mt-8">
+        <Subtopics
+          title="Percentual de Reprovações"
+          text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
+        />
+
+        <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+      </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
         <div id="second-filters" className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 ml-8 my-5">
@@ -171,17 +174,17 @@ export default function Search() {
             series={indicatorsData?.series || groupedBarChartSeries}
             categories={indicatorsData?.categories.map((item) => item.toString()) || groupedBarChartCategories}
           />
-          <button onClick={() => setIsPopupOpen(true)} className="ml-2 p-2 text-black-500">
-            <Info size={24} />
-          </button>
-          <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
         </div>
       </div>
 
-      <Subtopics
-        title="Ranking de municípios"
-        text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
-      />
+      <div className=" md:items-center flex md:space-x-4 mt-8">
+        <Subtopics
+          title="Ranking de municípios"
+          text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
+        />
+
+        <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+      </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 my-5">
@@ -201,10 +204,6 @@ export default function Search() {
         </div>
         <div className="flex items-center justify-center space-x-2">
           <Ranking order={rankOrder} data={rankingData || rankingdata} />
-          <button onClick={() => setIsPopupOpen(true)} className="p-2 text-black-500">
-            <Info size={24} />
-          </button>
-          <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
         </div>
       </div>
     </main>
