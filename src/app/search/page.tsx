@@ -99,13 +99,17 @@ export default function Search() {
         text="Investigue a relação entre pretos/pardos e brancos em diferentes aspectos relacionados à educação no estado de Minas Gerais"
       />
 
-      <Subtopics
-        title="Matrículas por rede de ensino"
-        text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
-      />
+      <div className="flex flex-col items-start md:flex-row md:items-center md:space-x-4 mt-8">
+        <Subtopics
+          title="Matrículas por rede de ensino"
+          text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
+          Popuptext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula felis non orci congue, nec aliquet odio euismod. Fusce nec consequat massa, sed tempor lorem. Sed consequat nisi vitae augue laoreet, id fring só pra mostrar que mudou"
+          Popuptitle="Destinado ao título"
+        />
+      </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div className="flex space-x-8 ml-8 my-5">
+        <div className="flex space-x-8 ml-8 my-5 items-center">
           <FilterSearch
             label="Município"
             options={listaMunicipios}
@@ -119,15 +123,23 @@ export default function Search() {
             onSelect={(option) => setLevelG1(option.value)}
           />
         </div>
-        <StackedChart
-          series={enrollmentData?.series || barChartSeries}
-          categories={enrollmentData?.categories || chartCategories}
+        <div className="flex items-center">
+          <StackedChart
+            series={enrollmentData?.series || barChartSeries}
+            categories={enrollmentData?.categories || chartCategories}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 mt-8">
+        <Subtopics
+          title="Percentual de Reprovações"
+          text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
+          Popuptext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula felis non orci congue, nec aliquet odio euismod. Fusce nec consequat massa, sed tempor lorem. Sed consequat nisi vitae augue laoreet, id fring"
+          Popuptitle=" Espaço destinado ao titulo"
         />
       </div>
-      <Subtopics
-        title="Percentual de Reprovações"
-        text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
-      />
+
       <div className="flex flex-col mt-3 primary-gray mb-3">
         <div id="second-filters" className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 ml-8 my-5">
           <FilterSearch
@@ -155,19 +167,24 @@ export default function Search() {
             onSelect={(option) => setIndicators(option.value)}
           />
         </div>
-        <GroupedBarChart
-          series={indicatorsData?.series || groupedBarChartSeries}
-          categories={indicatorsData?.categories.map((item) => item.toString()) || groupedBarChartCategories}
+        <div className="flex items-center">
+          <GroupedBarChart
+            series={indicatorsData?.series || groupedBarChartSeries}
+            categories={indicatorsData?.categories.map((item) => item.toString()) || groupedBarChartCategories}
+          />
+        </div>
+      </div>
+
+      <div className=" md:items-center flex md:space-x-4 mt-8">
+        <Subtopics
+          title="Ranking de municípios"
+          text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
+          Popuptext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula felis non orci congue, nec aliquet odio euismod. Fusce nec consequat massa, sed tempor lorem. Sed consequat nisi vitae augue laoreet, id fring"
+          Popuptitle=" Espaço pro título"
         />
       </div>
-      <Subtopics
-        title="Ranking de municípios"
-        text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
-      />
-      <div
-        className="flex flex-col mt-3 primary-gray mb-3
-      "
-      >
+
+      <div className="flex flex-col mt-3 primary-gray mb-3">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 my-5">
           <FilterSearch label="Ano" options={anos} search={false} onSelect={(option) => setRankYear(option.value)} />
           <FilterSearch
@@ -183,7 +200,7 @@ export default function Search() {
             onSelect={(option) => setRankOrder(option.value)}
           />
         </div>
-        <div className=" flex items-center justify-center">
+        <div className="flex items-center justify-center space-x-2">
           <Ranking order={rankOrder} data={rankingData || rankingdata} />
         </div>
       </div>
