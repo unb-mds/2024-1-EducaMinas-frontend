@@ -3,7 +3,6 @@ import FilterSearch from '@/components/FilterSearch';
 import Ranking from '@/components/Ranking';
 import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
-import Popup from '@/components/Window';
 import {
   anos,
   barChartSeries,
@@ -44,7 +43,6 @@ export default function Search() {
   const [rankYear, setRankYear] = useState<string>(anos[0].value);
   const [levelRank, setLevelRank] = useState<string>(optionsEtapas[0].value);
   const [rankOrder, setRankOrder] = useState(rank[0].value);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const [enrollmentData, setEnrollmentData] = useState<Enrollment | null>(null);
   const [indicatorsData, setIndicatorsData] = useState<Indicator | null>(null);
@@ -105,9 +103,9 @@ export default function Search() {
         <Subtopics
           title="Matrículas por rede de ensino"
           text="O gráfico representa o número total de matrículas em porcentagem, apenas entre brancos e pretos/pardos, ignorando ‘Outra’ e ‘Não disp.’ na rede de ensino pública e privada nos últimos 4 anos"
+          Popuptext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula felis non orci congue, nec aliquet odio euismod. Fusce nec consequat massa, sed tempor lorem. Sed consequat nisi vitae augue laoreet, id fring só pra mostrar que mudou"
+          Popuptitle="Destinado ao título"
         />
-
-        <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
       </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
@@ -137,9 +135,9 @@ export default function Search() {
         <Subtopics
           title="Percentual de Reprovações"
           text="O índice indica a proporção de alunos que, ao final do ano letivo, nao alcançou os critérios mínimos para a conclusão da etapa de ensino"
+          Popuptext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula felis non orci congue, nec aliquet odio euismod. Fusce nec consequat massa, sed tempor lorem. Sed consequat nisi vitae augue laoreet, id fring"
+          Popuptitle=" Espaço destinado ao titulo"
         />
-
-        <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
       </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
@@ -181,9 +179,9 @@ export default function Search() {
         <Subtopics
           title="Ranking de municípios"
           text="Municípios classificados pelo módulo da diferença percentual de reprovações entre pretos/pardos e brancos em todas as etapas de ensino."
+          Popuptext="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula felis non orci congue, nec aliquet odio euismod. Fusce nec consequat massa, sed tempor lorem. Sed consequat nisi vitae augue laoreet, id fring"
+          Popuptitle=" Espaço pro título"
         />
-
-        <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
       </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
