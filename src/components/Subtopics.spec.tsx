@@ -10,7 +10,7 @@ vi.mock('next/router', () => ({
 
 describe('Subtopics Component', () => {
   test('renders the title and text correctly', () => {
-    render(<Subtopics title="Test Title" text="Test Text" />);
+    render(<Subtopics title="Test Title" text="Test Text" Popuptext="Test Popup Text" Popuptitle="Test Popup Title" />);
     const titleElement = screen.getByText(/Test Title/i);
     expect(titleElement).toBeInTheDocument();
     const textElement = screen.getByText(/Test Text/i);
@@ -18,7 +18,7 @@ describe('Subtopics Component', () => {
   });
 
   test('applies the correct classes', () => {
-    render(<Subtopics title="Test Title" text="Test Text" />);
+    render(<Subtopics title="Test Title" text="Test Text" Popuptext="Test Popup Text" Popuptitle="Test Popup Title" />);
     const containerElement = screen.getByText(/Test Title/i).parentElement;
     expect(containerElement).toHaveClass('flex flex-row');
 
@@ -29,25 +29,22 @@ describe('Subtopics Component', () => {
   });
 
   test('opens and closes the popup when the Info button and X button are clicked', () => {
-    render(<Subtopics title="Test Title" text="Test Text" />);
+    render(<Subtopics title="Test Title" text="Test Text" Popuptext="Test Popup Text" Popuptitle="Test Popup Title" />);
 
-    // Encontra o botão Info pelo elemento SVG
     const infoButton = screen.getByRole('button');
     fireEvent.click(infoButton);
 
-    // Verifica se o Popup está no documento após o clique no Info
     const popup = screen.queryByTestId('popup');
     expect(popup).toBeInTheDocument();
 
-    // Simula o clique no botão X do Popup para fechar o Popup
-    const closeButton = screen.getByTestId('close-button'); // Usa o data-testid para encontrar o botão de fechar
+    const closeButton = screen.getByTestId('close-button');
     fireEvent.click(closeButton);
 
-    // Verifica se o Popup foi fechado
     expect(screen.queryByTestId('popup')).not.toBeInTheDocument();
   });
+
   test('does not render the popup when isOpen is false', () => {
-    render(<Subtopics title="Test Title" text="Test Text" />);
+    render(<Subtopics title="Test Title" text="Test Text" Popuptext="Test Popup Text" Popuptitle="Test Popup Title" />);
 
     expect(screen.queryByTestId('popup')).not.toBeInTheDocument();
   });
