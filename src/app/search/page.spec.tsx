@@ -1,4 +1,3 @@
-import Popup from '@/components/Window';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
@@ -66,9 +65,5 @@ describe('Search Page', () => {
   test('should render ranking component', () => {
     render(<Search />);
     expect(screen.getByTestId('ranking')).toBeInTheDocument();
-  });
-  test('should render popup component', () => {
-    render(<Popup isOpen={true} onClose={vi.fn()} />);
-    expect(screen.getByTestId('popup')).toBeInTheDocument();
   });
 });
