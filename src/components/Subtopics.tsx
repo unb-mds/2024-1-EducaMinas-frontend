@@ -2,9 +2,9 @@
 import { useState } from 'react';
 
 import { Info } from '@phosphor-icons/react';
-import Popup from './Window';
+import Popup from './Popup';
 
-export default function Subtopics(props: { title: string; text: string }) {
+export default function Subtopics(props: { title: string; text: string; Popuptext: string; Popuptitle: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -25,7 +25,7 @@ export default function Subtopics(props: { title: string; text: string }) {
       </div>
       <h3 className="text-[0.9em] font-[600] text-center w-[97vw] pr-[5px] pl-[5px]">{props.text}</h3>
 
-      <Popup isOpen={isOpen} onClose={handleClose} />
+      <Popup isOpen={isOpen} onClose={handleClose} text={props.Popuptext} title={props.Popuptitle} />
     </div>
   );
 }
