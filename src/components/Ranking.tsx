@@ -20,12 +20,14 @@ export default function Ranking({ data, order }: Props) {
       {data.map((item, index) => (
         <div className="flex flex-row border-t-2 w-full md:h-[70px] h-[50px] items-center justify-between" key={index}>
           <div className="flex flex-row w-[80%] gap-5 items-center">
-            <div className="flex rounded-full bg-primary-blue md:w-[40px] md:h-[40px] w-[30px] h-[30px] justify-center items-center text-primary-white text-[20px] font-extrabold">
+            <div className="flex rounded-full bg-primary-blue md:w-[40px] md:h-[40px] sm:text-[18px] lg:text-[22px] w-[25px] h-[25px] justify-center items-center text-primary-white text-[13px] font-extrabold">
               {index + 1}
             </div>
-            <div className="flex-1 font-semibold md:text-[1.6em] text-[1.1em] mt-[5px] mb-[5px]">{item.name}</div>
+            <div className="flex-1 font-semibold md:text-[1.6em] sm:text-[1.3em] text-[1.05em] mt-[5px] mb-[5px]">
+              {item.name}
+            </div>
           </div>
-          <div className="mr-[15px] text-secondary-red font-extrabold text-[18px] md:text-[27px] italic ml-5">
+          <div className="mr-[15px] text-secondary-red font-extrabold text-[13px] md:text-[27px] sm:text-[18px] italic ml-5">
             {item.value}%
           </div>
         </div>

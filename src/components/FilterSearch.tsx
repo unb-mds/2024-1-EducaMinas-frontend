@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 interface options {
   value: string;
-  nome: string;
+  name: string;
 }
 
 interface FilterProps {
@@ -16,12 +16,12 @@ interface FilterProps {
 
 export default function FilterSearch({ options, label, search, onSelect }: FilterProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0].nome);
+  const [selectedOption, setSelectedOption] = useState(options[0].name);
   const [searchTerm, setSearchTerm] = useState('');
-  const filteredOptions = options.filter((option) => option.nome.toLowerCase().includes(searchTerm.toLowerCase()));
+  const filteredOptions = options.filter((option) => option.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   const handleOptionClick = (option: options) => {
-    setSelectedOption(option.nome);
+    setSelectedOption(option.name);
     setIsOpen(false);
     onSelect(option);
   };
@@ -60,7 +60,9 @@ export default function FilterSearch({ options, label, search, onSelect }: Filte
                 className="p-2 hover:bg-primary-blue hover:text-white flex justify-between cursor-pointer"
                 onClick={() => handleOptionClick(option)}
               >
-                <span className="whitespace-nowrap overflow-hidden text-ellipsis">{option.nome}</span>
+                <span className="whitespace-nowrap overflow-hidden md:text-[1em] sm:text-[0.9em] text-[0.7em] mr-0">
+                  {option.name}
+                </span>
                 <Check color="#ffffff" weight="bold" className="mt-[2px]" size={15} />
               </li>
             ))}

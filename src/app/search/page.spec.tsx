@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
 import Search from './page';
 
@@ -8,7 +8,29 @@ vi.mock('@/components/chart/StackedColumn', () => ({
 }));
 
 vi.mock('@/components/chart/GroupedBar', () => ({
-  GroupedBarChart: () => <div data-testid="grouped-bar-chart">Grouped Bar Chart</div>,
+  GroupedBarChart: () => <div data-testid="grouped-bar-chart">Grouped Bar</div>,
+}));
+
+vi.mock('@/components/Ranking', () => ({
+  default: () => <div data-testid="ranking">Ranking</div>,
+}));
+
+vi.mock('@/services/EnrollmentService', () => ({
+  enrollmentService: {
+    get: vi.fn().mockResolvedValue({ series: [], categories: [] }),
+  },
+}));
+
+vi.mock('@/services/IndicatorsService', () => ({
+  indicatorsService: {
+    get: vi.fn().mockResolvedValue({ series: [], categories: [] }),
+  },
+}));
+
+vi.mock('@/services/RankingService', () => ({
+  RankingService: {
+    get: vi.fn().mockResolvedValue([]),
+  },
 }));
 
 describe('Search Page', () => {
@@ -28,8 +50,8 @@ describe('Search Page', () => {
 
   test('should render "Etapa de ensino" filter', () => {
     render(<Search />);
-    const filterMun = screen.getAllByTestId('filter-Etapa-de-ensino');
-    expect(filterMun.length).toEqual(3);
+    const filterEtapa = screen.getAllByTestId('filter-Etapa-de-ensino');
+    expect(filterEtapa.length).toEqual(3);
   });
 
   test('should render "Ano" filter', () => {
@@ -52,18 +74,27 @@ describe('Search Page', () => {
     expect(screen.getByTestId('filter-Critério')).toBeInTheDocument();
   });
 
-  test('should render stacked chart', () => {
+  test('should render enrollment chart', async () => {
     render(<Search />);
-    expect(screen.getByTestId('stacked-chart')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getByTestId('stacked-chart')).toBeInTheDocument();
+    });
   });
 
-  test('should render grouped chart', () => {
+  test('should render indicators chart', async () => {
     render(<Search />);
-    expect(screen.getByTestId('grouped-bar-chart')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getByTestId('grouped-bar-chart')).toBeInTheDocument();
+    });
   });
 
-  test('should render ranking component', () => {
+  test('should render ranking component', async () => {
     render(<Search />);
-    expect(screen.getByTestId('ranking')).toBeInTheDocument();
+
+    await waitFor(() => {
+      expect(screen.getByTestId('ranking')).toBeInTheDocument();
+    });
   });
 });

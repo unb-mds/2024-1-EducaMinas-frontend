@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { describe, expect, test, vi } from 'vitest';
 import { GroupedBarChart } from './GroupedBar';
 
@@ -23,10 +23,7 @@ describe('GroupedBar Component', () => {
     },
   ];
   test('Should render GroupedBar Component', () => {
-    const { getByTestId } = render(
-      <GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />,
-    );
-    const chartElement = getByTestId('grouped-bar-chart');
-    expect(chartElement).toBeInTheDocument();
+    render(<GroupedBarChart series={groupedBarChartSeries} categories={groupedBarChartCategories} />);
+    expect(screen.getByTestId('grouped-bar-chart')).toBeInTheDocument();
   });
 });

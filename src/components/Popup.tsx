@@ -4,11 +4,11 @@ import React from 'react';
 interface PopupProps {
   isOpen: boolean;
   onClose: () => void;
-  text: string;
   title: string;
+  text: string;
 }
 
-const Popup: React.FC<PopupProps> = ({ isOpen, onClose, text, title }) => {
+const Popup: React.FC<PopupProps> = ({ isOpen, onClose, title, text }) => {
   if (!isOpen) return null;
 
   return (
