@@ -1,16 +1,16 @@
 import { axios } from '@/lib/axios';
 import { RankingItem } from '@/types/Ranking';
 
-type getDataProps = {
+export interface rankingFilter {
   year: string;
   level: string;
   order: string;
-};
+}
 
 class RankingService {
   private path = '/api/ranking';
 
-  async get(filters: getDataProps): Promise<RankingItem[] | null> {
+  async get(filters: rankingFilter): Promise<RankingItem[] | null> {
     const { year, level, order } = filters;
 
     try {
