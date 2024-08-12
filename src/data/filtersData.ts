@@ -22,7 +22,6 @@ export const enrollmentCategories = [
 
 export const enrollmentLevel = [
   { value: 'todas', name: 'Todas' },
-  { value: 'EI', name: 'Educação Infantil' },
   { value: 'EF1', name: 'Ensino Fundamental 1' },
   { value: 'EF2', name: 'Ensino Fundamental 2' },
   { value: 'EM', name: 'Ensino Médio' },
@@ -39,13 +38,13 @@ export const indicatorSeries = [
     data: [32, 41, 12, 85, 98, 30],
   },
 ];
-export const indicadorIndicators = [
+export const indicatorIndicators = [
   { value: 'reprovacao', name: 'Reprovação' },
   { value: 'evasao', name: 'Evasão' },
   { value: 'atraso escolar', name: 'Atraso Escolar' },
 ];
 
-export const indicadorLevel = [
+export const indicatorLevel = [
   { value: 'EI', name: 'Educação Infantil' },
   { value: 'EF1', name: 'Ensino Fundamental 1' },
   { value: 'EF2', name: 'Ensino Fundamental 2' },
@@ -58,7 +57,7 @@ export const indicatorSector = [
   { value: 'privada', name: 'Privada' },
 ];
 
-export const rankingCities = [
+export const rankingSeries = [
   { name: 'Patos de Minas', value: 10 },
   { name: 'Curvelo', value: 12 },
   { name: 'Conceição da Barra de Minas', value: 5 },

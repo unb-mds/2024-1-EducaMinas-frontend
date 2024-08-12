@@ -8,19 +8,19 @@ import {
   enrollmentCategories,
   enrollmentLevel,
   enrollmentSeries,
-  indicadorIndicators,
-  indicadorLevel,
+  indicatorIndicators,
+  indicatorLevel,
   indicatorCategories,
   indicatorSector,
   indicatorSeries,
-  rankingCities,
+  rankingSeries,
   rankingLevel,
   rankingOrder,
   rankingYears,
 } from '@/data/filtersData';
-import { enrollmentFilter, enrollmentService } from '@/services/EnrollmentService';
-import { indicatorFilter, indicatorsService } from '@/services/IndicatorsService';
-import { rankingFilter, rankingService } from '@/services/RankingService';
+import { EnrollmentFilter, enrollmentService } from '@/services/EnrollmentService';
+import { IndicatorFilter, indicatorsService } from '@/services/IndicatorsService';
+import { RankingFilter, rankingService } from '@/services/RankingService';
 import { Enrollment } from '@/types/Enrollment';
 import { Indicator } from '@/types/Indicator';
 import { RankingItem } from '@/types/Ranking';
@@ -36,17 +36,17 @@ const StackedChart = dynamic(() => import('@/components/chart/StackedColumn').th
 
 export default function Search() {
   const [loading, setLoading] = useState(true);
-  const [enrollmentFilters, setEnrollmentFilters] = useState<enrollmentFilter>({
+  const [enrollmentFilters, setEnrollmentFilters] = useState<EnrollmentFilter>({
     city: cities[0].value,
     level: enrollmentLevel[0].value,
   });
-  const [indicatorFilters, setIndicatorFilters] = useState<indicatorFilter>({
-    level: indicadorLevel[0].value,
+  const [indicatorFilters, setIndicatorFilters] = useState<IndicatorFilter>({
+    level: indicatorLevel[0].value,
     city: cities[0].value,
-    indicator: indicadorIndicators[0].value,
+    indicator: indicatorIndicators[0].value,
     sector: indicatorSector[0].value,
   });
-  const [rankingFilters, setRankingFilters] = useState<rankingFilter>({
+  const [rankingFilters, setRankingFilters] = useState<RankingFilter>({
     year: rankingYears[0].value,
     level: rankingLevel[0].value,
     order: rankingOrder[0].value,
@@ -164,7 +164,7 @@ export default function Search() {
           <FilterSearch
             search={false}
             label="Etapa de ensino"
-            options={indicadorLevel}
+            options={indicatorLevel}
             onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, level: option.value })}
           />
           <FilterSearch
@@ -176,7 +176,7 @@ export default function Search() {
           <FilterSearch
             search={false}
             label="Indicadores"
-            options={indicadorIndicators}
+            options={indicatorIndicators}
             onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, indicator: option.value })}
           />
         </div>
@@ -229,7 +229,7 @@ export default function Search() {
             <div className="w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px] bg-primary-white"></div>
           ) : (
             <div className="w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px] bg-primary-white items-center">
-              <Ranking order={rankingFilters.order} data={rankingData || rankingCities} />
+              <Ranking order={rankingFilters.order} data={rankingData || rankingSeries} />
             </div>
           )}
         </div>

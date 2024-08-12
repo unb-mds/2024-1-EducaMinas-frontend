@@ -1,7 +1,7 @@
 import { axios } from '@/lib/axios';
 import { Indicator } from '@/types/Indicator';
 
-export interface indicatorFilter {
+export interface IndicatorFilter {
   level: string;
   city: string;
   indicator: string;
@@ -11,7 +11,7 @@ export interface indicatorFilter {
 class IndicatorsService {
   private path = '/api/indicador';
 
-  async get(filters: indicatorFilter): Promise<Indicator | null> {
+  async get(filters: IndicatorFilter): Promise<Indicator | null> {
     const { level, city, indicator, sector } = filters;
 
     try {

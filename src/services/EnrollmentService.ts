@@ -1,7 +1,7 @@
 import { axios } from '@/lib/axios';
 import { Enrollment } from '@/types/Enrollment';
 
-export interface enrollmentFilter {
+export interface EnrollmentFilter {
   city: string;
   level: string;
 }
@@ -9,7 +9,7 @@ export interface enrollmentFilter {
 class EnrollmentService {
   private path = '/api/matriculas';
 
-  async get(filters: enrollmentFilter): Promise<Enrollment | null> {
+  async get(filters: EnrollmentFilter): Promise<Enrollment | null> {
     const { city, level } = filters;
 
     try {
