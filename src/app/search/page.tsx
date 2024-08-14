@@ -8,14 +8,14 @@ import {
   enrollmentCategories,
   enrollmentLevel,
   enrollmentSeries,
+  indicatorCategories,
   indicatorIndicators,
   indicatorLevel,
-  indicatorCategories,
   indicatorSector,
   indicatorSeries,
-  rankingSeries,
   rankingLevel,
   rankingOrder,
+  rankingSeries,
   rankingYears,
 } from '@/data/filtersData';
 import { EnrollmentFilter, enrollmentService } from '@/services/EnrollmentService';
@@ -94,10 +94,12 @@ export default function Search() {
   }, [rankingFilters]);
 
   useEffect(() => {
-    if (enrollmentData) {
+    const timer = setTimeout(() => {
       setLoading(false);
-    }
-  }, [enrollmentData]);
+    }, 1);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main id="main" className="flex flex-col items-center mx-[100px]">
