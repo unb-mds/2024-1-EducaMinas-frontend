@@ -1,24 +1,15 @@
 export const enrollmentSeries = [
   {
-    name: 'Pretos/Pardos',
-    data: [10, 19, 33, 50, 23, 44, 14, 90],
+    name: '---',
+    data: [10, 10, 10, 10, 10, 10, 10, 10],
   },
   {
-    name: 'Brancos',
-    data: [32, 41, 12, 85, 98, 30, 54, 75],
+    name: '---',
+    data: [10, 10, 10, 10, 10, 10, 10, 10],
   },
 ];
 
-export const enrollmentCategories = [
-  '2020 Pública',
-  '2020 Privada',
-  '2021 Pública',
-  '2021 Privada',
-  '2022 Pública',
-  '2022 Privada',
-  '2023 Pública',
-  '2023 Privada',
-];
+export const enrollmentCategories = ['---', '---', '---', '---', '---', '---', '---', '---'];
 
 export const enrollmentLevel = [
   { value: 'todas', name: 'Todas' },
@@ -27,15 +18,15 @@ export const enrollmentLevel = [
   { value: 'EM', name: 'Ensino Médio' },
 ];
 
-export const indicatorCategories = ['2017', '2018', '2019', '2020', '2021', '2022'];
+export const indicatorCategories = ['---', '---', '---', '---', '---', '---'];
 export const indicatorSeries = [
   {
-    name: 'Pretos/Pardos',
-    data: [10, 19, 33, 50, 23, 44],
+    name: '---',
+    data: [10, 10, 10, 10, 10, 10],
   },
   {
-    name: 'Brancos',
-    data: [32, 41, 12, 85, 98, 30],
+    name: '---',
+    data: [10, 10, 10, 10, 10, 10],
   },
 ];
 export const indicatorIndicators = [
@@ -58,13 +49,13 @@ export const indicatorSector = [
 ];
 
 export const rankingSeries = [
-  { name: 'Patos de Minas', value: 10 },
-  { name: 'Curvelo', value: 12 },
-  { name: 'Conceição da Barra de Minas', value: 5 },
-  { name: 'Belo horizonte', value: 8 },
-  { name: 'Alagoas', value: 8 },
-  { name: 'Juiz de Fora', value: 3 },
-  { name: 'João Pinheiro', value: 1 },
+  { name: '---', value: 1 },
+  { name: '---', value: 1 },
+  { name: '---', value: 1 },
+  { name: '---', value: 1 },
+  { name: '---', value: 1 },
+  { name: '---', value: 1 },
+  { name: '---', value: 1 },
 ];
 export const rankingYears = [
   { value: '2020', name: '2020' },

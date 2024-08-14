@@ -15,24 +15,6 @@ vi.mock('@/components/Ranking', () => ({
   default: () => <div data-testid="ranking">Ranking</div>,
 }));
 
-vi.mock('@/services/EnrollmentService', () => ({
-  enrollmentService: {
-    get: vi.fn().mockResolvedValue({ series: [], categories: [] }),
-  },
-}));
-
-vi.mock('@/services/IndicatorsService', () => ({
-  indicatorsService: {
-    get: vi.fn().mockResolvedValue({ series: [], categories: [] }),
-  },
-}));
-
-vi.mock('@/services/RankingService', () => ({
-  RankingService: {
-    get: vi.fn().mockResolvedValue([]),
-  },
-}));
-
 describe('Search Page', () => {
   test('should render text components', () => {
     render(<Search />);
