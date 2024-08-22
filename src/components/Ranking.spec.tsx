@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { describe, expect, test, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, test } from 'vitest';
 import Ranking from './Ranking';
 
 describe('Ranking Component', () => {
@@ -12,7 +12,7 @@ describe('Ranking Component', () => {
 
   describe('with descending order', () => {
     beforeEach(() => {
-      render(<Ranking data={data} order="maior" />);
+      render(<Ranking data={data} order="maior" searchCity="Todos" searchIndex={0} />);
     });
 
     test('should render cities in descending order', () => {
@@ -32,7 +32,7 @@ describe('Ranking Component', () => {
 
   describe('should render cities in ascending order', () => {
     beforeEach(() => {
-      render(<Ranking data={data} order="menor" />);
+      render(<Ranking data={data} order="menor" searchCity="Todos" searchIndex={0} />);
     });
 
     test('should render cities in ascending order', () => {
