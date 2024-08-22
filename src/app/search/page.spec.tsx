@@ -27,7 +27,7 @@ describe('Search Page', () => {
   test('should render "Município" filter', () => {
     render(<Search />);
     const filterMun = screen.getAllByTestId('filter-Município');
-    expect(filterMun.length).toEqual(2);
+    expect(filterMun.length).toEqual(3);
   });
 
   test('should render "Etapa de ensino" filter', () => {

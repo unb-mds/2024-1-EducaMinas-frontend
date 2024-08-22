@@ -5,17 +5,18 @@ import Subtopics from '@/components/Subtopics';
 import Topics from '@/components/Topics';
 import {
   cities,
-  enrollmentCategories,
+  enrollmentCategoriesStatic,
   enrollmentLevel,
-  enrollmentSeries,
-  indicatorCategories,
+  enrollmentSeriesStatic,
+  indicatorCategoriesStatic,
   indicatorIndicators,
   indicatorLevel,
   indicatorSector,
-  indicatorSeries,
+  indicatorSeriesStatic,
+  rankingIndexStatic,
   rankingLevel,
   rankingOrder,
-  rankingSeries,
+  rankingSeriesStatic,
   rankingYears,
 } from '@/data/filtersData';
 import { EnrollmentFilter, enrollmentService } from '@/services/EnrollmentService';
@@ -51,15 +52,26 @@ export default function Search() {
     level: rankingLevel[0].value,
     order: rankingOrder[0].value,
   });
-  const [enrollmentData, setEnrollmentData] = useState<Enrollment | null>(null);
-  const [indicatorsData, setIndicatorsData] = useState<Indicator | null>(null);
-  const [rankingData, setRankingData] = useState<RankingItem[] | null>(null);
+  const [enrollmentData, setEnrollmentData] = useState<Enrollment>({
+    categories: enrollmentCategoriesStatic,
+    series: enrollmentSeriesStatic,
+  });
+  const [indicatorsData, setIndicatorsData] = useState<Indicator>({
+    categories: indicatorCategoriesStatic.map((item) => Number(item)),
+    series: indicatorSeriesStatic,
+  });
+  const [rankingData, setRankingData] = useState<RankingItem[]>(rankingSeriesStatic);
+  const [rankingIndexFilter, setRankingIndexFilter] = useState<{ value: string; name: string }[]>(rankingIndexStatic);
+  const [rankingSearch, setRankingSearch] = useState({
+    city: { name: cities[0].name, value: cities[0].value },
+    index: rankingIndexFilter[0].value,
+  });
 
   useEffect(() => {
     async function fetchEnrollmentData() {
       try {
         const response = await enrollmentService.get(enrollmentFilters);
-        setEnrollmentData(response);
+        if (response) setEnrollmentData(response);
       } catch (error) {
         console.error('Error when fetching registration data:', error);
       }
@@ -72,7 +84,7 @@ export default function Search() {
     async function fetchIndicatorsData() {
       try {
         const response = await indicatorsService.get(indicatorFilters);
-        setIndicatorsData(response);
+        if (response) setIndicatorsData(response);
       } catch (error) {
         console.error('Error when searching for indicator: ', error);
       }
@@ -85,7 +97,10 @@ export default function Search() {
     async function fetchRankingData() {
       try {
         const response = await rankingService.get(rankingFilters);
-        setRankingData(response);
+        if (response) {
+          setRankingData(response);
+          handleRankingIndexFilter(response);
+        }
       } catch (error) {
         console.error('Error when searching for ranking: ', error);
       }
@@ -100,6 +115,16 @@ export default function Search() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const handleRankingIndexFilter = (data: RankingItem[]) => {
+    const filterOptions = [
+      { value: '0', name: 'Todas' },
+      ...data.map((_, index) => {
+        return { value: (index + 1).toString(), name: (index + 1).toString() };
+      }),
+    ];
+    setRankingIndexFilter(filterOptions);
+  };
 
   return (
     <main id="main" className="flex flex-col items-center mx-[100px]">
@@ -137,10 +162,7 @@ export default function Search() {
             <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
           ) : (
             <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white items-center">
-              <StackedChart
-                series={enrollmentData?.series || enrollmentSeries}
-                categories={enrollmentData?.categories || enrollmentCategories}
-              />
+              <StackedChart series={enrollmentData.series} categories={enrollmentData.categories} />
             </div>
           )}
         </div>
@@ -188,8 +210,8 @@ export default function Search() {
           ) : (
             <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] items-center">
               <GroupedBarChart
-                series={indicatorsData?.series || indicatorSeries}
-                categories={indicatorsData?.categories.map((item) => item.toString()) || indicatorCategories}
+                series={indicatorsData.series}
+                categories={indicatorsData.categories.map((item) => item.toString())}
               />
             </div>
           )}
@@ -205,24 +227,47 @@ export default function Search() {
         />
       </div>
 
-      <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 my-5">
+      <div className="flex flex-col mt-3 gap-4 primary-gray mb-3">
+        <div className="flex flex-row flex-wrap gap-4 my-5">
+          <FilterSearch
+            search={false}
+            label="Etapa de ensino"
+            className="lg:w-60"
+            options={rankingLevel}
+            onSelect={(option) => setRankingFilters({ ...rankingFilters, level: option.value })}
+          />
           <FilterSearch
             label="Ano"
             options={rankingYears}
             search={false}
+            className="sm:w-[8rem]"
             onSelect={(option) => setRankingFilters({ ...rankingFilters, year: option.value })}
           />
           <FilterSearch
-            search={false}
-            label="Etapa de ensino"
-            options={rankingLevel}
-            onSelect={(option) => setRankingFilters({ ...rankingFilters, level: option.value })}
+            label="Município"
+            options={cities}
+            search={true}
+            selected={rankingSearch.city.value}
+            onSelect={(option) =>
+              setRankingSearch({ city: { value: option.value, name: option.name }, index: rankingIndexFilter[0].value })
+            }
+          />
+          <FilterSearch
+            label="Posição"
+            options={rankingIndexFilter}
+            search={true}
+            placeHolder={`Buscar... (${rankingIndexFilter.length - 1})`}
+            className="w-[9rem]"
+            selected={rankingSearch.index}
+            onSelect={(option) =>
+              setRankingSearch({ index: option.value, city: { name: cities[0].name, value: cities[0].value } })
+            }
           />
           <FilterSearch
             label="Critério"
             options={rankingOrder}
             search={false}
+            className="w-[8rem]"
             onSelect={(option) => setRankingFilters({ ...rankingFilters, order: option.value })}
           />
         </div>
@@ -231,7 +276,12 @@ export default function Search() {
             <div className="w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px] bg-primary-white"></div>
           ) : (
             <div className="w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px] bg-primary-white items-center">
-              <Ranking order={rankingFilters.order} data={rankingData || rankingSeries} />
+              <Ranking
+                order={rankingFilters.order}
+                data={rankingData}
+                searchCity={rankingSearch.city.name}
+                searchIndex={Number(rankingSearch.index)}
+              />
             </div>
           )}
         </div>
