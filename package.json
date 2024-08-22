@@ -9,7 +9,6 @@
     "lint": "next lint",
     "test": "vitest --coverage",
     "test:ci": "vitest run --silent --passWithNoTests"
-
   },
   "pre-commit": [
     "test:ci",
