@@ -1,15 +1,15 @@
-export const enrollmentSeries = [
+export const enrollmentSeriesStatic = [
   {
     name: '---',
-    data: [10, 10, 10, 10, 10, 10, 10, 10],
+    data: [0, 0, 0, 0, 0, 0, 0, 0],
   },
   {
     name: '---',
-    data: [10, 10, 10, 10, 10, 10, 10, 10],
+    data: [0, 0, 0, 0, 0, 0, 0, 0],
   },
 ];
 
-export const enrollmentCategories = ['---', '---', '---', '---', '---', '---', '---', '---'];
+export const enrollmentCategoriesStatic = ['---', '---', '---', '---', '---', '---', '---', '---'];
 
 export const enrollmentLevel = [
   { value: 'todas', name: 'Todas' },
@@ -18,15 +18,15 @@ export const enrollmentLevel = [
   { value: 'EM', name: 'Ensino Médio' },
 ];
 
-export const indicatorCategories = ['---', '---', '---', '---', '---', '---'];
-export const indicatorSeries = [
+export const indicatorCategoriesStatic = ['0', '0', '0', '0', '0', '0'];
+export const indicatorSeriesStatic = [
   {
     name: '---',
-    data: [10, 10, 10, 10, 10, 10],
+    data: [0, 0, 0, 0, 0, 0],
   },
   {
     name: '---',
-    data: [10, 10, 10, 10, 10, 10],
+    data: [0, 0, 0, 0, 0, 0],
   },
 ];
 export const indicatorIndicators = [
@@ -48,14 +48,29 @@ export const indicatorSector = [
   { value: 'privada', name: 'Privada' },
 ];
 
-export const rankingSeries = [
-  { name: '---', value: 1 },
-  { name: '---', value: 1 },
-  { name: '---', value: 1 },
-  { name: '---', value: 1 },
-  { name: '---', value: 1 },
-  { name: '---', value: 1 },
-  { name: '---', value: 1 },
+export const rankingSeriesStatic = [
+  { name: 'Patos de Minas', value: 1 },
+  { name: 'Belo Horizonte', value: 2 },
+  { name: 'Juiz de Fora', value: 3 },
+  { name: 'Ituiutaba', value: 4 },
+  { name: 'Presidente Olegário', value: 5 },
+  { name: 'Lagoa Formosa', value: 6 },
+  { name: 'Uberlândia', value: 7 },
+  { name: 'Uberaba', value: 8 },
+  { name: 'João Pinheiro', value: 9 },
+  { name: 'Lavras', value: 10 },
+  { name: 'Formiga', value: 11 },
+  { name: 'Pirapora', value: 12 },
+  { name: 'Poços de Caldas', value: 13 },
+  { name: 'Buritizeiro', value: 14 },
+  { name: 'Araponga', value: 15 },
+  { name: 'Alagoa', value: 16 },
+  { name: 'Albertina', value: 17 },
+  { name: 'Alfenas', value: 18 },
+  { name: 'Alterosa', value: 19 },
+  { name: 'Alvarenga', value: 20 },
+  { name: 'Andradas', value: 21 },
+  { name: 'Caputira', value: 21 },
 ];
 export const rankingYears = [
   { value: '2020', name: '2020' },
@@ -73,6 +88,20 @@ export const rankingLevel = [
   { value: 'EF1', name: 'Ensino Fundamental 1' },
   { value: 'EF2', name: 'Ensino Fundamental 2' },
   { value: 'EM', name: 'Ensino Médio' },
+];
+
+export const rankingIndexStatic = [
+  { value: '0', name: 'Todas' },
+  { value: '1', name: '1' },
+  { value: '2', name: '2' },
+  { value: '3', name: '3' },
+  { value: '4', name: '4' },
+  { value: '5', name: '5' },
+  { value: '6', name: '6' },
+  { value: '7', name: '7' },
+  { value: '8', name: '8' },
+  { value: '9', name: '9' },
+  { value: '10', name: '10' },
 ];
 
 export const cities = [
