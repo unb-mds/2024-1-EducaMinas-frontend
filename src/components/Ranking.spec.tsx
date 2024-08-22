@@ -18,15 +18,15 @@ describe('Ranking Component', () => {
     test('should render cities in descending order', () => {
       expect(screen.getByText('1')).toBeInTheDocument();
       expect(screen.getByText('City 2')).toBeInTheDocument();
-      expect(screen.getByText('12%')).toBeInTheDocument();
+      expect(screen.getByText('12')).toBeInTheDocument();
 
       expect(screen.getByText('2')).toBeInTheDocument();
       expect(screen.getByText('City 1')).toBeInTheDocument();
-      expect(screen.getByText('10%')).toBeInTheDocument();
+      expect(screen.getByText('10')).toBeInTheDocument();
 
       expect(screen.getByText('3')).toBeInTheDocument();
       expect(screen.getByText('City 3')).toBeInTheDocument();
-      expect(screen.getByText('8%')).toBeInTheDocument();
+      expect(screen.getByText('8')).toBeInTheDocument();
     });
   });
 
@@ -38,15 +38,15 @@ describe('Ranking Component', () => {
     test('should render cities in ascending order', () => {
       expect(screen.getByText('1')).toBeInTheDocument();
       expect(screen.getByText('City 3')).toBeInTheDocument();
-      expect(screen.getByText('8%')).toBeInTheDocument();
+      expect(screen.getByText('8')).toBeInTheDocument();
 
       expect(screen.getByText('2')).toBeInTheDocument();
       expect(screen.getByText('City 1')).toBeInTheDocument();
-      expect(screen.getByText('10%')).toBeInTheDocument();
+      expect(screen.getByText('10')).toBeInTheDocument();
 
       expect(screen.getByText('3')).toBeInTheDocument();
       expect(screen.getByText('City 2')).toBeInTheDocument();
-      expect(screen.getByText('12%')).toBeInTheDocument();
+      expect(screen.getByText('12')).toBeInTheDocument();
     });
   });
 });
