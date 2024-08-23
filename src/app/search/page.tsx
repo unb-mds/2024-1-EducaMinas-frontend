@@ -143,9 +143,10 @@ export default function Search() {
       </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 my-5">
+        <div className="flex flex-row flex-wrap gap-5 justify-center my-5">
           <FilterSearch
             label="Município"
+            className="sm:w-[60em] w-full"
             options={cities}
             search={true}
             onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, city: option.value })}
@@ -153,6 +154,7 @@ export default function Search() {
           <FilterSearch
             search={false}
             label="Etapa de ensino"
+            className="sm:w-[60em] w-full"
             options={enrollmentLevel}
             onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, level: option.value })}
           />
@@ -178,28 +180,32 @@ export default function Search() {
       </div>
 
       <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div id="second-filters" className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 my-5">
+        <div id="second-filters" className="gap-4 my-1 w-full flex flex-row flex-wrap justify-center">
           <FilterSearch
             label="Município"
             options={cities}
+            className="sm:w-full w-[80vw]"
             search={true}
             onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, city: option.value })}
           />
           <FilterSearch
             search={false}
             label="Etapa de ensino"
+            className="sm:w-full w-[80vw]"
             options={indicatorLevel}
             onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, level: option.value })}
           />
           <FilterSearch
             search={false}
             label="Rede de ensino"
+            className="sm:w-full w-[9.5em]"
             options={indicatorSector}
             onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, sector: option.value })}
           />
           <FilterSearch
             search={false}
             label="Indicadores"
+            className="sm:w-full w-[9.5em]"
             options={indicatorIndicators}
             onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, indicator: option.value })}
           />
@@ -227,12 +233,12 @@ export default function Search() {
         />
       </div>
 
-      <div className="flex flex-col mt-3 gap-4 primary-gray mb-3">
-        <div className="flex flex-row flex-wrap gap-4 my-5">
+      <div className="flex flex-col mt-3 gap-4 primary-gray mb-3 justify-center items-center">
+        <div className="flex flex-row flex-wrap gap-4 my-1 lg:w-[90%] justify-center">
           <FilterSearch
             search={false}
             label="Etapa de ensino"
-            className="lg:w-60"
+            className="sm:w-[60em] w-[44vw]"
             options={rankingLevel}
             onSelect={(option) => setRankingFilters({ ...rankingFilters, level: option.value })}
           />
@@ -240,35 +246,36 @@ export default function Search() {
             label="Ano"
             options={rankingYears}
             search={false}
-            className="sm:w-[8rem]"
+            className="sm:w-[60em] w-[19vw]"
             onSelect={(option) => setRankingFilters({ ...rankingFilters, year: option.value })}
           />
           <FilterSearch
-            label="Município"
-            options={cities}
-            search={true}
-            selected={rankingSearch.city.value}
-            onSelect={(option) =>
-              setRankingSearch({ city: { value: option.value, name: option.name }, index: rankingIndexFilter[0].value })
-            }
+            label="Critério"
+            options={rankingOrder}
+            search={false}
+            className="sm:w-[60em] w-[44vw]"
+            onSelect={(option) => setRankingFilters({ ...rankingFilters, order: option.value })}
           />
           <FilterSearch
             label="Posição"
             options={rankingIndexFilter}
             search={true}
             placeHolder={`Buscar... (${rankingIndexFilter.length - 1})`}
-            className="w-[9rem]"
+            className="sm:w-[60em] w-[19vw]"
             selected={rankingSearch.index}
             onSelect={(option) =>
               setRankingSearch({ index: option.value, city: { name: cities[0].name, value: cities[0].value } })
             }
           />
           <FilterSearch
-            label="Critério"
-            options={rankingOrder}
-            search={false}
-            className="w-[8rem]"
-            onSelect={(option) => setRankingFilters({ ...rankingFilters, order: option.value })}
+            label="Município"
+            className="w-full"
+            options={cities}
+            search={true}
+            selected={rankingSearch.city.value}
+            onSelect={(option) =>
+              setRankingSearch({ city: { value: option.value, name: option.name }, index: rankingIndexFilter[0].value })
+            }
           />
         </div>
         <div className="flex items-center justify-center space-x-2">

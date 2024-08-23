@@ -67,7 +67,7 @@ export default function FilterSearch({
     <div
       ref={dropdownRef}
       data-testid={`filter-${label.replace(/\s+/g, '-')}`}
-      className={`relative w-full max-w-xs ${className}`}
+      className={`relative ${className} max-w-xs`}
     >
       <label className="block mb-2 text-sm font-medium text-gray-700 whitespace-nowrap">{label}</label>
       <div
@@ -75,7 +75,7 @@ export default function FilterSearch({
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className="flex justify-between items-center">
-          <span className="whitespace-nowrap overflow-hidden text-ellipsis">{selectedOption?.name || 'Selecione'}</span>
+          <span className="whitespace-nowrap text-[0.8em]">{selectedOption?.name || 'Selecione'}</span>
           {isOpen ? (
             <CaretUp className="w-4 h-4 ml-2 text-gray-500" />
           ) : (
@@ -84,7 +84,7 @@ export default function FilterSearch({
         </div>
       </div>
       {isOpen && (
-        <div className="absolute w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-10">
+        <div className="absolute w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg z-50">
           {search && (
             <input
               type="text"
@@ -105,7 +105,7 @@ export default function FilterSearch({
                 }`}
                 onClick={() => handleOptionClick(option)}
               >
-                <span className="whitespace-nowrap overflow-hidden md:text-[1em] sm:text-[0.9em] text-[0.7em] mr-0">
+                <span className="whitespace-nowrap overflow-hidden md:text-[1em] sm:text-[0.9em] text-[0.8em] mr-0">
                   {option.name}
                 </span>
                 {selectedOption?.value === option.value && (
