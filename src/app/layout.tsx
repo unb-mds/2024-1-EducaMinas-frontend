@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google';
 import type { Metadata } from 'next';
 import Header from '../components/Header';
 import '../styles/globals.css';
+import { Toaster } from 'sonner';
 
 const openSans = Poppins({
   subsets: ['latin'],
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={`flex flex-col h-min-screen w-full ${openSans.className}`}>
         <Header />
         <div className="w-full h-[calc(100vh-100px)]">{children}</div>
+        <Toaster />
       </body>
     </html>
   );
