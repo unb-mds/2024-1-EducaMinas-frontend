@@ -1,5 +1,6 @@
 import { axios } from '@/lib/axios';
 import { Enrollment } from '@/types/Enrollment';
+import { toast } from 'sonner';
 
 export interface EnrollmentFilter {
   city: string;
@@ -18,7 +19,7 @@ class EnrollmentService {
       });
       return response.data;
     } catch (error) {
-      console.error('Erro ao buscar dados de matrícula:', error);
+      if ((error as any).response.data.message) toast.error((error as any).response?.data?.message);
       return null;
     }
   }

@@ -24,7 +24,8 @@
     "react": "^18",
     "react-apexcharts": "^1.4.1",
     "react-dom": "^18",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "sonner": "^1.5.0"
   },
   "devDependencies": {
     "@lucasbruno/eslint-config": "^1.0.7",
