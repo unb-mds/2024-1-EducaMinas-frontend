@@ -10,9 +10,9 @@ describe('Filter Component', () => {
     render(
       <FilterSearch
         options={[
-          { value: 'option1', nome: 'option 1' },
-          { value: 'option2', nome: 'option 2' },
-          { value: 'option3', nome: 'option 3' },
+          { value: 'option1', name: 'option 1' },
+          { value: 'option2', name: 'option 2' },
+          { value: 'option3', name: 'option 3' },
         ]}
         label="test"
         search={true}
@@ -40,6 +40,6 @@ describe('Filter Component', () => {
   test('should call onSelect when an option is clicked', () => {
     fireEvent.click(screen.getByText('option 1'));
     fireEvent.click(screen.getByText('option 2'));
-    expect(onSelect).toHaveBeenCalledWith({ value: 'option2', nome: 'option 2' });
+    expect(onSelect).toHaveBeenCalledWith({ value: 'option2', name: 'option 2' });
   });
 });

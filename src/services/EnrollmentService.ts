@@ -1,15 +1,15 @@
 import { axios } from '@/lib/axios';
 import { Enrollment } from '@/types/Enrollment';
 
-type getDataProps = {
-  level: string;
+export interface EnrollmentFilter {
   city: string;
-};
+  level: string;
+}
 
 class EnrollmentService {
   private path = '/api/matriculas';
 
-  async get(filters: getDataProps): Promise<Enrollment | null> {
+  async get(filters: EnrollmentFilter): Promise<Enrollment | null> {
     const { city, level } = filters;
 
     try {

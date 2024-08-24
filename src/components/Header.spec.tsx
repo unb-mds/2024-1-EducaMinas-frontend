@@ -1,12 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { describe, expect, test, vi } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import Header from './Header';
-
-const mockRouter = vi.fn();
-vi.mock('next/router', () => ({
-  useRouter: () => mockRouter,
-}));
 
 describe('Header Component', () => {
   test('should render the logo and title', () => {

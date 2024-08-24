@@ -6,7 +6,6 @@ import { useState } from 'react';
 
 export default function Header() {
   const [navBar, setNavBar] = useState(false);
-
   const handleNavLinkClick = () => {
     setNavBar(false);
   };

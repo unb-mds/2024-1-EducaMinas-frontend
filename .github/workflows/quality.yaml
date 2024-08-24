@@ -1,4 +1,4 @@
-name: Next.js CI
+name: Next.js Quality
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
       - develop
 
 jobs:
-  CI-Next-App:
+  Quality-Next:
     runs-on: ubuntu-latest
 
     steps:
