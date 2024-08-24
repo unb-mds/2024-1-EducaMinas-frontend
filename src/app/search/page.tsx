@@ -234,11 +234,11 @@ export default function Search() {
       </div>
 
       <div className="flex flex-col mt-3 gap-4 primary-gray mb-3 justify-center items-center">
-        <div className="flex flex-row flex-wrap gap-4 my-1 lg:w-[90%] justify-center">
+        <div className="flex flex-row flex-wrap gap-4 my-1 lg:w-[80%] justify-center">
           <FilterSearch
             search={false}
             label="Etapa de ensino"
-            className="sm:w-[60em] w-[44vw]"
+            className="sm:w-[60em] w-[45vw]"
             options={rankingLevel}
             onSelect={(option) => setRankingFilters({ ...rankingFilters, level: option.value })}
           />
@@ -253,7 +253,7 @@ export default function Search() {
             label="Critério"
             options={rankingOrder}
             search={false}
-            className="sm:w-[60em] w-[44vw]"
+            className="sm:w-[60em] w-[45vw]"
             onSelect={(option) => setRankingFilters({ ...rankingFilters, order: option.value })}
           />
           <FilterSearch
