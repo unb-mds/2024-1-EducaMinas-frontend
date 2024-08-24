@@ -1,5 +1,6 @@
 import { axios } from '@/lib/axios';
 import { Indicator } from '@/types/Indicator';
+import { toast } from 'sonner';
 
 export interface IndicatorFilter {
   level: string;
@@ -20,7 +21,7 @@ class IndicatorsService {
       });
       return response.data;
     } catch (error) {
-      console.error('Erro ao buscar dados de indicador:', error);
+      if ((error as any).response.data.message) toast.error((error as any).response?.data?.message);
       return null;
     }
   }

@@ -50,7 +50,6 @@ export default function Search() {
   const [rankingFilters, setRankingFilters] = useState<RankingFilter>({
     year: rankingYears[0].value,
     level: rankingLevel[0].value,
-    order: rankingOrder[0].value,
   });
   const [enrollmentData, setEnrollmentData] = useState<Enrollment>({
     categories: enrollmentCategoriesStatic,
@@ -65,6 +64,7 @@ export default function Search() {
   const [rankingSearch, setRankingSearch] = useState({
     city: { name: cities[0].name, value: cities[0].value },
     index: rankingIndexFilter[0].value,
+    order: rankingOrder[0].value,
   });
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function Search() {
         const response = await enrollmentService.get(enrollmentFilters);
         if (response) setEnrollmentData(response);
       } catch (error) {
-        console.error('Error when fetching registration data:', error);
+        console.error(error);
       }
     }
 
@@ -86,7 +86,7 @@ export default function Search() {
         const response = await indicatorsService.get(indicatorFilters);
         if (response) setIndicatorsData(response);
       } catch (error) {
-        console.error('Error when searching for indicator: ', error);
+        console.error(error);
       }
     }
 
@@ -102,7 +102,7 @@ export default function Search() {
           handleRankingIndexFilter(response);
         }
       } catch (error) {
-        console.error('Error when searching for ranking: ', error);
+        console.error(error);
       }
     }
     fetchRankingData();
@@ -234,11 +234,11 @@ export default function Search() {
       </div>
 
       <div className="flex flex-col mt-3 gap-4 primary-gray mb-3 justify-center items-center">
-        <div className="flex flex-row flex-wrap gap-4 my-1 lg:w-[90%] justify-center">
+        <div className="flex flex-row flex-wrap gap-4 my-1 lg:w-[80%] justify-center">
           <FilterSearch
             search={false}
             label="Etapa de ensino"
-            className="sm:w-[60em] w-[44vw]"
+            className="sm:w-[60em] w-[45vw]"
             options={rankingLevel}
             onSelect={(option) => setRankingFilters({ ...rankingFilters, level: option.value })}
           />
@@ -253,8 +253,8 @@ export default function Search() {
             label="Critério"
             options={rankingOrder}
             search={false}
-            className="sm:w-[60em] w-[44vw]"
-            onSelect={(option) => setRankingFilters({ ...rankingFilters, order: option.value })}
+            className="sm:w-[60em] w-[45vw]"
+            onSelect={(option) => setRankingSearch({ ...rankingSearch, order: option.value })}
           />
           <FilterSearch
             label="Posição"
@@ -264,7 +264,11 @@ export default function Search() {
             className="sm:w-[60em] w-[19vw]"
             selected={rankingSearch.index}
             onSelect={(option) =>
-              setRankingSearch({ index: option.value, city: { name: cities[0].name, value: cities[0].value } })
+              setRankingSearch({
+                ...rankingSearch,
+                index: option.value,
+                city: { name: cities[0].name, value: cities[0].value },
+              })
             }
           />
           <FilterSearch
@@ -274,7 +278,11 @@ export default function Search() {
             search={true}
             selected={rankingSearch.city.value}
             onSelect={(option) =>
-              setRankingSearch({ city: { value: option.value, name: option.name }, index: rankingIndexFilter[0].value })
+              setRankingSearch({
+                ...rankingSearch,
+                city: { value: option.value, name: option.name },
+                index: rankingIndexFilter[0].value,
+              })
             }
           />
         </div>
@@ -284,7 +292,7 @@ export default function Search() {
           ) : (
             <div className="w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px] bg-primary-white items-center">
               <Ranking
-                order={rankingFilters.order}
+                order={rankingSearch.order}
                 data={rankingData}
                 searchCity={rankingSearch.city.name}
                 searchIndex={Number(rankingSearch.index)}
