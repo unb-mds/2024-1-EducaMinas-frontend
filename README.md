@@ -1,5 +1,5 @@
 # 2024-1-EducaMinas
-[![codecov](https://codecov.io/gh/rafgpereira/2024-1-EducaMinas-frontend/graph/badge.svg?token=D7IHVED6LP)](https://codecov.io/gh/rafgpereira/2024-1-EducaMinas-frontend)
+[![codecov](https://codecov.io/gh/unb-mds/2024-1-EducaMinas-frontend/graph/badge.svg?token=at49y3q164)](https://codecov.io/gh/unb-mds/2024-1-EducaMinas-frontend)
 ## Sobre
 Este é um projeto desenvolvido na disciplina Métodos de Desenvolvimento de Software (MDS) ofertada no curso de Engenharia de Software na Universidade de Brasília (UnB), que visa reunir em um só local dados sobre a Educação do estado de Minas Gerais, utilizando dados extraídos da pesquisa educacional realizada pelo INEP.
 
