@@ -9,6 +9,7 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       include: ['src/app/**', 'src/components/**'],
+      exclude: ['src/app/layout.tsx', 'src/app/page.tsx', '**/*.spec.tsx', 'src/app/search/page.tsx'],
       provider: 'v8',
     },
     alias: {
