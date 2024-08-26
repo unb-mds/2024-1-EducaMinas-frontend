@@ -12,7 +12,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, title, text }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 max-h-[75%]" data-testid="popup">
+    <div className="fixed inset-0 flex items-center justify-center z-50" data-testid="popup">
       <div className="fixed inset-0 bg-black bg-opacity-30" onClick={onClose}></div>
 
       <div
@@ -23,12 +23,12 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, title, text }) => {
           <X size={24} />
         </button>
 
-        <div className="flex flex-col items-center mb-8">
-          <h1 className="mt-4 text-center font-bold leading-relaxed text-[1.5em] mb-4">{title}</h1>
+        <div className="flex flex-col items-center mb-4">
+          <h1 className="mt-4 text-center font-bold leading-relaxed md:text-[1.5em] text-[1.2em] mb-4">{title}</h1>
           <div className="flex flex-col items-center">
             {text.map((item, index) => {
               return (
-                <p key={index} className="mt-4 text-center text-sm lg:text-lg">
+                <p key={index} className="md:mt-4 mt-2 text-center text-[9px] md:text-lg">
                   {item}
                 </p>
               );
