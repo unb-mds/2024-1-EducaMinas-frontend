@@ -28,7 +28,7 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, title, text }) => {
           <div className="flex flex-col items-center">
             {text.map((item, index) => {
               return (
-                <p key={index} className="md:mt-4 mt-2 text-center text-[9px] md:text-lg">
+                <p key={index} className="md:mt-4 mt-2 text-center text-[11px] md:text-lg">
                   {item}
                 </p>
               );
