@@ -65,10 +65,7 @@ export default function Ranking({ data, order, searchCity, searchIndex }: Props)
   };
 
   return (
-    <div
-      data-testid="ranking"
-      className="flex flex-col items-center justify-center w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px]"
-    >
+    <div data-testid="ranking" className="flex flex-col items-center justify-center w-full">
       {tratedData.map((item, index) => {
         const itemClass = getItemClass(item);
         return (

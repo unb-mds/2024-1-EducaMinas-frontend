@@ -15,7 +15,7 @@ describe('Home Component', () => {
     expect(screen.getByText('Investigue os dados sobre a Educação do Estado de Minas Gerais')).toBeInTheDocument();
     expect(
       screen.getByText(
-        'Visualize de forma intuitiva, em gráficos, informações extraídas diretamente dos diários oficiais dos municípios mineiros.',
+        'Visualize de forma intuitiva, em gráficos, informações da educação do estado de Minas Gerais extraídas da pesquisa educacional realizada pelo INEP.',
       ),
     ).toBeInTheDocument();
     expect(screen.getByAltText('home')).toBeInTheDocument();

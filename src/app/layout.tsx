@@ -1,9 +1,9 @@
 // eslint-disable-next-line camelcase
-import { Poppins } from 'next/font/google';
 import type { Metadata } from 'next';
+import { Poppins } from 'next/font/google';
+import { Toaster } from 'sonner';
 import Header from '../components/Header';
 import '../styles/globals.css';
-import { Toaster } from 'sonner';
 
 const openSans = Poppins({
   subsets: ['latin'],
@@ -13,7 +13,7 @@ const openSans = Poppins({
 
 export const metadata: Metadata = {
   title: 'Educa Minas',
-  description: 'Dados Educação de Minas Gerais',
+  description: 'Dados da Educação de Minas Gerais',
 };
 
 export default function RootLayout({
