@@ -173,7 +173,7 @@ export default function Search() {
 
     if (minasGeraisIndex !== -1) {
       const [minasGeraisOption] = filterOptions.splice(minasGeraisIndex, 1);
-      filterOptions.splice(1, 0, minasGeraisOption);
+      filterOptions.unshift(minasGeraisOption);
     }
 
     filterOptions.unshift(allOption);
