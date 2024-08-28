@@ -6,18 +6,17 @@ export interface IndicatorFilter {
   level: string;
   city: string;
   indicator: string;
-  sector: string;
 }
 
 class IndicatorsService {
   private path = '/api/indicador';
 
   async get(filters: IndicatorFilter): Promise<Indicator | null> {
-    const { level, city, indicator, sector } = filters;
+    const { level, city, indicator } = filters;
 
     try {
       const response = await axios.get<Indicator>(this.path, {
-        params: { municipio: city, etapa: level, indicador: indicator, rede: sector },
+        params: { municipio: city, etapa: level, indicador: indicator },
       });
       return response.data;
     } catch (error) {

@@ -30,22 +30,16 @@ export const indicatorSeriesStatic = [
   },
 ];
 export const indicatorIndicators = [
-  { value: 'reprovacao', name: 'Reprovação' },
-  { value: 'evasao', name: 'Evasão' },
-  { value: 'atraso escolar', name: 'Atraso Escolar' },
+  { value: 'taxa_de_aprovacao', name: 'Aprovação' },
+  { value: 'taxa_de_reprovacao', name: 'Reprovação' },
+  { value: 'taxa_de_abandono', name: 'Abandono' },
 ];
 
 export const indicatorLevel = [
-  { value: 'EI', name: 'Educação Infantil' },
+  { value: 'Todos', name: 'Todas' },
   { value: 'EF1', name: 'Ensino Fundamental 1' },
   { value: 'EF2', name: 'Ensino Fundamental 2' },
   { value: 'EM', name: 'Ensino Médio' },
-];
-
-export const indicatorSector = [
-  { value: 'todos', name: 'Todos' },
-  { value: 'publica', name: 'Pública' },
-  { value: 'privada', name: 'Privada' },
 ];
 
 export const rankingSeriesStatic = [
@@ -76,6 +70,7 @@ export const rankingYears = [
   { value: '2020', name: '2020' },
   { value: '2021', name: '2021' },
   { value: '2022', name: '2022' },
+  { value: '2023', name: '2023' },
 ];
 
 export const rankingOrder = [
@@ -84,7 +79,7 @@ export const rankingOrder = [
 ];
 
 export const rankingLevel = [
-  { value: 'EI', name: 'Educação Infantil' },
+  { value: 'Todos', name: 'Todas' },
   { value: 'EF1', name: 'Ensino Fundamental 1' },
   { value: 'EF2', name: 'Ensino Fundamental 2' },
   { value: 'EM', name: 'Ensino Médio' },
