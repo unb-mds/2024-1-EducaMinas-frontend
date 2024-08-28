@@ -31,7 +31,7 @@ O projeto é um software livre e está sob a licença [MIT](./LICENSE).
 ## 🗒️ Sumário
 
 - [🚩 EducaMinas](#educaminas)
-  - [🗒️ Sumário](#-sumário)
+  - [🗒️ Sumário](#sumário)
   - [🏁 Início](#-início)
     - [🏞️ Ambiente e Pré-requisitos](#️-ambiente-e-pré-requisitos)
     - [📲 Instalação](#-instalação)
