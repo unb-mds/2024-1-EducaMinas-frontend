@@ -8,7 +8,7 @@
 ---
 
 <div align="center">
-    <img src="./docs/docs/assets/logo.png" style="width:30vw"/>
+    <img src="./docs/docs/assets/logo.png" style="width:150px"/>
 </div>
 
 
