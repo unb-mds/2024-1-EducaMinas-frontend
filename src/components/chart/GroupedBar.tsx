@@ -47,11 +47,12 @@ export function GroupedBarChart({ series, categories }: Props) {
           },
           dataLabels: {
             enabled: true,
-            offsetX: -10,
+            offsetX: 0,
             style: {
-              fontSize: '14px',
+              fontSize: '18px',
               colors: ['#fff'],
             },
+            formatter: (val) => `${val}%`,
           },
           stroke: {
             show: true,

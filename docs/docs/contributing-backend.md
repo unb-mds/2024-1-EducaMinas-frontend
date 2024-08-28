@@ -69,6 +69,18 @@ Instale as dependências e bibliotecas dentro do ambiente virtual:
 conda install --yes --file requirements.txt
 ```
 
+O script ETL acessa o banco de dados por meio de um `.env` encontrado no caminho
+`WebScrapper/DataETL/.env`. A sua estrutura está escrita abaixo:
+
+```bash
+DATABASE_USERNAME=<INSERIR AQUI>
+DATABASE_PASSWORD=<INSERIR AQUI>
+DATABASE_NAME=<INSERIR AQUI>
+DATABASE_PORT=<INSERIR AQUI>
+DATABASE_HOST=<INSERIR AQUI>
+```
+
+
 ### **Criar uma nova Branch**
 
 A partir da branch padrão develop, crie uma nova branch para trabalhar nas modificações, executando:
@@ -104,9 +116,25 @@ http://localhost:3001/api-docs
 
 #### **Scraper**
 
+Com o ambiente ativado como instruído acima, para extrair os dados do Oracle Data com o selenium execute:
 
-AQUI FALTA
+```bash
+DataScraper/InepScrapper.py
+```
 
+#### **ETL**
+
+Para tratar e carregar os dados extraídos, em modo debugger, acesse `WebScrapper/DataETL`, lembre-se de selecionar o ambiente conda que foi criado, e então para rodar o programa por partes, execute:
+
+```bash
+ETLDebugger.ipynb
+```
+
+Se preferir, e não precisar/quiser rodar em modo debugger(por partes), execute o código para produção:
+
+```bash
+python3 WebSrapper/DataETL/main.py
+```
 
 ## **Commitar mudanças**
 

@@ -18,7 +18,7 @@ O **EducaMinas** é constituído de cinco componentes principais:
 Para fornecer uma visão clara de como esses componentes interagem e se integram no sistema, o diagrama abaixo ilustra a arquitetura geral do EducaMinas. Nele, é possível visualizar o fluxo de dados e a relação entre cada um dos componentes descritos acima, desde a coleta de dados no INEP até a apresentação dos resultados para o usuário final.
 
 
-<iframe width="768" height="432" src="https://miro.com/app/embed/uXjVKlmE_38=/?pres=1&frameId=3458764598132571083&embedId=234049125435" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+<iframe width="768" height="432" src="https://miro.com/app/embed/uXjVKlmE_38=/?pres=1&frameId=3458764598132571083&embedId=290123163179" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
 ---
 
@@ -74,12 +74,42 @@ O **backend/API** é responsável pela busca, regras de negócio e tratamento do
 
 ## Scraper
 
+O **scraper** é responsável por extrair dados diretamente das plataformas do INEP, realizando a raspagem de informações relevantes. Esses dados brutos, coletados de forma automatizada, servem como base para as análises e visualizações do sistema. O scraper navega pelos sites, interage com os elementos das páginas e extrai os dados necessários para o EducaMinas.
+
+
+**Tecnologias Utilizadas:**
+
+- **Selenium:** Biblioteca para automação de navegadores web, permitindo que o scraper interaja com páginas da web de forma programática, clicando em botões, preenchendo formulários, e navegando entre páginas.
+- **re (Regex):** Módulo de expressões regulares em Python, usado para encontrar e manipular padrões específicos de texto dentro dos dados raspados.
+
+
 ---
 
 ## ETL
 
+O **ETL** (Extract, Transform, Load) é o processo responsável por transformar os dados brutos coletados pelo scraper em um formato estruturado e organizado para armazenamento no banco de dados. Este processo garante que os dados estejam limpos, consistentes e prontos para serem usados nas análises do EducaMinas.
+
+**Tecnologias Utilizadas:**
+
+- **Pandas:** Biblioteca Python para manipulação e análise de dados, utilizada no ETL para realizar a limpeza, transformação e organização dos dados extraídos, preparando-os para o carregamento no banco de dados.
+- **SQLAlchemy:** Biblioteca de mapeamento objeto-relacional (ORM) para Python, utilizada para interagir com o banco de dados durante a etapa de carregamento dos dados processados, facilitando as operações de inserção e atualização no banco.
+
+
 ---
 
 ## Banco de Dados
+
+O **banco de dados** armazena de forma dinâmica e inteligente todos os dados necessários para abastecer o **EducaMinas**. Ele é o repositório central onde os dados coletados e processados são mantidos, garantindo que estejam acessíveis e organizados para consultas e análises.
+
+
+Veja sua modelagem:
+
+<iframe width="768" height="432" src="https://miro.com/app/embed/uXjVKztmhMU=/?pres=1&frameId=3458764596752102309&embedId=79696441645" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+**Tecnologias Utilizadas:**
+
+- **PostgreSQL:** Sistema de gerenciamento de banco de dados relacional de código aberto, usado para armazenar e gerenciar os dados de forma eficiente e segura. Ele oferece suporte a operações complexas e é altamente escalável, adequado para o volume e a complexidade dos dados no EducaMinas.
+- **Supabase:** Plataforma de backend como serviço, que fornece uma interface simplificada para o PostgreSQL, facilitando o acesso, gerenciamento e integração com o banco de dados através de APIs e outras ferramentas de desenvolvimento.
+
 
 ---
