@@ -1,101 +1,85 @@
-# Arquitetura
+# Arquitetura e Tecnologias
 
-<iframe width="768" height="432" src="https://miro.com/app/embed/uXjVKP3cIXs=/?pres=1&frameId=3458764586923416227&embedId=890096952393" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+O **EducaMinas** é constituído de cinco componentes principais:
 
----
+- **Frontend:** Responsável pela interface de usuário, onde os usuários interagem com o sistema. Ele exibe os dados de maneira clara e acessível, permitindo que os usuários façam pesquisas e visualizem gráficos e análises.
 
-# Tecnologias
+- **Backend/API:** Gerencia a lógica de negócios e atua como intermediário entre o frontend e o banco de dados. Ele processa as solicitações dos usuários, executa as regras de negócio e retorna os dados apropriados para o frontend.
 
-## Coleta de Dados e Atualização de Conteúdos
+- **Scraper:** Responsável por coletar dados diretamente do INEP, raspando as informações relevantes de suas plataformas. Esses dados brutos são a base para as análises e visualizações realizadas pelo sistema.
 
-1. **Selenium**: Uma ferramenta que permite controlar um navegador web automaticamente. É útil quando o conteúdo de uma página web é carregado dinamicamente por meio de JavaScript.
-2. **Requests**: Uma biblioteca Python simples e elegante para fazer requisições HTTP. Embora não seja específica para scraping, é frequentemente utilizada para baixar o conteúdo HTML das páginas a serem analisadas.
-3. **XPath**: Uma linguagem de consulta usada para extrair dados de documentos XML ou HTML. Pode ser usada em conjunto com outras ferramentas de scraping para selecionar elementos específicos em uma página web.
-4. **Regex (Expressões Regulares)**: Embora seja mais uma técnica do que uma tecnologia específica, as expressões regulares são amplamente usadas para encontrar padrões específicos nos dados extraídos.
-5. **Proxy Services**: Em alguns casos, o uso de proxies é necessário para evitar bloqueios e limitações impostas por sites durante o scraping em grande escala.
+- **ETL (Extract, Transform, Load):** Depois que os dados são raspados pelo Scraper, o processo de ETL entra em ação. Ele organiza, transforma e carrega os dados nas tabelas do banco de dados, garantindo que eles estejam estruturados de forma eficiente e prontos para serem utilizados pelo backend e visualizados no frontend.
 
+- **Banco de Dados:** Armazena e organiza os dados necessários para o funcionamento do EducaMinas. É o repositório central onde todos os dados coletados, processados e organizados são mantidos para acesso e consulta.
 
-## Processamento e Análise de Dados
-
-- **Python**: Linguagem de programação popular para análise de dados.
-    - **Pandas**: Biblioteca Python para manipulação e análise de dados estruturados, oferecendo poderosas ferramentas de processamento de dados.
-    - **NumPy**: Biblioteca essencial para computação numérica em Python, útil para operações matemáticas eficientes em grandes conjuntos de dados.
-
-## Segurança
-
-- **Validação de Dados**: Validar os dados obtidos do web scraping para garantir integridade e segurança. Isso pode incluir filtragem de caracteres maliciosos ou inesperados que possam ser inseridos nos dados.
-- **Tratamento de Erros**: Implementar mecanismos para lidar com erros durante o web scraping, como timeout de conexão ou respostas inesperadas dos servidores, de forma a evitar interrupções não planejadas ou vulnerabilidades.
-- **Logs e Monitoramento**: Registrar e monitorar atividades de web scraping e acesso aos dados para identificar potenciais problemas de segurança ou anomalias.
+**Arquitetura do EducaMinas**
 
 
-## Backend:
-
-### 1. Framework Web
-
-- **Node.js**: Plataforma de execução de JavaScript no servidor, ideal para aplicações escaláveis e orientadas a eventos.
-    - **Express.js**: Framework web minimalista e flexível para Node.js, utilizado para construir APIs RESTful e gerenciar rotas, middlewares e respostas HTTP.
-
-### 2. Banco de Dados Relacional e ORM
-
-- **PostgreSQL**: Banco de dados relacional robusto e altamente escalável, adequado para armazenamento e consulta eficiente de dados estruturados, como informações educacionais.
-    - **Prisma**: ORM moderno e poderoso para Node.js, que simplifica o acesso ao banco de dados, oferece uma interface de tipo seguro e facilita a escrita de consultas SQL de forma declarativa.
-        - **Prisma Client**: Biblioteca gerada automaticamente pelo Prisma com métodos para interagir com o banco de dados PostgreSQL de forma segura e eficiente.
-- **Cache de Dados**: Estratégias de cache para armazenar dados temporários e reduzir a carga nos servidores durante picos de acesso.
-
-### 3. API e Integrações
-
-- **API RESTful**: Arquitetura para comunicação entre sistemas utilizando HTTP e princípios REST (Representational State Transfer).
-    - **Express.js (Node.js)**: Utilizado para criar endpoints de API RESTful e gerenciar requisições HTTP.
-    - **Axios (Node.js)**: Biblioteca para fazer requisições HTTP de forma fácil e eficiente a partir do Node.js.
-
-### 4. Gerenciamento de Servidores
-
-- **Docker**: Plataforma de contêineres que facilita a criação, implantação e execução de aplicativos em ambientes isolados.
-
-### 5. Logging e Monitoramento
-
-- **Winston (Node.js)**: Biblioteca para logging em aplicações Node.js, permitindo o registro de mensagens em diferentes níveis de severidade.
-    - **Prometheus e Grafana**: Ferramentas populares para monitoramento de métricas e visualização de dados operacionais.
-
-## Frontend:
-
-1. **Next.js (v14)**:
-    - Framework React baseado em JavaScript/TypeScript que facilita a criação de aplicativos web, oferecendo renderização do lado do servidor (SSR) e geração de páginas estáticas (SSG).
-    - Suporte a roteamento fácil, pré-renderização, otimização de desempenho e API integrada para construção de aplicativos web modernos.
-2. **TypeScript**:
-    - Superset tipado do JavaScript que fornece tipos estáticos opcionais para aumentar a robustez e a segurança do código.
-    - Ajuda a identificar erros de programação mais cedo no desenvolvimento e oferece maior legibilidade e manutenibilidade.
-
-### Visualização de Dados:
-
-1. **ApexCharts**:
-    - Biblioteca JavaScript para criação de gráficos e visualizações de dados interativas.
-    - Oferece uma variedade de tipos de gráficos (como barras, linhas, pizza) e opções de personalização.
-
-### Interação com o Usuário:
-
-1. **React Hooks**:
-    - Recurso do React que permite utilizar o estado e outras funcionalidades do React em componentes funcionais.
-    - Usado para gerenciar o ciclo de vida dos componentes, estado local, efeitos colaterais e interações do usuário.
-2. **React Router**:
-    - Biblioteca para navegação declarativa e controle de rotas em aplicativos React.
-    - Utilizado para definir e gerenciar a navegação entre diferentes páginas e componentes da aplicação.
-
-### Integração com API REST:
-
-1. **Axios**:
-    - Biblioteca JavaScript/TypeScript para fazer requisições HTTP mais simples e eficientes.
-    - Alternativa popular ao Fetch API, oferecendo funcionalidades adicionais como interceptores, cancelamento de requisições, etc.
+Para fornecer uma visão clara de como esses componentes interagem e se integram no sistema, o diagrama abaixo ilustra a arquitetura geral do EducaMinas. Nele, é possível visualizar o fluxo de dados e a relação entre cada um dos componentes descritos acima, desde a coleta de dados no INEP até a apresentação dos resultados para o usuário final.
 
 
-## Sobre a Extração de Dados
-
-### Web Scraping para Análise de Dados Educacionais
-
-Neste tópico, descreveremos o processo de web scraping para extrair dados do Oracle BI do INEP Data. Esses dados serão utilizados para análise e estudos educacionais, abrangendo informações como extratos de pagamentos de gastos públicos na educação e índices educacionais, evasão, demografia escolar e outras métricas relevantes.
+<iframe width="768" height="432" src="https://miro.com/app/embed/uXjVKlmE_38=/?pres=1&frameId=3458764598132571083&embedId=234049125435" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
 
 ---
 
-### 1. Oracle BI do INEP Data (Índices Educacionais, Demografia Escolar, etc.)
+**Descrição dos componentes**
 
-O Oracle BI do INEP Data oferece acesso a diversos dados educacionais importantes, como índices educacionais, evasão, demografia escolar, matrículas, docentes, instituições de ensino, entre outros. Para extrair esses dados, siga os passos a seguir: ### AQUI FICARÁ OS DIAGRAMAS QUE REPRESENTAM A EXTRAÇÃO DOS DADOS
+A seguir, apresentamos uma visão detalhada de cada componente do **EducaMinas**. As escolhas tecnológicas feitas para cada parte do sistema refletem o compromisso da equipe de desenvolvimento em utilizar soluções modernas e eficientes, assegurando robustez e facilidade de manutenção.
+
+
+## Frontend
+
+O **frontend** é interface visual do EducaMinas, composto por três páginas principais, organiza em gráficos os dados coletados.
+
+**Tecnologias utilizadas:**
+
+- **Next.js:** Framework React para renderização no lado do servidor (SSR) e geração de sites estáticos, proporcionando uma performance melhorada e SEO otimizado.
+- **Tailwind CSS:** Framework de utilitários CSS que permite um design responsivo e customizável.
+- **TypeScript:** Linguagem que adiciona tipagem estática ao JavaScript, aumentando segurança e previsibilidade do código.
+- **Axios:** Biblioteca para requisições HTTP, estabelecendo a comunicação com a API.
+- **Vitest:** Ferramenta de testes unitários JavaScript, permitindo a execução rápida e eficiente dos testes.
+- **Testing Library:** Conjunto de utilitários que possibilita renderizar os componentes em ambiente de teste.
+- **ESLint:** Ferramenta de linting que identifica e corrige problemas de estilo e padrões no código, garantindo a qualidade e consistência.
+- **Sonner:** Biblioteca para exibição de notificações na interface, tornando mensagens de erro e alertas amigáveis.
+- **ApexCharts:** Biblioteca para criação de gráficos interativos e visualizações de dados, proporcionando uma apresentação rica e personalizável das informações.
+
+---
+
+## Backend/API
+
+O **backend/API** é responsável pela busca, regras de negócio e tratamento dos dados. Para maior robustez e facilidade de manutenção, a API foi estruturada seguindo os princípios da **Clean Architecture**, dividida em três camadas principais:
+
+
+- **Infrastructure:** Esta camada contém os elementos de infraestrutura necessários para a execução do sistema, incluindo a configuração do servidor, a conexão com o banco de dados, e a implementação dos serviços externos. Ela lida com as operações mais próximas ao sistema operacional e ao ambiente de execução.
+
+- **Adapters:** Os adaptadores são responsáveis por fazer a ponte entre o mundo externo e o núcleo da aplicação. Eles transformam as entradas e saídas, adaptando-as para serem compreendidas pela camada de aplicação. Incluem controllers que recebem as requisições HTTP e repositórios que abstraem o acesso ao banco de dados.
+
+- **Application:** Esta camada contém a lógica de negócio central do sistema. Ela orquestra as operações, aplica as regras de negócio e interage com as outras camadas através de interfaces definidas. O foco é garantir que as regras de negócio sejam cumpridas de maneira consistente e independente da tecnologia usada nas outras camadas. No EducaMinas, inclui os services.
+
+
+<iframe width="768" height="432" src="https://miro.com/app/embed/uXjVKP3cIXs=/?pres=1&frameId=3458764598125904430&embedId=919913081084" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+
+**Tecnologias utilizadas:**
+
+- **Express:** Framework para construção de APIs e servidores web em Node.js, facilitando a criação e gerenciamento de rotas.
+- **Vitest:** Ferramenta de testes unitários JavaScript, permitindo a execução rápida e eficiente dos testes.
+- **TypeScript:** Linguagem que adiciona tipagem estática ao JavaScript, aumentando segurança e previsibilidade do código.
+- **Nodemon:** Ferramenta que reinicia automaticamente o servidor Node.js quando mudanças são detectadas, agilizando o desenvolvimento.
+- **ESLint:** Ferramenta de linting que identifica e corrige problemas de estilo e padrões no código, garantindo a qualidade e consistência.
+- **Swagger:** Ferramenta para documentação interativa de APIs, permitindo a exploração e testes das rotas da API.
+- **Supabase:** Plataforma de backend como serviço usada para conectar ao banco de dados PostgreSQL.
+
+---
+
+## Scraper
+
+---
+
+## ETL
+
+---
+
+## Banco de Dados
+
+---

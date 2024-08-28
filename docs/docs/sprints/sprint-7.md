@@ -1,6 +1,14 @@
-# sprint 7
+# Sprint 7
 
 Período: 03/07/2024 a 10/07/2024
+
+---
+
+**Confira o que foi desenvolvido:**
+
+- **[Sprint 7](https://github.com/unb-mds/2024-1-EducaMinas-frontend/milestone/8?closed=1)**
+
+---
 
 ## Descrição
 
@@ -21,9 +29,10 @@ Nesta sprint, o grupo decidiu iniciar o desenvolvimento do scrapper para criar o
 
 Data: 03/07/2024
 
-Local: FGA
+Local: UnB Gama
 
 **Ata:**
+
 Reunião pós release 1, o grupo discutiu sobre a volta ao desenvolvimento e a mudança no escopo dos dados que serão exibidos nos gráficos do feed e foi definido os dados que serão necessarios no banco de dados.
 
 ### Reunião 2
@@ -33,6 +42,7 @@ Data: 10/07/2024
 Local: Discord
 
 **Ata:**
+
 Reunião de encerramento da sprint. As tarefas foram realizadas com sucesso. No frontend foram retomadas as tarefas de desenvolvimento e documentação. No backend, verificou-se a possibilidade de extrair os dados tidos como necessários, e a estratégia de extração foi definida e testada.
 
 ---

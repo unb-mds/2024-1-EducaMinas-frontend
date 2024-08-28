@@ -25,7 +25,7 @@ export default function Header() {
           </div>
         </div>
         <div className={`md:hidden flex items-center z-[60]  ${navBar ? 'fixed top-12 right-12' : 'relative'}`}>
-          <button onClick={() => setNavBar(!navBar)} className="text-primary-white">
+          <button data-testid="sandwich" onClick={() => setNavBar(!navBar)} className="text-primary-white">
             {navBar ? <X size={24} /> : <List size={24} />}
           </button>
         </div>

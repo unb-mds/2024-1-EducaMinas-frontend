@@ -4,9 +4,9 @@
 
 O estado de Minas Gerais é o maior em quantidade de municípios no Brasil, e um dos principais centros econômicos nacionais. **Entretanto, verificou-se a dificuldade em encontrar e visualizar dados importantes, como os índices educacionais, que revelam diversos fatores sobre a população mineira.**
 
-Desse modo, este projeto idealiza reunir em um só lugar, índices educacionais de Minas Gerais e seus municípios, fornecendo comparações, rankings e tendências, com transparência, credibilidade e acessibilidade.
+Desse modo, este projeto idealiza reunir em um só lugar, índices educacionais de Minas Gerais e seus municípios, fornecendo  gráficos e rankings, possibilitando interpretações complexas, com transparência, credibilidade e acessibilidade.
 
-O projeto nasceu em 2024, objetivando desenvolver novas percepções sobre a educação mineira, ressignificando os dados coletados do censo escolar.
+O projeto nasceu em 2024, objetivando desenvolver novas percepções sobre a educação mineira, ressignificando os dados coletados do censo escolar do INEP.
 
 ## Sobre os integrantes
 
@@ -20,7 +20,7 @@ O projeto nasceu em 2024, objetivando desenvolver novas percepções sobre a edu
 
 **João Lucas:** estudante e entusiasta de Engenharia de Software.
 
-**Rafael:** estudante e entusiasta do universo JavaScript e Programação Competitiva.
+**Rafael:** estudante e desenvolvedor entusiasta do universo JavaScript.
 
 
 ---
