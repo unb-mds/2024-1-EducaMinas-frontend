@@ -236,10 +236,9 @@ export default function Search() {
           text={indicadorInformation.subtitle}
           Popuptitle="Indicadores"
           Popuptext={[
-            'Cada par de séries no gráfico exibe a porcentagem do indicador selecionado no filtro "Indicador", comparando brancos e pretos/pardos em determinado ano.',
+            'Cada par de séries no gráfico exibe a porcentagem do indicador selecionado no filtro "Indicador", comparando as redes pública e privada em determinado ano, município e etapa de ensino.',
             'Ao alterar o filtro "Indicador", uma descrição detalhada será exibida abaixo do título do gráfico.',
-            'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino, Redes de Ensino e Indicadores.',
-            'Este gráfico não inclui dados de outras classificações étnico-raciais.',
+            'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino e Indicadores.',
             'Para visualizar o percentual específico de um indicador, passe o mouse sobre a série correspondente.',
             'Fonte: INEP - Censo Escolar da Educação Básica',
           ]}
