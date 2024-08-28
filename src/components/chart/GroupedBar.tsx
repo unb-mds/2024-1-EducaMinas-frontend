@@ -47,9 +47,9 @@ export function GroupedBarChart({ series, categories }: Props) {
           },
           dataLabels: {
             enabled: true,
-            offsetX: -5,
+            offsetX: -7,
             style: {
-              fontSize: '16px',
+              fontSize: '14px',
               colors: ['#fff'],
             },
             formatter: (val) => `${val}%`,
@@ -69,12 +69,7 @@ export function GroupedBarChart({ series, categories }: Props) {
                   },
                 },
                 dataLabels: {
-                  enabled: true,
-                  style: {
-                    fontSize: '10px',
-                    colors: ['#fff'],
-                  },
-                  formatter: (val) => `${val}%`,
+                  enabled: false,
                 },
                 legend: {
                   position: 'bottom',
