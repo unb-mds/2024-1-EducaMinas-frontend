@@ -1,6 +1,15 @@
-# sprint 8
+# Sprint 8
 
 Período: 10/07/2024 a 17/07/2024
+
+---
+
+**Confira o que foi desenvolvido:**
+
+- **[Sprint 8 - Frontend](https://github.com/unb-mds/2024-1-EducaMinas-frontend/milestone/9?closed=1)**
+- **[Sprint 8 - Backend](https://github.com/unb-mds/2024-1-EducaMinas-backend/milestone/2?closed=1)**
+
+---
 
 ## Descrição
 
@@ -10,8 +19,8 @@ Nessa sprint o grupo definiu que a página de pesquisa no frontend, que teve sua
 
 ## Objetivos
 
-- Finalizar estrutura da página de pesquisa do frontend
-- Iniciar a arquitetura/estrutura da API do backend responsável por gerenciar as rotas e conectar-se ao frontend e ao banco de dados
+- Finalizar estrutura da página de pesquisa do frontend.
+- Iniciar a arquitetura/estrutura da API do backend responsável por gerenciar as rotas e conectar-se ao frontend e ao banco de dados.
 - Armazenar os dados coletados por scrapper provisoriamente em um banco de dados.
 
 ---
@@ -25,6 +34,7 @@ Data: 10/07/2024
 Local: Discord
 
 **Ata:**
+
 Reunião de incialização da sprint, onde foi abordado o possível escopo da sprint para cada um dos subgrupos e foram definidos os objetivos a serem explorados em ambos durante a semana.
 
 ### Reunião 2
@@ -34,8 +44,13 @@ Data: 17/07/2024
 Local: UNB Gama
 
 **Ata:**
+
 Reunião de fechamento da sprint, onde foi decidido os próximos passos para a sprint 9 e recapitulação do que cada membro fez durante a sprint 08.
 
+---
 
 ## Finalização
+
 O grupo conseguiu realizar parcialmente seus objetivos, faltando apenas completar o armazenamento dos dados em um banco de dados.
+
+---
