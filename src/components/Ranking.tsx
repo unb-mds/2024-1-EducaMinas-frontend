@@ -86,7 +86,7 @@ export default function Ranking({ data, order, searchCity, searchIndex }: Props)
                 itemClass.includes('text-primary-white') ? 'text-primary-white' : 'text-secondary-red'
               }`}
             >
-              {item.value}
+              {item.value}%
             </div>
           </div>
         );
