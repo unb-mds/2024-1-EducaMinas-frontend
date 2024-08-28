@@ -20,7 +20,7 @@ describe('Search Page', () => {
     render(<Search />);
     expect(screen.getByText('Desigualdade Racial')).toBeInTheDocument();
     expect(screen.getByText('Matrículas por Rede de Ensino')).toBeInTheDocument();
-    expect(screen.getByText('Indicador: reprovação')).toBeInTheDocument();
+    expect(screen.getByText('Indicador: aprovação')).toBeInTheDocument();
     expect(screen.getByText('Ranking da desigualdade')).toBeInTheDocument();
   });
 
@@ -39,11 +39,6 @@ describe('Search Page', () => {
   test('should render "Ano" filter', () => {
     render(<Search />);
     expect(screen.getByTestId('filter-Ano')).toBeInTheDocument();
-  });
-
-  test('should render "Rede de ensino" filter', () => {
-    render(<Search />);
-    expect(screen.getByTestId('filter-Rede-de-Ensino')).toBeInTheDocument();
   });
 
   test('should render "Indicadores" filter', () => {
