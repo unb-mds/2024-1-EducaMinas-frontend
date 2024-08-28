@@ -12,7 +12,7 @@ const openSans = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Educa Minas',
+  title: 'EducaMinas',
   description: 'Dados da Educação de Minas Gerais',
 };
 
