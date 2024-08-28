@@ -1,6 +1,6 @@
 # Primeiros passos - FRONTEND
 
-**Antes de começar a contribuir de fato, veja o guia [Ambiente de Desenvolvimento](https://unb-mds.github.io/2024-1-EducaMinas-frontend/environment/) para configurá-lo corretamente.**
+**Antes de começar a contribuir de fato, veja o guia [Ambiente de Desenvolvimento](environment.md) para configurá-lo corretamente.**
 
 ---
 

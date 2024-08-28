@@ -2,9 +2,11 @@
 
 Período: 25/03/2024 a 01/04/2024
 
+---
+
 ## Descrição
 
-Nesta Sprint, o grupo determinou que as reuniões semanais acontecerão às segundas-feiras, às 10:00, na universidade. Adicionalmente, foi designado o "Coelho da Semana", encarregado de estudar o git, que ainda nessa sprint, fez uma reunião de nivelamento sobre o tema. Por fim, foram estabelecidos o tema da aplicação, os requisitos iniciais e os objetivos a serem alcançados, além de uma breve descrição das tecnologias a serem utilizadas. 
+Nesta Sprint, o grupo determinou que as reuniões semanais acontecerão às segundas-feiras, às 10:00, na universidade. Adicionalmente, foi designado o "Coelho da Semana", encarregado de estudar o git, que ainda nessa sprint, fez uma reunião de nivelamento sobre o tema. Por fim, foram estabelecidos o tema da aplicação, os requisitos iniciais e os objetivos a serem alcançados, além de uma breve descrição das tecnologias a serem utilizadas.
 
 ---
 

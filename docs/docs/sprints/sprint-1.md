@@ -2,6 +2,14 @@
 
 Período: 01/04/2024 a 08/04/2024
 
+---
+
+**Confira o que foi desenvolvido:**
+
+- **[Sprint 1](https://github.com/unb-mds/2024-1-EducaMinas-frontend/milestone/1?closed=1)**
+
+---
+
 ## Descrição
 
 Nesta Sprint, o grupo modificou o horário das reuniões semanais, para as 20 horas, ainda nas segundas feiras de forma online. Os objetivos da sprint foram definidos:
@@ -24,9 +32,10 @@ Nesta Sprint, o grupo modificou o horário das reuniões semanais, para as 20 ho
 
 Data: 01/04/2024
 
-Local: Presencial (FGA)
+Local: UnB Gama
 
 **Ata:**
+
 Nessa reunião, a equipe definiu o escopo da sprint, definindo o que deveria ser executado na semana.
 O time configurou algumas máquinas, e, em conjunto, inicializou a aplicação Next, fazendo os primeiros commits no GitHub.
 
@@ -35,7 +44,7 @@ O time configurou algumas máquinas, e, em conjunto, inicializou a aplicação N
 
 Data: 04/04/2024
 
-Local: Presencial (FGA)
+Local: UnB Gama
 
 **Ata:**
 

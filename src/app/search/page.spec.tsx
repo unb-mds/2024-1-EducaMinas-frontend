@@ -19,9 +19,9 @@ describe('Search Page', () => {
   test('should render text components', () => {
     render(<Search />);
     expect(screen.getByText('Desigualdade Racial')).toBeInTheDocument();
-    expect(screen.getByText('Matrículas por rede de ensino')).toBeInTheDocument();
-    expect(screen.getByText('Percentual de Reprovações')).toBeInTheDocument();
-    expect(screen.getByText('Ranking de municípios')).toBeInTheDocument();
+    expect(screen.getByText('Matrículas por Rede de Ensino')).toBeInTheDocument();
+    expect(screen.getByText('Indicador: aprovação')).toBeInTheDocument();
+    expect(screen.getByText('Ranking da desigualdade')).toBeInTheDocument();
   });
 
   test('should render "Município" filter', () => {
@@ -32,7 +32,7 @@ describe('Search Page', () => {
 
   test('should render "Etapa de ensino" filter', () => {
     render(<Search />);
-    const filterEtapa = screen.getAllByTestId('filter-Etapa-de-ensino');
+    const filterEtapa = screen.getAllByTestId('filter-Etapa-de-Ensino');
     expect(filterEtapa.length).toEqual(3);
   });
 
@@ -41,14 +41,9 @@ describe('Search Page', () => {
     expect(screen.getByTestId('filter-Ano')).toBeInTheDocument();
   });
 
-  test('should render "Rede de ensino" filter', () => {
-    render(<Search />);
-    expect(screen.getByTestId('filter-Rede-de-ensino')).toBeInTheDocument();
-  });
-
   test('should render "Indicadores" filter', () => {
     render(<Search />);
-    expect(screen.getByTestId('filter-Indicadores')).toBeInTheDocument();
+    expect(screen.getByTestId('filter-Indicador')).toBeInTheDocument();
   });
 
   test('should render "Critério" filter', () => {

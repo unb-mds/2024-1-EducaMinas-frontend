@@ -65,19 +65,16 @@ export default function Ranking({ data, order, searchCity, searchIndex }: Props)
   };
 
   return (
-    <div
-      data-testid="ranking"
-      className="flex flex-col items-center justify-center w-full lg:max-w-[700px] lg:h-[600px] md:max-w-[600px] md:h-[450px] sm:max-w-[550px] sm:h-[400px] min-w-[68vw] h-[350px]"
-    >
+    <div data-testid="ranking" className="flex flex-col items-center justify-center w-full">
       {tratedData.map((item, index) => {
         const itemClass = getItemClass(item);
         return (
           <div
-            className={`flex flex-row border-t-2 w-full md:h-[70px] h-[50px] items-center justify-between ${itemClass}`}
+            className={`flex flex-row border-t-2 w-full md:h-[70px] h-[60px] items-center justify-between ${itemClass}`}
             key={index}
           >
             <div
-              className={`ml-2 flex rounded-full ${getBadgeClass(item.index)} md:w-[40px] md:h-[40px] sm:text-[18px] lg:text-[22px] w-[25px] h-[25px] justify-center items-center text-primary-white text-[13px] font-extrabold`}
+              className={`ml-2 flex rounded-full ${getBadgeClass(item.index)} md:w-[47px] md:h-[47px] sm:text-[14px] md:text-[17px] lg:text-[22px] w-[27px] h-[27px] justify-center items-center text-primary-white text-[12px] font-extrabold`}
             >
               {item.index}
             </div>
@@ -89,7 +86,7 @@ export default function Ranking({ data, order, searchCity, searchIndex }: Props)
                 itemClass.includes('text-primary-white') ? 'text-primary-white' : 'text-secondary-red'
               }`}
             >
-              {item.value}
+              {item.value}%
             </div>
           </div>
         );

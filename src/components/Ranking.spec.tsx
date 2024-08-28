@@ -18,15 +18,15 @@ describe('Ranking Component', () => {
     test('should render cities in descending order', () => {
       expect(screen.getByText('1')).toBeInTheDocument();
       expect(screen.getByText('City 2')).toBeInTheDocument();
-      expect(screen.getByText('12')).toBeInTheDocument();
+      expect(screen.getByText('12%')).toBeInTheDocument();
 
       expect(screen.getByText('2')).toBeInTheDocument();
       expect(screen.getByText('City 1')).toBeInTheDocument();
-      expect(screen.getByText('10')).toBeInTheDocument();
+      expect(screen.getByText('10%')).toBeInTheDocument();
 
       expect(screen.getByText('3')).toBeInTheDocument();
       expect(screen.getByText('City 3')).toBeInTheDocument();
-      expect(screen.getByText('8')).toBeInTheDocument();
+      expect(screen.getByText('8%')).toBeInTheDocument();
     });
   });
 
@@ -38,15 +38,89 @@ describe('Ranking Component', () => {
     test('should render cities in ascending order', () => {
       expect(screen.getByText('1')).toBeInTheDocument();
       expect(screen.getByText('City 3')).toBeInTheDocument();
-      expect(screen.getByText('8')).toBeInTheDocument();
+      expect(screen.getByText('8%')).toBeInTheDocument();
 
       expect(screen.getByText('2')).toBeInTheDocument();
       expect(screen.getByText('City 1')).toBeInTheDocument();
-      expect(screen.getByText('10')).toBeInTheDocument();
+      expect(screen.getByText('10%')).toBeInTheDocument();
 
       expect(screen.getByText('3')).toBeInTheDocument();
       expect(screen.getByText('City 2')).toBeInTheDocument();
-      expect(screen.getByText('12')).toBeInTheDocument();
+      expect(screen.getByText('12%')).toBeInTheDocument();
+    });
+  });
+  describe('when searchCity is not "Todos"', () => {
+    test('should render the top 10 cities if the matching city index is less than 4', () => {
+      const customData = Array.from({ length: 15 }, (_, i) => ({
+        name: `City ${i + 1}`,
+        value: i + 1,
+      }));
+      render(<Ranking data={customData} order="menor" searchCity="City 3" searchIndex={0} />);
+
+      customData.slice(0, 10).forEach((item) => {
+        expect(screen.getByText(item.name)).toBeInTheDocument();
+      });
+    });
+
+    test('should render the bottom 10 cities if the matching city index is greater than data length - 6', () => {
+      const customData = Array.from({ length: 15 }, (_, i) => ({
+        name: `City ${i + 1}`,
+        value: i + 1,
+      }));
+      render(<Ranking data={customData} order="menor" searchCity="City 14" searchIndex={0} />);
+
+      customData.slice(-10).forEach((item) => {
+        expect(screen.getByText(item.name)).toBeInTheDocument();
+      });
+    });
+
+    test('should render cities around the matching city if the index is in between', () => {
+      const customData = Array.from({ length: 15 }, (_, i) => ({
+        name: `City ${i + 1}`,
+        value: i + 1,
+      }));
+      render(<Ranking data={customData} order="menor" searchCity="City 7" searchIndex={0} />);
+
+      customData.slice(2, 11).forEach((item) => {
+        expect(screen.getByText(item.name)).toBeInTheDocument();
+      });
+    });
+  });
+  describe('when searchIndex is not 0', () => {
+    test('should render the top 10 cities if the matching city index is less than 4', () => {
+      const customData = Array.from({ length: 15 }, (_, i) => ({
+        name: `City ${i + 1}`,
+        value: i + 1,
+      }));
+      render(<Ranking data={customData} order="menor" searchCity="Todos" searchIndex={1} />);
+
+      customData.slice(0, 10).forEach((item) => {
+        expect(screen.getByText(item.name)).toBeInTheDocument();
+      });
+    });
+
+    test('should render the bottom 10 cities if the matching city index is greater than data length - 6', () => {
+      const customData = Array.from({ length: 15 }, (_, i) => ({
+        name: `City ${i + 1}`,
+        value: i + 1,
+      }));
+      render(<Ranking data={customData} order="menor" searchCity="Todos" searchIndex={14} />);
+
+      customData.slice(-10).forEach((item) => {
+        expect(screen.getByText(item.name)).toBeInTheDocument();
+      });
+    });
+
+    test('should render cities around the matching city if the index is in between', () => {
+      const customData = Array.from({ length: 15 }, (_, i) => ({
+        name: `City ${i + 1}`,
+        value: i + 1,
+      }));
+      render(<Ranking data={customData} order="menor" searchCity="Todos" searchIndex={7} />);
+
+      customData.slice(2, 11).forEach((item) => {
+        expect(screen.getByText(item.name)).toBeInTheDocument();
+      });
     });
   });
 });
