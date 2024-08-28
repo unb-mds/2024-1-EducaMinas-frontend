@@ -31,18 +31,17 @@ O projeto é um software livre e está sob a licença [MIT](./LICENSE).
 ## 🗒️ Sumário
 
 - [🚩 EducaMinas](#educaminas)
-  - [🗒️ Sumário](#-sumário)
+  - [🗒️ Sumário](#sumário)
   - [🏁 Início](#-início)
-    - [🏞️ Ambiente e Pré-requisitos](#️-ambiente-e-pré-requisitos)
+    - [🏞️ Ambiente e Pré-requisitos](#-ambiente-e-pré-requisitos)
     - [📲 Instalação](#-instalação)
-    - [⚙️ Execução](#️-execução)
-  - [🛠️ Guia de contribuição](#️-guia-de-contribuição)
+    - [⚙️ Execução](#-execução)
+  - [🛠️ Guia de contribuição](#-guia-de-contribuição)
   - [📒 Documentação e muito mais!](#-documentação-e-muito-mais)
-  - [🏛️ Arquitetura](#️-arquitetura)
+  - [🏛️ Arquitetura](#-arquitetura)
   - [📆 Board](#-board)
   - [🖼️ Protótipo](#-protótipo)
   - [🧑🏽‍💻 Desenvolvedores](#-desenvolvedores)
-
 
 ---
 
