@@ -3,7 +3,7 @@
 [![codecov](https://codecov.io/gh/unb-mds/2024-1-EducaMinas-frontend/graph/badge.svg?token=at49y3q164)](https://codecov.io/gh/unb-mds/2024-1-EducaMinas-frontend)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/unb-mds/2024-1-EducaMinas-frontend)](https://img.shields.io/github/issues/unb-mds/2024-1-EducaMinas-frontend)
-[![GitHub contributors](https://img.shields.io/github/contributors/unb-mds/2024-1-EducaMinas-frontend)](https://img.shields.io/github/contributors/unb-mds/2024-1-EducaMinas-backend)
+[![GitHub contributors](https://img.shields.io/github/contributors/unb-mds/2024-1-EducaMinas-frontend)](https://img.shields.io/github/contributors/unb-mds/2024-1-EducaMinas-frontend)
 
 ---
 
