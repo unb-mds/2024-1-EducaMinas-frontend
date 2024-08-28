@@ -11,7 +11,6 @@ import {
   indicatorCategoriesStatic,
   indicatorIndicators,
   indicatorLevel,
-  indicatorSector,
   indicatorSeriesStatic,
   rankingIndexStatic,
   rankingLevel,
@@ -45,7 +44,6 @@ export default function Search() {
     level: indicatorLevel[0].value,
     city: cities[0].value,
     indicator: indicatorIndicators[0].value,
-    sector: indicatorSector[0].value,
   });
   const [rankingFilters, setRankingFilters] = useState<RankingFilter>({
     year: rankingYears[0].value,
@@ -61,36 +59,42 @@ export default function Search() {
   });
   const [rankingData, setRankingData] = useState<RankingItem[]>(rankingSeriesStatic);
   const [rankingIndexFilter, setRankingIndexFilter] = useState<{ value: string; name: string }[]>(rankingIndexStatic);
+  const [rankingCityFilter, setRankingCityFilter] = useState<{ value: string; name: string }[]>([
+    {
+      value: '0',
+      name: 'Todos',
+    },
+  ]);
   const [rankingSearch, setRankingSearch] = useState({
-    city: { name: cities[0].name, value: cities[0].value },
+    city: { name: rankingCityFilter[0].name, value: rankingCityFilter[0].value },
     index: rankingIndexFilter[0].value,
     order: rankingOrder[0].value,
   });
   function getIndicatorSubtitle(indicator: string): { title: string; subtitle: string } {
     switch (indicator) {
-      case 'reprovacao':
+      case 'taxa_de_reprovacao':
         return {
           title: 'Indicador: reprovação',
           subtitle:
-            'O gráfico apresenta o índice de reprovação entre estudantes brancos e pretos/pardos ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao término do ano letivo, não atingiram os critérios mínimos necessários para avançar na etapa de ensino correspondente.',
+            'O gráfico apresenta o índice de reprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao término do ano letivo, não atingiram os critérios mínimos necessários para avançar na etapa de ensino correspondente.',
         };
-      case 'evasao':
+      case 'taxa_de_aprovacao':
         return {
-          title: 'Indicador: evasão',
+          title: 'Indicador: aprovação',
           subtitle:
-            'O gráfico apresenta o índice de evasão entre estudantes brancos e pretos/pardos ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos de determinada etapa de ensino (etapa seriada do ensino fundamental ou médio) que, no ano seguinte, não se matricularam em qualquer escola.',
+            'O gráfico apresenta o índice de aprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao final do ano letivo, alcançou os critérios mínimos para a conclusão satisfatória da etapa de ensino.',
         };
-      case 'atraso escolar':
+      case 'taxa_de_abandono':
         return {
-          title: 'Indicador: atraso escolar',
+          title: 'Indicador: abandono',
           subtitle:
-            'O gráfico apresenta o índice de atraso escolar entre estudantes brancos e pretos/pardos ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que possuem idade superior à recomendada para a série frequentada.',
+            'O gráfico apresenta o índice de abandono escolar entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que deixou de frequentar a escola após a data de referência do Censo Escolar.',
         };
       default:
         return {
           title: 'Indicadores',
           subtitle:
-            'O gráfico apresenta a porcentagem do indicador selecionado nos ultimos 4 anos para brancos e pretos/pardos',
+            'O gráfico apresenta a porcentagem do indicador selecionado nos ultimos 4 anos para estudantes de escolas públicas e privadas',
         };
     }
   }
@@ -129,6 +133,7 @@ export default function Search() {
         if (response) {
           setRankingData(response);
           handleRankingIndexFilter(response);
+          handleRankingCityFilter(response);
         }
       } catch (error) {
         console.error(error);
@@ -153,6 +158,26 @@ export default function Search() {
       }),
     ];
     setRankingIndexFilter(filterOptions);
+  };
+
+  const handleRankingCityFilter = (data: RankingItem[]) => {
+    const allOption = { value: '0', name: 'Todos' };
+
+    const filterOptions = data
+      .map((item, index) => {
+        return { value: (index + 1).toString(), name: item.name };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    const minasGeraisIndex = filterOptions.findIndex((option) => option.name === 'Minas Gerais');
+
+    if (minasGeraisIndex !== -1) {
+      const [minasGeraisOption] = filterOptions.splice(minasGeraisIndex, 1);
+      filterOptions.splice(1, 0, minasGeraisOption);
+    }
+
+    filterOptions.unshift(allOption);
+    setRankingCityFilter(filterOptions);
   };
 
   return (
@@ -239,15 +264,8 @@ export default function Search() {
           />
           <FilterSearch
             search={false}
-            label="Rede de Ensino"
-            className="sm:w-full w-[9.5em]"
-            options={indicatorSector}
-            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, sector: option.value })}
-          />
-          <FilterSearch
-            search={false}
             label="Indicador"
-            className="sm:w-full w-[9.5em]"
+            className="sm:w-full w-[80vw]"
             options={indicatorIndicators}
             onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, indicator: option.value })}
           />
@@ -269,12 +287,12 @@ export default function Search() {
       <div className=" md:items-center flex md:space-x-4 mt-8">
         <Subtopics
           title="Ranking da desigualdade"
-          text="O ranking classifica os municípios com base na desigualdade racial na educação. O valor atribuído a cada município reflete a média das diferenças absolutas entre brancos e pretos/pardos em três indicadores: evasão escolar, reprovação e atraso escolar. Quanto menor o valor, menor é a desigualdade racial do município nesses aspectos."
+          text="O ranking classifica os municípios com base na desigualdade racial na educação. O valor atribuído a cada município reflete a diferença absoluta proporcional entre brancos e pretos/pardos matriculados em ecolas públicas e privadas. Quanto menor o valor, menor é a desigualdade racial do município nesse aspecto."
           Popuptitle="Ranking da desigualdade"
           Popuptext={[
-            'Para cada município, em um ano e etapa de ensino específicos, o valor atribuído é calculado somando o módulo da diferença entre a porcentagem de brancos e pretos/pardos para cada indicador e dividindo o resultado por três.',
-            'Como o módulo da diferença é utilizado, a desigualdade racial não favorece nenhuma das raças específicas.',
-            'Este índice não considera as redes de ensino.',
+            'Para cada município, em um ano e etapa de ensino específicos, o valor é determinado somando as matrículas de alunos brancos e pretos/pardos nas redes pública e privada.Em seguida, calcula-se a diferença absoluta entre a porcentagem de determinada raça na rede pública e a mesma porcentagem na rede privada.',
+            'Municípios que somam menos de 10 matrículas em uma das redes de ensino são desconsiderados.',
+            'Como é utilizada a diferença absoluta, a desigualdade racial não favorece nenhuma das raças específicas.',
             'Utilize os filtros para explorar diferentes Anos e Etapas de Ensino.',
             'Navegue pelo ranking usando os filtros "Critério", "Posição" e "Município".',
             'Este ranking não inclui dados de outras classificações étnico-raciais.',
@@ -318,15 +336,16 @@ export default function Search() {
               setRankingSearch({
                 ...rankingSearch,
                 index: option.value,
-                city: { name: cities[0].name, value: cities[0].value },
+                city: { name: rankingCityFilter[0].name, value: rankingCityFilter[0].value },
               })
             }
           />
           <FilterSearch
             label="Município"
             className="w-full"
-            options={cities}
+            options={rankingCityFilter}
             search={true}
+            placeHolder={`Buscar... (${rankingIndexFilter.length - 1})`}
             selected={rankingSearch.city.value}
             onSelect={(option) =>
               setRankingSearch({
