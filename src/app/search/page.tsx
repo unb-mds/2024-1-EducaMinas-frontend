@@ -187,103 +187,7 @@ export default function Search() {
         text="Investigue a relação entre pretos/pardos e brancos em diferentes aspectos relacionados à educação no estado de Minas Gerais."
       />
 
-      <div className="flex flex-col items-start md:flex-row md:items-center md:space-x-4 mt-8">
-        <Subtopics
-          title="Matrículas por Rede de Ensino"
-          text="O gráfico apresenta o número total de matrículas em porcentagem, entre brancos e pretos/pardos nas redes de ensino pública e privada nos últimos 4 anos."
-          Popuptitle="Matrículas por Rede de Ensino"
-          Popuptext={[
-            'Cada coluna do gráfico relaciona os valores brutos de matrículas entre pretos/pardos e brancos em determinado ano e rede de ensino, totalizando 100%.',
-            'Altere os filtros para explorar diferentes Municípios e Etapas de Ensino.',
-            'Este gráfico não inclui dados de outras classificações étnico-raciais.',
-            'Para visualizar o número de matrículas, passe o mouse sobre a coluna.',
-            'Fonte: INEP - Censo Escolar da Educação Básica',
-          ]}
-        />
-      </div>
-
-      <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div className="flex flex-row flex-wrap gap-5 justify-center my-5">
-          <FilterSearch
-            label="Município"
-            className="sm:w-[60em] w-full"
-            options={cities}
-            search={true}
-            onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, city: option.value })}
-          />
-          <FilterSearch
-            search={false}
-            label="Etapa de Ensino"
-            className="sm:w-[60em] w-full"
-            options={enrollmentLevel}
-            onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, level: option.value })}
-          />
-        </div>
-        <div className="flex items-center">
-          {loading ? (
-            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
-          ) : (
-            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white items-center">
-              <StackedChart series={enrollmentData.series} categories={enrollmentData.categories} />
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 mt-8">
-        <Subtopics
-          title={indicadorInformation.title}
-          text={indicadorInformation.subtitle}
-          Popuptitle="Indicadores"
-          Popuptext={[
-            'Cada par de séries no gráfico exibe a porcentagem do indicador selecionado no filtro "Indicador", comparando as redes pública e privada em determinado ano, município e etapa de ensino.',
-            'Ao alterar o filtro "Indicador", uma descrição detalhada será exibida abaixo do título do gráfico.',
-            'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino e Indicadores.',
-            'Para visualizar o percentual específico de um indicador, passe o mouse sobre a série correspondente.',
-            'Fonte: INEP - Censo Escolar da Educação Básica',
-          ]}
-        />
-      </div>
-
-      <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div id="second-filters" className="gap-4 my-1 w-full flex flex-row flex-wrap justify-center">
-          <FilterSearch
-            label="Município"
-            options={cities}
-            className="sm:w-full w-[80vw]"
-            search={true}
-            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, city: option.value })}
-          />
-          <FilterSearch
-            search={false}
-            label="Etapa de Ensino"
-            className="sm:w-full w-[80vw]"
-            options={indicatorLevel}
-            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, level: option.value })}
-          />
-          <FilterSearch
-            search={false}
-            label="Indicador"
-            className="sm:w-full w-[80vw]"
-            options={indicatorIndicators}
-            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, indicator: option.value })}
-          />
-        </div>
-        <div className="flex items-center">
-          {loading ? (
-            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
-          ) : (
-            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] items-center">
-              <GroupedBarChart
-                series={indicatorsData.series}
-                categories={indicatorsData.categories.map((item) => item.toString())}
-              />
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className=" md:items-center flex md:space-x-4 mt-8">
+      <div className=" md:items-center flex md:space-x-4 mt-3">
         <Subtopics
           title="Ranking da desigualdade"
           text="O ranking classifica os municípios com base na desigualdade racial na educação. O valor atribuído a cada município reflete a diferença absoluta proporcional entre brancos e pretos/pardos matriculados em ecolas públicas e privadas. Quanto menor o valor, menor é a desigualdade racial do município nesse aspecto."
@@ -301,7 +205,7 @@ export default function Search() {
         />
       </div>
 
-      <div className="flex flex-col mt-3 gap-4 primary-gray mb-3 justify-center items-center">
+      <div className="flex flex-col mt-3 gap-4 primary-gray mb-3 justify-center items-center mb-[20em] md:mb-[20em] lg:mb-[10em]">
         <div className="flex flex-row flex-wrap lg:gap-4 gap-2 my-1 w-full lg:w-[80%] justify-center">
           <FilterSearch
             search={false}
@@ -365,6 +269,102 @@ export default function Search() {
                 data={rankingData}
                 searchCity={rankingSearch.city.name}
                 searchIndex={Number(rankingSearch.index)}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col items-start md:flex-row md:items-center md:space-x-4">
+        <Subtopics
+          title="Matrículas por Rede de Ensino"
+          text="O gráfico apresenta o número total de matrículas em porcentagem, entre brancos e pretos/pardos nas redes de ensino pública e privada nos últimos 4 anos."
+          Popuptitle="Matrículas por Rede de Ensino"
+          Popuptext={[
+            'Cada coluna do gráfico relaciona os valores brutos de matrículas entre pretos/pardos e brancos em determinado ano e rede de ensino, totalizando 100%.',
+            'Altere os filtros para explorar diferentes Municípios e Etapas de Ensino.',
+            'Este gráfico não inclui dados de outras classificações étnico-raciais.',
+            'Para visualizar o número de matrículas, passe o mouse sobre a coluna.',
+            'Fonte: INEP - Censo Escolar da Educação Básica',
+          ]}
+        />
+      </div>
+
+      <div className="flex flex-col mt-3 primary-gray mb-3">
+        <div className="flex flex-row flex-wrap gap-5 justify-center my-5">
+          <FilterSearch
+            label="Município"
+            className="sm:w-[60em] w-full"
+            options={cities}
+            search={true}
+            onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, city: option.value })}
+          />
+          <FilterSearch
+            search={false}
+            label="Etapa de Ensino"
+            className="sm:w-[60em] w-full"
+            options={enrollmentLevel}
+            onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, level: option.value })}
+          />
+        </div>
+        <div className="flex items-center">
+          {loading ? (
+            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
+          ) : (
+            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white items-center">
+              <StackedChart series={enrollmentData.series} categories={enrollmentData.categories} />
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 mt-8">
+        <Subtopics
+          title={indicadorInformation.title}
+          text={indicadorInformation.subtitle}
+          Popuptitle="Indicadores"
+          Popuptext={[
+            'Cada par de séries no gráfico exibe a porcentagem do indicador selecionado no filtro "Indicador", comparando as redes pública e privada em determinado ano, município e etapa de ensino.',
+            'Ao alterar o filtro "Indicador", uma descrição detalhada será exibida abaixo do título do gráfico.',
+            'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino e Indicadores.',
+            'Para visualizar o percentual específico de um indicador, passe o mouse sobre a série correspondente.',
+            'Fonte: INEP - Censo Escolar da Educação Básica',
+          ]}
+        />
+      </div>
+
+      <div className="flex flex-col mt-3 primary-gray">
+        <div id="second-filters" className="gap-4 my-1 w-full flex flex-row flex-wrap justify-center">
+          <FilterSearch
+            label="Município"
+            options={cities}
+            className="sm:w-full w-[80vw]"
+            search={true}
+            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, city: option.value })}
+          />
+          <FilterSearch
+            search={false}
+            label="Etapa de Ensino"
+            className="sm:w-full w-[80vw]"
+            options={indicatorLevel}
+            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, level: option.value })}
+          />
+          <FilterSearch
+            search={false}
+            label="Indicador"
+            className="sm:w-full w-[80vw]"
+            options={indicatorIndicators}
+            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, indicator: option.value })}
+          />
+        </div>
+        <div className="flex items-center mb-[5em]">
+          {loading ? (
+            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
+          ) : (
+            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] items-center justify-center pb-[10px]">
+              <GroupedBarChart
+                series={indicatorsData.series}
+                categories={indicatorsData.categories.map((item) => item.toString())}
               />
             </div>
           )}
