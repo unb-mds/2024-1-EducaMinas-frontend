@@ -79,7 +79,6 @@ export const rankingOrder = [
 ];
 
 export const rankingLevel = [
-  { value: 'Todos', name: 'Todas' },
   { value: 'EF1', name: 'Ensino Fundamental 1' },
   { value: 'EF2', name: 'Ensino Fundamental 2' },
   { value: 'EM', name: 'Ensino Médio' },
