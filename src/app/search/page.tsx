@@ -197,9 +197,6 @@ export default function Search() {
             'O cálculo é feito da seguinte maneira, Exemplo: porcentagemBrancoPublica = (100 * matriculasBrancoPublica) /  (matriculasBrancoPublica + matriculasPretoPardoPublica) => índice = | porcentagemBrancoPublica - porcentagemBrancoPrivada|',
             'Municípios em que há menos de 10 estudantes matriculados, independentemente da raça, em qualquer rede de ensino, são desconsiderados.',
             'Como é utilizada a diferença absoluta, a desigualdade racial não favorece nenhuma das raças específicas.',
-            'Utilize os filtros para explorar diferentes Anos e Etapas de Ensino.',
-            'Navegue pelo ranking usando os filtros "Critério", "Posição" e "Município".',
-            'Este ranking não inclui dados de outras classificações étnico-raciais.',
             <span key="link">
               Fonte:{' '}
               <a

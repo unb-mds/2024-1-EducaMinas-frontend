@@ -23,8 +23,8 @@ const Popup: React.FC<PopupProps> = ({ isOpen, onClose, title, text }) => {
           <X size={24} />
         </button>
 
-        <div className="flex flex-col items-center mb-4">
-          <h1 className="mt-4 text-center font-bold leading-relaxed md:text-[1.5em] text-[1.2em] mb-4">{title}</h1>
+        <div className="flex flex-col items-center mb-2">
+          <h1 className="mt-4 text-center font-bold leading-relaxed md:text-[1.5em] text-[1.2em] mb-2">{title}</h1>
           <div className="flex flex-col items-center">
             {text.map((item, index) => {
               return (
