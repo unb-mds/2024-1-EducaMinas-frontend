@@ -5,7 +5,7 @@ interface PopupProps {
   isOpen: boolean;
   onClose: () => void;
   title: string;
-  text: string[];
+  text: (string | JSX.Element)[];
 }
 
 const Popup: React.FC<PopupProps> = ({ isOpen, onClose, title, text }) => {
