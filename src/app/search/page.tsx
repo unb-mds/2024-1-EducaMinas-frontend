@@ -184,28 +184,39 @@ export default function Search() {
     <main id="main" className="flex flex-col items-center mx-[100px]">
       <Topics
         title="Desigualdade Racial"
-        text="Investigue a relação entre pretos/pardos e brancos em diferentes aspectos relacionados à educação no estado de Minas Gerais."
+        text="Investigue questões raciais no ensino de Minas Gerais analisando matrículas, redes de ensino e indicadores de desempenho de pretos/pardos e brancos nos últimos anos, em mais de 850 municípios e diferentes etapas de ensino."
       />
 
-      <div className=" md:items-center flex md:space-x-4 mt-3">
+      <div className="md:items-center flex md:space-x-4 mt-3">
         <Subtopics
           title="Ranking da desigualdade"
-          text="O ranking classifica os municípios com base na desigualdade racial na educação. O valor atribuído a cada município reflete a diferença absoluta proporcional entre brancos e pretos/pardos matriculados em ecolas públicas e privadas. Quanto menor o valor, menor é a desigualdade racial do município nesse aspecto."
+          text="Explore a relação dos indicadores com a questão racial através das proporções de matrículas por rede de ensino.O ranking classifica os municípios com base na desigualdade racial na educação.Quanto menor o valor, menor é a desigualdade racial do município nesse aspecto."
           Popuptitle="Ranking da desigualdade"
           Popuptext={[
-            'Para cada município, em um ano e etapa de ensino específicos, o valor é determinado somando as matrículas de alunos brancos e pretos/pardos nas redes pública e privada.Em seguida, calcula-se a diferença absoluta entre a porcentagem de determinada raça na rede pública e a mesma porcentagem na rede privada.',
-            'Municípios que somam menos de 10 matrículas em uma das redes de ensino são desconsiderados.',
+            'Para cada município, em um ano e etapa de ensino específicos, o valor é determinado pela diferença percentual entre o número de matrículas de pretos/pardos na rede pública e privada.',
+            'O cálculo é feito da seguinte maneira, Exemplo: porcentagemBrancoPublica = (100 * matriculasBrancoPublica) /  (matriculasBrancoPublica + matriculasPretoPardoPublica) => índice = | porcentagemBrancoPublica - porcentagemBrancoPrivada|',
+            'Municípios em que há menos de 10 estudantes matriculados, independentemente da raça, em qualquer rede de ensino, são desconsiderados.',
             'Como é utilizada a diferença absoluta, a desigualdade racial não favorece nenhuma das raças específicas.',
             'Utilize os filtros para explorar diferentes Anos e Etapas de Ensino.',
             'Navegue pelo ranking usando os filtros "Critério", "Posição" e "Município".',
             'Este ranking não inclui dados de outras classificações étnico-raciais.',
-            'Fonte: INEP - Censo Escolar da Educação Básica.',
+            <span key="link">
+              Fonte:{' '}
+              <a
+                href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data
+              </a>
+            </span>,
             '* O cálculo do índice é responsabilidade dos desenvolvedores desta aplicação, apenas os percentuais dos indicadores são extraídos da fonte.',
           ]}
         />
       </div>
 
-      <div className="flex flex-col mt-3 gap-4 primary-gray mb-3 justify-center items-center mb-[20em] md:mb-[20em] lg:mb-[10em]">
+      <div className="flex flex-col mt-3 gap-4 primary-gray justify-center items-center mb-[20em] md:mb-[20em] lg:mb-[10em]">
         <div className="flex flex-row flex-wrap lg:gap-4 gap-2 my-1 w-full lg:w-[80%] justify-center">
           <FilterSearch
             search={false}
@@ -278,14 +289,24 @@ export default function Search() {
       <div className="flex flex-col items-start md:flex-row md:items-center md:space-x-4">
         <Subtopics
           title="Matrículas por Rede de Ensino"
-          text="O gráfico apresenta o número total de matrículas em porcentagem, entre brancos e pretos/pardos nas redes de ensino pública e privada nos últimos 4 anos."
+          text="O gráfico apresenta a porcentagem de matrículas, de brancos e pretos/pardos, nas redes de ensino pública e privada nos últimos 4 anos."
           Popuptitle="Matrículas por Rede de Ensino"
           Popuptext={[
-            'Cada coluna do gráfico relaciona os valores brutos de matrículas entre pretos/pardos e brancos em determinado ano e rede de ensino, totalizando 100%.',
+            'Cada coluna do gráfico relaciona a porcentagem de pretos/pardos e brancos matriculados em determinado ano e rede de ensino, totalizando 100%.',
             'Altere os filtros para explorar diferentes Municípios e Etapas de Ensino.',
             'Este gráfico não inclui dados de outras classificações étnico-raciais.',
             'Para visualizar o número de matrículas, passe o mouse sobre a coluna.',
-            'Fonte: INEP - Censo Escolar da Educação Básica',
+            <span key="link">
+              Fonte:{' '}
+              <a
+                href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data
+              </a>
+            </span>,
           ]}
         />
       </div>
@@ -328,7 +349,17 @@ export default function Search() {
             'Ao alterar o filtro "Indicador", uma descrição detalhada será exibida abaixo do título do gráfico.',
             'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino e Indicadores.',
             'Para visualizar o percentual específico de um indicador, passe o mouse sobre a série correspondente.',
-            'Fonte: INEP - Censo Escolar da Educação Básica',
+            <span key="link">
+              Fonte:{' '}
+              <a
+                href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data
+              </a>
+            </span>,
           ]}
         />
       </div>
