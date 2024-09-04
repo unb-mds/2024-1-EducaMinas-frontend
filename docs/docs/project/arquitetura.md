@@ -76,12 +76,12 @@ O **backend/API** é responsável pela busca, regras de negócio e tratamento do
 
 O **scraper** é responsável por extrair dados diretamente das plataformas do INEP, realizando a raspagem de informações relevantes. Esses dados brutos, coletados de forma automatizada, servem como base para as análises e visualizações do sistema. O scraper navega pelos sites, interage com os elementos das páginas e extrai os dados necessários para o EducaMinas.
 
-
 **Tecnologias Utilizadas:**
 
 - **Selenium:** Biblioteca para automação de navegadores web, permitindo que o scraper interaja com páginas da web de forma programática, clicando em botões, preenchendo formulários, e navegando entre páginas.
 - **re (Regex):** Módulo de expressões regulares em Python, usado para encontrar e manipular padrões específicos de texto dentro dos dados raspados.
 
+A fonte dos dados extraídos pelo scraper: [INEP-data](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data)
 
 ---
 
