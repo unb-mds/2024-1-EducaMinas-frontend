@@ -43,19 +43,21 @@ Local: UnB Gama
 
 Reunião de incialização da sprint, onde foi abordado o possível escopo da sprint para cada um dos subgrupos e foram definidos os objetivos a serem explorados em ambos durante a semana. Definiu-se que tentaríamos entregar o projeto concluído na release de testes no dia da finalização da sprint.
 
-### Reunião 2
-
+### Apresentação Release 2
 
 Data: 28/08/2024
 
-Local: UnB Gama
+Local: Teams
 
 **Ata:**
 
+Neste encontro, foi realizada a apresentação de 'teste' da segunda release. Conforme foi definida na reunião de abertura, a ideia de entregar o projeto concluído nesse teste foi realizada com sucesso, e não precisaremos apresentar novamente no dia oficial da release. Obtivemos um feedback que avaliamos como extremamente positivo, principalmente em relação a arquitetura e documentação do EducaMinas.
+Além disso, recebos algumas sugestões para uma melhor compreensão do projeto, que implementaremos na próxima e última sprint. Dentre essas sugestões estão: melhorar alguns textos para os gráficos, alterar a ordem dos gráficos, adicionar alguns tópicos na documentação.
 
 ---
 
 ## Finalização
 
+A sprint foi um sucesso, conseguimos finalizar todas as pendências necessárias para que pudéssemos entregar o projeto na release de teste. 
 
 ---
