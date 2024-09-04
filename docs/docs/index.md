@@ -1,6 +1,12 @@
 # EducaMinas
 
-Bem-vindo ao **EducaMinas**, um projeto desenvolvido na disciplina de Métodos de Desenvolvimento de Software (MDS) do curso de Engenharia de Software da Universidade de Brasília (UnB). Este projeto visa consolidar dados sobre a educação em Minas Gerais, utilizando informações extraídas do Censo Escolar da Educação Básica - INEP.
+Bem-vindo ao **EducaMinas**, um projeto desenvolvido na disciplina de Métodos de Desenvolvimento de Software (MDS) do curso de Engenharia de Software da Universidade de Brasília (UnB). Este projeto visa consolidar dados sobre a educação em Minas Gerais, utilizando informações extraídas do (**Censo Escolar da Educação Básica - INEP**)[https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data].
+
+---
+
+## Motivação
+
+Minas Gerais é o estado com o maior número de municípios do Brasil, e, por sua história e localização, costuma-se dizer que o que acontece nesse estado é um reflexo do que ocorre em todo o país. Apesar de sua importância, o **INEP** disponibiliza os dados do Censo Escolar em uma única plataforma para todo o Brasil, com uma grande quantidade de variáveis. Isso torna a obtenção e visualização de dados educacionais específicos uma tarefa desafiadora, dificultando a compreensão de aspectos cruciais da população mineira. Por isso, nossa equipe se uniu para idealizar o **EducaMinas**, uma plataforma que permite visualizar com detalhes uma pequena, mas importante, fatia desses dados.
 
 ---
 
@@ -12,7 +18,7 @@ O **EducaMinas** tem como objetivos principais:
 - **Ressignificar Dados com Rankings e Comparações:** Proporcionando uma visão inovadora através de rankings e comparações entre indicadores, municípios, anos, etapas e redes de ensino, permitindo uma análise mais dinâmica e contextualizada.
 - **Promover uma Interpretação Profunda dos Dados:** Focando na análise racial da educação mineira para oferecer uma compreensão mais detalhada e crítica das informações.
 
-Para mais informações sobre as aplicações práticas do projeto, consulte as [Personas](project/personas.md) e os documentos adicionais na seção "Projeto".
+Para mais informações sobre as aplicações práticas do projeto, e a sua concepção, consulte as [Personas](project/personas.md) e os documentos adicionais na seção "Projeto".
 
 ---
 

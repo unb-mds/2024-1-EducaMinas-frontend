@@ -1,3 +1,5 @@
+Através das Personas, que são os perfis de possíveis usuários da aplicação, conseguimos definir com maior facilidade os requisitos e o escopo do **EducaMinas**. Assim desenvolvemos dois potenciais perfis:
+
 # Fernanda Almeida
 
 - **Nome:** Fernanda Almeida

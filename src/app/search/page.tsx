@@ -200,7 +200,7 @@ export default function Search() {
             'Municípios que não somam ao menos 10 matrículas em determinada rede de ensino são desconsiderados.',
             'Como é utilizada a diferença absoluta, o índice não favorece nenhuma das raças específicas.',
             <span key="link">
-              Fonte:
+              Fonte:{' '}
               <a
                 href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
                 target="_blank"
@@ -296,7 +296,7 @@ export default function Search() {
             'Este gráfico não inclui dados de outras classificações étnico-raciais.',
             'Para visualizar o número de matrículas, passe o mouse sobre a coluna.',
             <span key="link">
-              Fonte:
+              Fonte:{' '}
               <a
                 href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
                 target="_blank"
@@ -349,7 +349,7 @@ export default function Search() {
             'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino e Indicadores.',
             'Para visualizar o percentual específico de um indicador, passe o mouse sobre a série correspondente.',
             <span key="link">
-              Fonte:
+              Fonte:{' '}
               <a
                 href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
                 target="_blank"
