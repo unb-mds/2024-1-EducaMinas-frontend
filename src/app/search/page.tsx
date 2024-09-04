@@ -76,19 +76,19 @@ export default function Search() {
         return {
           title: 'Indicador: reprovação',
           subtitle:
-            'O gráfico apresenta o índice de reprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao término do ano letivo, não atingiram os critérios mínimos necessários para avançar na etapa de ensino correspondente.',
+            'O gráfico apresenta o índice de reprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao término do ano letivo, não atingiram os critérios mínimos necessários para avançar na etapa de ensino correspondente. Para uma interpretação mais profunda, explore a relação dos indicadores por rede de ensino com o número de matrículas por raça e rede de ensino no gráfico anterior.',
         };
       case 'taxa_de_aprovacao':
         return {
           title: 'Indicador: aprovação',
           subtitle:
-            'O gráfico apresenta o índice de aprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao final do ano letivo, alcançou os critérios mínimos para a conclusão satisfatória da etapa de ensino.',
+            'O gráfico apresenta o índice de aprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao final do ano letivo, alcançou os critérios mínimos para a conclusão satisfatória da etapa de ensino. Para uma interpretação mais profunda, explore a relação dos indicadores por rede de ensino com o número de matrículas por raça e rede de ensino no gráfico anterior.',
         };
       case 'taxa_de_abandono':
         return {
           title: 'Indicador: abandono',
           subtitle:
-            'O gráfico apresenta o índice de abandono escolar entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que deixou de frequentar a escola após a data de referência do Censo Escolar.',
+            'O gráfico apresenta o índice de abandono escolar entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que deixou de frequentar a escola após a data de referência do Censo Escolar. Para uma interpretação mais profunda, explore a relação dos indicadores por rede de ensino com o número de matrículas por raça e rede de ensino no gráfico anterior.',
         };
       default:
         return {
@@ -184,21 +184,23 @@ export default function Search() {
     <main id="main" className="flex flex-col items-center mx-[100px]">
       <Topics
         title="Desigualdade Racial"
-        text="Investigue questões raciais no ensino de Minas Gerais analisando matrículas, redes de ensino e indicadores de desempenho de pretos/pardos e brancos nos últimos anos, em mais de 850 municípios e diferentes etapas de ensino."
+        text="Explore as desigualdades raciais na educação de Minas Gerais por meio de uma análise detalhada das matrículas, redes de ensino e indicadores de desempenho de alunos pretos/pardos e brancos ao longo dos últimos anos, abrangendo mais de 850 municípios e diferentes etapas de ensino."
       />
 
       <div className="md:items-center flex md:space-x-4 mt-3">
         <Subtopics
           title="Ranking da desigualdade"
-          text="Explore a relação dos indicadores com a questão racial através das proporções de matrículas por rede de ensino.O ranking classifica os municípios com base na desigualdade racial na educação.Quanto menor o valor, menor é a desigualdade racial do município nesse aspecto."
+          text="Descubra a classificação dos municípios quanto à desigualdade racial na proporção de matrículas de pretos/pardos entre as redes pública e privada. Analise o índice de forma mais detalhada na seção Matrículas por Rede de Ensino abaixo."
           Popuptitle="Ranking da desigualdade"
           Popuptext={[
-            'Para cada município, em um ano e etapa de ensino específicos, o valor é determinado pela diferença percentual entre o número de matrículas de pretos/pardos na rede pública e privada.',
-            'O cálculo é feito da seguinte maneira, Exemplo: porcentagemBrancoPublica = (100 * matriculasBrancoPublica) /  (matriculasBrancoPublica + matriculasPretoPardoPublica) => índice = | porcentagemBrancoPublica - porcentagemBrancoPrivada|',
-            'Municípios em que há menos de 10 estudantes matriculados, independentemente da raça, em qualquer rede de ensino, são desconsiderados.',
-            'Como é utilizada a diferença absoluta, a desigualdade racial não favorece nenhuma das raças específicas.',
+            'Para cada município, em um ano e etapa de ensino específicos, o índice é determinado pela pela diferença do percentual de pretos/pardos na rede pública e privada, em relação aos brancos. Veja:',
+            'porcentagemPretoPardoPública = ( 100 x matrículasPretoPardoPública ) ÷ ( matriculasPretoPardoPública + matriculasBrancoPública )',
+            'Calcula-se também a mesma porcentagem para a rede privada e então o índice:',
+            'índice = | porcentagemPretoPardoPública - porcentagemPretoPardoPrivada |',
+            'Municípios que não somam ao menos 10 matrículas em determinada rede de ensino são desconsiderados.',
+            'Como é utilizada a diferença absoluta, o índice não favorece nenhuma das raças específicas.',
             <span key="link">
-              Fonte:{' '}
+              Fonte:
               <a
                 href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
                 target="_blank"
@@ -208,7 +210,7 @@ export default function Search() {
                 https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data
               </a>
             </span>,
-            '* O cálculo do índice é responsabilidade dos desenvolvedores desta aplicação, apenas os percentuais dos indicadores são extraídos da fonte.',
+            '* O cálculo do índice é de responsabilidade dos desenvolvedores da aplicação, apenas os quantitativos de matrícula são extraídos da fonte.',
           ]}
         />
       </div>
@@ -294,7 +296,7 @@ export default function Search() {
             'Este gráfico não inclui dados de outras classificações étnico-raciais.',
             'Para visualizar o número de matrículas, passe o mouse sobre a coluna.',
             <span key="link">
-              Fonte:{' '}
+              Fonte:
               <a
                 href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
                 target="_blank"
@@ -347,7 +349,7 @@ export default function Search() {
             'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino e Indicadores.',
             'Para visualizar o percentual específico de um indicador, passe o mouse sobre a série correspondente.',
             <span key="link">
-              Fonte:{' '}
+              Fonte:
               <a
                 href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
                 target="_blank"
