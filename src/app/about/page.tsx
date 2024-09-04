@@ -2,6 +2,7 @@
 import Topics from '@/components/Topics';
 import { Book, GithubLogo, Users } from '@phosphor-icons/react';
 import Image from 'next/image';
+
 export default function About() {
   return (
     <main>
@@ -14,7 +15,7 @@ export default function About() {
       <div className="w-full md:w-[80%] mx-auto flex flex-col gap-2 my-3 primary-gray border-t-2 items-center mb-10">
         <div className="text-left px-5 w-[80%] lg:w-[70%]">
           <h1 className="text-primary-black font-[700] text-[1.3em] pt-5 sm:text-[1.4em]">Motivação</h1>
-          <h2 className="pt-4 text-[0.9em] font-[600] text-justify">
+          <h2 className="pt-4 text-[0.9em] font-[600] text-left md:text-justify">
             Minas Gerais é o estado com o maior número de municípios do Brasil, e, por sua história e localização,
             costuma-se dizer que o que acontece nesse estado é um reflexo do que ocorre em todo o país. Apesar de sua
             importância, o INEP disponibiliza os dados do Censo Escolar em uma única plataforma para todo o Brasil, com
@@ -27,7 +28,7 @@ export default function About() {
 
         <div className="text-left px-5 w-[80%] lg:w-[70%]">
           <h1 className="text-primary-black font-[700] text-[1.3em] pt-9 sm:text-[1.4em]">Objetivos</h1>
-          <h2 className="pt-4 text-[0.9em] font-[600] text-justify">
+          <h2 className="pt-4 text-[0.9em] font-[600] text-left md:text-justify">
             O <a className="font-bold text-primary-red">EducaMinas</a> se propõe a simplificar a visualização de dados
             educacionais complexos, transformando informações densas em gráficos claros e intuitivos, que tornam a
             interpretação mais acessível. Além disso, a plataforma recontextualiza esses dados, permitindo comparações
@@ -40,7 +41,7 @@ export default function About() {
 
         <div className="text-left px-5 w-[80%] lg:w-[70%]">
           <h1 className="text-primary-black font-[700] text-[1.3em] pt-9 sm:text-[1.4em]">Saiba Mais</h1>
-          <h2 className="pt-4 text-[0.9em] font-[600] text-justify">
+          <h2 className="pt-4 text-[0.9em] font-[600] text-left md:text-justify">
             O <a className="font-bold text-primary-red">EducaMinas</a> é um projeto de software livre, será um prazer
             tê-lo contribuindo conosco! <br /> Para guias de contribuição, tecnologias, arquitetura, especificações,
             diagramas e demais informações, acesse nossos repositórios (
