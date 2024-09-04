@@ -18,7 +18,7 @@ O **EducaMinas** tem como objetivos principais:
 - **Ressignificar Dados com Rankings e Comparações:** Proporcionando uma visão inovadora através de rankings e comparações entre indicadores, municípios, anos, etapas e redes de ensino, permitindo uma análise mais dinâmica e contextualizada.
 - **Promover uma Interpretação Profunda dos Dados:** Focando na análise racial da educação mineira para oferecer uma compreensão mais detalhada e crítica das informações.
 
-Para mais informações sobre as aplicações práticas do projeto, consulte as [Personas](project/personas.md) e os documentos adicionais na seção "Projeto".
+Para mais informações sobre as aplicações práticas do projeto, e a sua concepção, consulte as [Personas](project/personas.md) e os documentos adicionais na seção "Projeto".
 
 ---
 
