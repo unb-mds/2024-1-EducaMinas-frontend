@@ -4,7 +4,12 @@ import { useState } from 'react';
 import { Info } from '@phosphor-icons/react';
 import Popup from './Popup';
 
-export default function Subtopics(props: { title: string; text: string; Popuptext: string[]; Popuptitle: string }) {
+export default function Subtopics(props: {
+  title: string;
+  text: string;
+  Popuptext: (string | JSX.Element)[];
+  Popuptitle: string;
+}) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {

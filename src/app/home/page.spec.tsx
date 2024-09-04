@@ -12,10 +12,10 @@ describe('Home Component', () => {
   test('Should render Home page', () => {
     render(<Home />);
 
-    expect(screen.getByText('Investigue os dados sobre a Educação do Estado de Minas Gerais')).toBeInTheDocument();
+    expect(screen.getByText('Explore os Dados Educacionais de Minas Gerais')).toBeInTheDocument();
     expect(
       screen.getByText(
-        'Visualize de forma intuitiva, em gráficos, informações da educação do estado de Minas Gerais extraídas da pesquisa educacional realizada pelo INEP.',
+        'Investigue de forma intuitiva, em gráficos, as informações educacionais do estado, com base na pesquisa realizada pelo INEP.',
       ),
     ).toBeInTheDocument();
     expect(screen.getByAltText('home')).toBeInTheDocument();

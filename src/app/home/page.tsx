@@ -11,11 +11,11 @@ export default function Home() {
         <div className="flex flex-col w-full items-center justify-center px-4 md:px-0">
           <div className="w-full md:w-[60%]">
             <h1 className="text-primary-white font-extrabold text-[1.5em] md:text-[2em] text-center md:text-left">
-              Investigue os dados sobre a Educação do Estado de Minas Gerais
+              Explore os Dados Educacionais de Minas Gerais
             </h1>
             <p className="text-primary-white text-[0.875rem] md:text-[1.2rem] mt-[20px] md:mt-[30px] text-center md:text-left">
-              Visualize de forma intuitiva, em gráficos, informações da educação do estado de Minas Gerais extraídas da
-              pesquisa educacional realizada pelo INEP.
+              Investigue de forma intuitiva, em gráficos, as informações educacionais do estado, com base na pesquisa
+              realizada pelo INEP.
             </p>
           </div>
           <div className="w-full md:w-[60%] mt-[20px] md:mt-[60px]">

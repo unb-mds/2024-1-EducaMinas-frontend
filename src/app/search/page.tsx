@@ -76,19 +76,19 @@ export default function Search() {
         return {
           title: 'Indicador: reprovação',
           subtitle:
-            'O gráfico apresenta o índice de reprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao término do ano letivo, não atingiram os critérios mínimos necessários para avançar na etapa de ensino correspondente.',
+            'O gráfico apresenta o índice de reprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao término do ano letivo, não atingiram os critérios mínimos necessários para avançar na etapa de ensino correspondente. Para uma interpretação mais profunda, explore a relação dos indicadores por rede de ensino com o número de matrículas por raça e rede de ensino no gráfico anterior.',
         };
       case 'taxa_de_aprovacao':
         return {
           title: 'Indicador: aprovação',
           subtitle:
-            'O gráfico apresenta o índice de aprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao final do ano letivo, alcançou os critérios mínimos para a conclusão satisfatória da etapa de ensino.',
+            'O gráfico apresenta o índice de aprovação entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que, ao final do ano letivo, alcançou os critérios mínimos para a conclusão satisfatória da etapa de ensino. Para uma interpretação mais profunda, explore a relação dos indicadores por rede de ensino com o número de matrículas por raça e rede de ensino no gráfico anterior.',
         };
       case 'taxa_de_abandono':
         return {
           title: 'Indicador: abandono',
           subtitle:
-            'O gráfico apresenta o índice de abandono escolar entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que deixou de frequentar a escola após a data de referência do Censo Escolar.',
+            'O gráfico apresenta o índice de abandono escolar entre estudantes de escolas públicas e privadas ao longo dos últimos quatro anos. Esse índice reflete a porcentagem de alunos que deixou de frequentar a escola após a data de referência do Censo Escolar. Para uma interpretação mais profunda, explore a relação dos indicadores por rede de ensino com o número de matrículas por raça e rede de ensino no gráfico anterior.',
         };
       default:
         return {
@@ -184,124 +184,38 @@ export default function Search() {
     <main id="main" className="flex flex-col items-center mx-[100px]">
       <Topics
         title="Desigualdade Racial"
-        text="Investigue a relação entre pretos/pardos e brancos em diferentes aspectos relacionados à educação no estado de Minas Gerais."
+        text="Explore as desigualdades raciais na educação de Minas Gerais por meio de uma análise detalhada das matrículas, redes de ensino e indicadores de desempenho de alunos pretos/pardos e brancos ao longo dos últimos anos, abrangendo mais de 850 municípios e diferentes etapas de ensino."
       />
 
-      <div className="flex flex-col items-start md:flex-row md:items-center md:space-x-4 mt-8">
-        <Subtopics
-          title="Matrículas por Rede de Ensino"
-          text="O gráfico apresenta o número total de matrículas em porcentagem, entre brancos e pretos/pardos nas redes de ensino pública e privada nos últimos 4 anos."
-          Popuptitle="Matrículas por Rede de Ensino"
-          Popuptext={[
-            'Cada coluna do gráfico relaciona os valores brutos de matrículas entre pretos/pardos e brancos em determinado ano e rede de ensino, totalizando 100%.',
-            'Altere os filtros para explorar diferentes Municípios e Etapas de Ensino.',
-            'Este gráfico não inclui dados de outras classificações étnico-raciais.',
-            'Para visualizar o número de matrículas, passe o mouse sobre a coluna.',
-            'Fonte: INEP - Censo Escolar da Educação Básica',
-          ]}
-        />
-      </div>
-
-      <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div className="flex flex-row flex-wrap gap-5 justify-center my-5">
-          <FilterSearch
-            label="Município"
-            className="sm:w-[60em] w-full"
-            options={cities}
-            search={true}
-            onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, city: option.value })}
-          />
-          <FilterSearch
-            search={false}
-            label="Etapa de Ensino"
-            className="sm:w-[60em] w-full"
-            options={enrollmentLevel}
-            onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, level: option.value })}
-          />
-        </div>
-        <div className="flex items-center">
-          {loading ? (
-            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
-          ) : (
-            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white items-center">
-              <StackedChart series={enrollmentData.series} categories={enrollmentData.categories} />
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 mt-8">
-        <Subtopics
-          title={indicadorInformation.title}
-          text={indicadorInformation.subtitle}
-          Popuptitle="Indicadores"
-          Popuptext={[
-            'Cada par de séries no gráfico exibe a porcentagem do indicador selecionado no filtro "Indicador", comparando as redes pública e privada em determinado ano, município e etapa de ensino.',
-            'Ao alterar o filtro "Indicador", uma descrição detalhada será exibida abaixo do título do gráfico.',
-            'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino e Indicadores.',
-            'Para visualizar o percentual específico de um indicador, passe o mouse sobre a série correspondente.',
-            'Fonte: INEP - Censo Escolar da Educação Básica',
-          ]}
-        />
-      </div>
-
-      <div className="flex flex-col mt-3 primary-gray mb-3">
-        <div id="second-filters" className="gap-4 my-1 w-full flex flex-row flex-wrap justify-center">
-          <FilterSearch
-            label="Município"
-            options={cities}
-            className="sm:w-full w-[80vw]"
-            search={true}
-            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, city: option.value })}
-          />
-          <FilterSearch
-            search={false}
-            label="Etapa de Ensino"
-            className="sm:w-full w-[80vw]"
-            options={indicatorLevel}
-            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, level: option.value })}
-          />
-          <FilterSearch
-            search={false}
-            label="Indicador"
-            className="sm:w-full w-[80vw]"
-            options={indicatorIndicators}
-            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, indicator: option.value })}
-          />
-        </div>
-        <div className="flex items-center">
-          {loading ? (
-            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
-          ) : (
-            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] items-center">
-              <GroupedBarChart
-                series={indicatorsData.series}
-                categories={indicatorsData.categories.map((item) => item.toString())}
-              />
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className=" md:items-center flex md:space-x-4 mt-8">
+      <div className="md:items-center flex md:space-x-4 mt-3">
         <Subtopics
           title="Ranking da desigualdade"
-          text="O ranking classifica os municípios com base na desigualdade racial na educação. O valor atribuído a cada município reflete a diferença absoluta proporcional entre brancos e pretos/pardos matriculados em ecolas públicas e privadas. Quanto menor o valor, menor é a desigualdade racial do município nesse aspecto."
+          text="Descubra a classificação dos municípios quanto à desigualdade racial na proporção de matrículas de pretos/pardos entre as redes pública e privada. Analise o índice de forma mais detalhada na seção Matrículas por Rede de Ensino abaixo."
           Popuptitle="Ranking da desigualdade"
           Popuptext={[
-            'Para cada município, em um ano e etapa de ensino específicos, o valor é determinado somando as matrículas de alunos brancos e pretos/pardos nas redes pública e privada.Em seguida, calcula-se a diferença absoluta entre a porcentagem de determinada raça na rede pública e a mesma porcentagem na rede privada.',
-            'Municípios que somam menos de 10 matrículas em uma das redes de ensino são desconsiderados.',
-            'Como é utilizada a diferença absoluta, a desigualdade racial não favorece nenhuma das raças específicas.',
-            'Utilize os filtros para explorar diferentes Anos e Etapas de Ensino.',
-            'Navegue pelo ranking usando os filtros "Critério", "Posição" e "Município".',
-            'Este ranking não inclui dados de outras classificações étnico-raciais.',
-            'Fonte: INEP - Censo Escolar da Educação Básica.',
-            '* O cálculo do índice é responsabilidade dos desenvolvedores desta aplicação, apenas os percentuais dos indicadores são extraídos da fonte.',
+            'Para cada município, em um ano e etapa de ensino específicos, o índice é determinado pela pela diferença do percentual de pretos/pardos na rede pública e privada, em relação aos brancos. Veja:',
+            'porcentagemPretoPardoPública = ( 100 x matrículasPretoPardoPública ) ÷ ( matriculasPretoPardoPública + matriculasBrancoPública )',
+            'Calcula-se também a mesma porcentagem para a rede privada e então o índice:',
+            'índice = | porcentagemPretoPardoPública - porcentagemPretoPardoPrivada |',
+            'Municípios que não somam ao menos 10 matrículas em determinada rede de ensino são desconsiderados.',
+            'Como é utilizada a diferença absoluta, o índice não favorece nenhuma das raças específicas.',
+            <span key="link">
+              Fonte:
+              <a
+                href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data
+              </a>
+            </span>,
+            '* O cálculo do índice é de responsabilidade dos desenvolvedores da aplicação, apenas os quantitativos de matrícula são extraídos da fonte.',
           ]}
         />
       </div>
 
-      <div className="flex flex-col mt-3 gap-4 primary-gray mb-3 justify-center items-center">
+      <div className="flex flex-col mt-3 gap-4 primary-gray justify-center items-center mb-[20em] md:mb-[20em] lg:mb-[10em]">
         <div className="flex flex-row flex-wrap lg:gap-4 gap-2 my-1 w-full lg:w-[80%] justify-center">
           <FilterSearch
             search={false}
@@ -365,6 +279,122 @@ export default function Search() {
                 data={rankingData}
                 searchCity={rankingSearch.city.name}
                 searchIndex={Number(rankingSearch.index)}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col items-start md:flex-row md:items-center md:space-x-4">
+        <Subtopics
+          title="Matrículas por Rede de Ensino"
+          text="O gráfico apresenta a porcentagem de matrículas, de brancos e pretos/pardos, nas redes de ensino pública e privada nos últimos 4 anos."
+          Popuptitle="Matrículas por Rede de Ensino"
+          Popuptext={[
+            'Cada coluna do gráfico relaciona a porcentagem de pretos/pardos e brancos matriculados em determinado ano e rede de ensino, totalizando 100%.',
+            'Altere os filtros para explorar diferentes Municípios e Etapas de Ensino.',
+            'Este gráfico não inclui dados de outras classificações étnico-raciais.',
+            'Para visualizar o número de matrículas, passe o mouse sobre a coluna.',
+            <span key="link">
+              Fonte:
+              <a
+                href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data
+              </a>
+            </span>,
+          ]}
+        />
+      </div>
+
+      <div className="flex flex-col mt-3 primary-gray mb-3">
+        <div className="flex flex-row flex-wrap gap-5 justify-center my-5">
+          <FilterSearch
+            label="Município"
+            className="sm:w-[60em] w-full"
+            options={cities}
+            search={true}
+            onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, city: option.value })}
+          />
+          <FilterSearch
+            search={false}
+            label="Etapa de Ensino"
+            className="sm:w-[60em] w-full"
+            options={enrollmentLevel}
+            onSelect={(option) => setEnrollmentFilters({ ...enrollmentFilters, level: option.value })}
+          />
+        </div>
+        <div className="flex items-center">
+          {loading ? (
+            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
+          ) : (
+            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white items-center">
+              <StackedChart series={enrollmentData.series} categories={enrollmentData.categories} />
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-center md:space-x-4 mt-8">
+        <Subtopics
+          title={indicadorInformation.title}
+          text={indicadorInformation.subtitle}
+          Popuptitle="Indicadores"
+          Popuptext={[
+            'Cada par de séries no gráfico exibe a porcentagem do indicador selecionado no filtro "Indicador", comparando as redes pública e privada em determinado ano, município e etapa de ensino.',
+            'Ao alterar o filtro "Indicador", uma descrição detalhada será exibida abaixo do título do gráfico.',
+            'Alterne entre os filtros para explorar diferentes Municípios, Etapas de Ensino e Indicadores.',
+            'Para visualizar o percentual específico de um indicador, passe o mouse sobre a série correspondente.',
+            <span key="link">
+              Fonte:
+              <a
+                href="https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/inep-data
+              </a>
+            </span>,
+          ]}
+        />
+      </div>
+
+      <div className="flex flex-col mt-3 primary-gray">
+        <div id="second-filters" className="gap-4 my-1 w-full flex flex-row flex-wrap justify-center">
+          <FilterSearch
+            label="Município"
+            options={cities}
+            className="sm:w-full w-[80vw]"
+            search={true}
+            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, city: option.value })}
+          />
+          <FilterSearch
+            search={false}
+            label="Etapa de Ensino"
+            className="sm:w-full w-[80vw]"
+            options={indicatorLevel}
+            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, level: option.value })}
+          />
+          <FilterSearch
+            search={false}
+            label="Indicador"
+            className="sm:w-full w-[80vw]"
+            options={indicatorIndicators}
+            onSelect={(option) => setIndicatorFilters({ ...indicatorFilters, indicator: option.value })}
+          />
+        </div>
+        <div className="flex items-center mb-[5em]">
+          {loading ? (
+            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] bg-primary-white"></div>
+          ) : (
+            <div className="w-[88.23vw] lg:h-[650px] md:h-[550px] sm:h-[500px] h-[380px] items-center justify-center pb-[10px]">
+              <GroupedBarChart
+                series={indicatorsData.series}
+                categories={indicatorsData.categories.map((item) => item.toString())}
               />
             </div>
           )}

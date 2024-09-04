@@ -1,4 +1,6 @@
+'use client';
 import Topics from '@/components/Topics';
+import { Book, GithubLogo, Users } from '@phosphor-icons/react';
 import Image from 'next/image';
 export default function About() {
   return (
@@ -13,26 +15,26 @@ export default function About() {
         <div className="text-left px-5 w-[80%] lg:w-[70%]">
           <h1 className="text-primary-black font-[700] text-[1.3em] pt-5 sm:text-[1.4em]">Motivação</h1>
           <h2 className="pt-4 text-[0.9em] font-[600] text-justify">
-            Minas Gerais é o estado com o maior número de municípios no Brasil e desempenha um papel crucial na economia
-            nacional. Apesar de sua importância, a obtenção e a visualização de dados educacionais relevantes têm se
-            mostrado desafiadoras, dificultando a compreensão de aspectos cruciais da população mineira. Este projeto
-            visa centralizar em uma única plataforma os principais índices educacionais de Minas Gerais e seus
-            municípios. Através de gráficos e um ranking, buscamos proporcionar análises mais profundas, com foco em
-            transparência, confiabilidade e facilidade de acesso. Lançado em 2024, o projeto tem como objetivo
-            recontextualizar os dados do Censo Escolar do INEP, oferecendo novas perspectivas sobre a educação em Minas
-            Gerais.
+            Minas Gerais é o estado com o maior número de municípios do Brasil, e, por sua história e localização,
+            costuma-se dizer que o que acontece nesse estado é um reflexo do que ocorre em todo o país. Apesar de sua
+            importância, o INEP disponibiliza os dados do Censo Escolar em uma única plataforma para todo o Brasil, com
+            uma grande quantidade de variáveis. Isso torna a obtenção e visualização de dados educacionais específicos
+            uma tarefa desafiadora, dificultando a compreensão de aspectos cruciais da população mineira. Por isso,
+            nossa equipe se uniu para idealizar o <a className="font-bold text-primary-red">EducaMinas</a>, uma
+            plataforma que permite visualizar com detalhes uma pequena, mas importante, fatia desses dados.
           </h2>
         </div>
 
         <div className="text-left px-5 w-[80%] lg:w-[70%]">
           <h1 className="text-primary-black font-[700] text-[1.3em] pt-9 sm:text-[1.4em]">Objetivos</h1>
           <h2 className="pt-4 text-[0.9em] font-[600] text-justify">
-            O EducaMinas tem como principais objetivos simplificar a visualização de dados complexos, oferecendo
-            gráficos claros e intuitivos que tornam a interpretação dessas informações mais acessível e compreensível.
-            Além disso, busca recontextualizar os dados através de um ranking e comparações entre indicadores,
-            municípios, anos e etapas de ensino, proporcionando uma análise mais dinâmica e inovadora. Outro foco do
-            projeto é aprofundar a interpretação dos dados, especialmente na análise racial da educação em Minas Gerais,
-            permitindo uma compreensão mais detalhada e crítica das informações.
+            O <a className="font-bold text-primary-red">EducaMinas</a> se propõe a simplificar a visualização de dados
+            educacionais complexos, transformando informações densas em gráficos claros e intuitivos, que tornam a
+            interpretação mais acessível. Além disso, a plataforma recontextualiza esses dados, permitindo comparações
+            dinâmicas entre indicadores, municípios, anos e etapas de ensino. Com um olhar atento para a análise racial
+            na educação em Minas Gerais, o <a className="font-bold text-primary-red">EducaMinas</a> oferece uma
+            perspectiva mais profunda e crítica, possibilitando uma compreensão detalhada das informações
+            disponibilizadas pelo INEP.
           </h2>
         </div>
 
@@ -73,7 +75,12 @@ export default function About() {
       </div>
 
       <div className="w-full bg-primary-red p-8 justify-center">
-        <div className="text-primary-white font-extrabold text-center mb-4 text-[16px]">Nosso time</div>
+        <div className="flex items-center justify-center mb-4 text-[16px] text-primary-white font-extrabold gap-2">
+          <div className="flex items-center justify-center w-8 h-8 border-2 border-primary-white rounded-full">
+            <Users size={20} />
+          </div>
+          Nosso time
+        </div>
         <div className="flex justify-center gap-10 items-center flex-wrap text-center bg-primary-red rounded-full w-full mb-4">
           <div>
             <a className="flex flex-col items-center" href="https://github.com/rafgpereira">
@@ -149,20 +156,44 @@ export default function About() {
           </div>
         </div>
         <div className="flex justify-center gap-4 mt-10 text-primary-white">
-          <div className="text-primary-white text-center">
-            <a href="https://github.com/unb-mds/2024-1-EducaMinas-frontend" target="_blank" rel="noopener noreferrer">
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/unb-mds/2024-1-EducaMinas-frontend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <div className="flex items-center justify-center w-7 h-7 border-2 border-primary-white rounded-full mr-1">
+                <GithubLogo size={14} />
+              </div>
               FrontEnd
             </a>
           </div>
           |
-          <div className="text-primary-white">
-            <a href="https://github.com/unb-mds/2024-1-EducaMinas-backend" target="_blank" rel="noopener noreferrer">
+          <div className="flex items-center gap-2">
+            <a
+              href="https://github.com/unb-mds/2024-1-EducaMinas-backend"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <div className="flex items-center justify-center w-7 h-7 border-2 border-primary-white rounded-full mr-1">
+                <GithubLogo size={14} />
+              </div>
               BackEnd
             </a>
           </div>
           |
-          <div className="text-primary-white">
-            <a href="https://unb-mds.github.io/2024-1-EducaMinas-frontend/" target="_blank" rel="noopener noreferrer">
+          <div className="flex items-center gap-2">
+            <a
+              href="https://unb-mds.github.io/2024-1-EducaMinas-frontend/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center"
+            >
+              <div className="flex items-center justify-center w-7 h-7 border-2 border-primary-white rounded-full mr-1">
+                <Book size={14} />
+              </div>
               Documentação
             </a>
           </div>
